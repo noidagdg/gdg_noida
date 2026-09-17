@@ -1,45 +1,28 @@
-const feedbackColumns = [
-  [
-    {
-      text: "Thanks to GDG Noida, I found the direction and inspiration to follow my passion.",
-      backgroundColor: "#FFF2CC",
-    },
-    {
-      text: "Thanks to GDG Noida, I've improved my analytical thinking and task management skills and landed great opportunities.",
-      backgroundColor: "#FFE4E4",
-    },
-  ],
+export interface CommunityReview {
+  id: string | number;
+  text: string;
+  backgroundColor?: string;
+  author?: { name: string; role?: string; companyOrCollege?: string };
+}
 
-  [
-    {
-      text: "Thanks to GDG Noida, I've improved my analytical thinking and task management skills and landed great opportunities.",
-      backgroundColor: "#FFE4E4",
-    },
-    {
-      text: "I am grateful to Devfest Noida for providing me with this opportunity to connect with great designers.",
-      backgroundColor: "#E1F5E8",
-    },
-  ],
-
-  [
-    {
-      text: "I'll never forget speaking at the Women's Day event, connected with lot's of amazing women and listened many inspiring stories. #DareToBe.",
-      backgroundColor: "#E5EEFC",
-    },
-    {
-      text: "GDG Noida introduced me to open-source tech communities.",
-      backgroundColor: "#FFF2CC",
-    },
-  ],
+const fallbackReviews: CommunityReview[] = [
+  { id: 1, text: "Thanks to GDG Noida, I found the direction and inspiration to follow my passion.", backgroundColor: "#FFF2CC" },
+  { id: 2, text: "Thanks to GDG Noida, I've improved my analytical thinking and task management skills and landed great opportunities.", backgroundColor: "#FFE4E4" },
+  { id: 3, text: "I am grateful to DevFest Noida for providing me with this opportunity to connect with great designers.", backgroundColor: "#E1F5E8" },
+  { id: 4, text: "I'll never forget speaking at the Women's Day event and hearing so many inspiring stories. #DareToBe.", backgroundColor: "#E5EEFC" },
+  { id: 5, text: "GDG Noida introduced me to open-source tech communities.", backgroundColor: "#FFF2CC" },
 ];
 
-export default function CommunityFeedback() {
+export default function CommunityFeedback({ heading = "Community feedback", reviews = fallbackReviews }: { heading?: string; reviews?: CommunityReview[] }) {
+  if (reviews.length === 0) return null;
+
+  const feedbackColumns = [reviews.filter((_, index) => index % 3 === 0), reviews.filter((_, index) => index % 3 === 1), reviews.filter((_, index) => index % 3 === 2)];
   return (
     <section className="w-full bg-white px-6 py-20">
       <div className="mx-auto max-w-7xl">
         {/* Section Heading */}
         <h2 className="mb-12 text-center text-4xl font-normal tracking-tight text-black md:text-5xl lg:text-6xl">
-          Community <span className="font-bold">feedback</span>
+          {heading}
         </h2>
 
         {/* Feedback Cards */}
@@ -55,11 +38,12 @@ export default function CommunityFeedback() {
                       : ""
                   }`}
                   style={{
-                    backgroundColor: feedback.backgroundColor,
+                    backgroundColor: feedback.backgroundColor ?? "#E5EEFC",
                   }}
                 >
                   <p className="text-base leading-relaxed text-black">
                     {feedback.text}
+                    {feedback.author && <p className="mt-4 text-sm font-medium">{feedback.author.name}{feedback.author.role ? `, ${feedback.author.role}` : ""}</p>}
                   </p>
                 </div>
               ))}

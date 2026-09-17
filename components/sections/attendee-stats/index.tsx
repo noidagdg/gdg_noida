@@ -11,6 +11,7 @@ Chart.register(ArcElement, Tooltip, DoughnutController);
 export interface AttendeeDistribution {
     label: string;
     percentage: number;
+    color?: string;
 }
 
 export interface AttendeeStatsData {
@@ -82,7 +83,7 @@ export default function AttendeeStats({
         }
 
         const colors = distribution.map(
-            (d, i) => COLORS[d.label] ?? FALLBACK_COLORS[i % FALLBACK_COLORS.length],
+            (d, i) => d.color ?? COLORS[d.label] ?? FALLBACK_COLORS[i % FALLBACK_COLORS.length],
         );
 
         chartRef.current = new Chart(canvasRef.current, {
@@ -122,13 +123,11 @@ export default function AttendeeStats({
         };
     }, [distribution]);
 
-    if (distribution.length === 0) return null;
-
     const totalFormatted = total.toLocaleString();
 
     // Map labels to their color and icon for floating labels
-    const studentEntry = distribution.find((d) => d.label === "Students");
-    const professionalEntry = distribution.find((d) => d.label === "Professionals");
+    const studentEntry = distribution[0];
+    const professionalEntry = distribution[1];
 
     return (
         <section className="w-full bg-white py-20">
@@ -180,74 +179,93 @@ export default function AttendeeStats({
 
                 {/* Chart area with floating labels */}
                 <div className="relative flex items-center justify-center z-10">
-                    {/* Outer wrapper — positions floating labels relative to chart */}
-                    <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px]">
-                        <canvas ref={canvasRef} />
-
-                        {/* Centre label */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                            <span
-                                className="text-xl sm:text-2xl font-bold text-gray-800 leading-tight"
-                                style={{ fontFamily: "'Product Sans', sans-serif" }}
-                            >
-                                {totalFormatted}
-                            </span>
-                            <span
-                                className="text-xs text-gray-500 mt-0.5"
-                                style={{ fontFamily: "'Inter', sans-serif" }}
-                            >
-                                Total Attendees
-                            </span>
+                    {distribution.length === 0 ? (
+                        <div className="flex h-[240px] w-[240px] items-center justify-center rounded-full border-[18px] border-[#4285F4]/20 sm:h-[280px] sm:w-[280px]">
+                            <div className="flex h-[190px] w-[190px] flex-col items-center justify-center rounded-full border-2 border-[#4285F4]/40 bg-white/70 sm:h-[220px] sm:w-[220px]">
+                                <span
+                                    className="text-2xl font-bold leading-tight text-gray-800 sm:text-3xl"
+                                    style={{ fontFamily: "'Product Sans', sans-serif" }}
+                                >
+                                    {totalFormatted}
+                                </span>
+                                <span
+                                    className="mt-1 text-xs text-gray-500 sm:text-sm"
+                                    style={{ fontFamily: "'Inter', sans-serif" }}
+                                >
+                                    Total Attendees
+                                </span>
+                            </div>
                         </div>
+                    ) : (
+                        /* Outer wrapper — positions floating labels relative to chart */
+                        <div className="relative h-[240px] w-[240px] sm:h-[280px] sm:w-[280px]">
+                            <canvas ref={canvasRef} />
 
-                        {/* 68% Students — top-right floating label */}
-                        {studentEntry && (
-                            <div
-                                className="absolute flex flex-col items-start"
-                                style={{ top: "4%", right: "-44%" }}
-                            >
+                            {/* Centre label */}
+                            <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
                                 <span
-                                    className="text-2xl sm:text-3xl font-bold leading-none"
-                                    style={{
-                                        color: COLORS["Students"],
-                                        fontFamily: "'Product Sans', sans-serif",
-                                    }}
+                                    className="text-xl font-bold leading-tight text-gray-800 sm:text-2xl"
+                                    style={{ fontFamily: "'Product Sans', sans-serif" }}
                                 >
-                                    {studentEntry.percentage}%
+                                    {totalFormatted}
                                 </span>
                                 <span
-                                    className="text-xs sm:text-sm text-gray-600 mt-0.5"
+                                    className="mt-0.5 text-xs text-gray-500"
                                     style={{ fontFamily: "'Inter', sans-serif" }}
                                 >
-                                    🎓 {studentEntry.label}
+                                    Total Attendees
                                 </span>
                             </div>
-                        )}
 
-                        {/* 32% Professionals — bottom-left floating label */}
-                        {professionalEntry && (
-                            <div
-                                className="absolute flex flex-col items-start"
-                                style={{ bottom: "6%", left: "-44%" }}
-                            >
-                                <span
-                                    className="text-2xl sm:text-3xl font-bold leading-none"
-                                    style={{
-                                        color: COLORS["Professionals"],
-                                        fontFamily: "'Product Sans', sans-serif",
-                                    }}
+                            {/* 68% Students — top-right floating label */}
+                            {studentEntry && (
+                                <div
+                                    className="absolute flex flex-col items-start"
+                                    style={{ top: "4%", right: "-44%" }}
                                 >
-                                    {professionalEntry.percentage}%
-                                </span>
-                                <span
-                                    className="text-xs sm:text-sm text-gray-600 mt-0.5"
-                                    style={{ fontFamily: "'Inter', sans-serif" }}
+                                    <span
+                                        className="text-2xl font-bold leading-none sm:text-3xl"
+                                        style={{
+                                            color: studentEntry.color ?? COLORS[studentEntry.label] ?? FALLBACK_COLORS[0],
+                                            fontFamily: "'Product Sans', sans-serif",
+                                        }}
+                                    >
+                                        {studentEntry.percentage}%
+                                    </span>
+                                    <span
+                                        className="mt-0.5 text-xs text-gray-600 sm:text-sm"
+                                        style={{ fontFamily: "'Inter', sans-serif" }}
+                                    >
+                                        {studentEntry.label}
+                                    </span>
+                                </div>
+                            )}
+
+                            {/* 32% Professionals — bottom-left floating label */}
+                            {professionalEntry && (
+                                <div
+                                    className="absolute flex flex-col items-start"
+                                    style={{ bottom: "6%", left: "-44%" }}
                                 >
-                                    💼 {professionalEntry.label}
-                                </span>
-                            </div>
-                        )}
-                    </div>
+                                    <span
+                                        className="text-2xl font-bold leading-none sm:text-3xl"
+                                        style={{
+                                            color: professionalEntry.color ?? COLORS[professionalEntry.label] ?? FALLBACK_COLORS[1],
+                                            fontFamily: "'Product Sans', sans-serif",
+                                        }}
+                                    >
+                                        {professionalEntry.percentage}%
+                                    </span>
+                                    <span
+                                        className="mt-0.5 text-xs text-gray-600 sm:text-sm"
+                                        style={{ fontFamily: "'Inter', sans-serif" }}
+                                    >
+                                        {professionalEntry.label}
+                                    </span>
+                                </div>
+                            )}
+                        </div>
+                    )}
                 </div>
             </div>
         </section>
