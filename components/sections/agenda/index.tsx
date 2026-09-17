@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { tracks } from "./data";
+import type { Track } from "./data";
 import SessionRow from "./session-row";
 
-export default function Agenda() {
+export default function Agenda({ heading = "Agenda", tracks }: { heading?: string; tracks: Track[] }) {
   const [openTrack, setOpenTrack] = useState<string>("think");
 
   const toggleTrack = (trackId: string) => {
@@ -17,7 +17,7 @@ export default function Agenda() {
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <h2 className="mb-10 text-center text-4xl font-medium tracking-tight text-black md:text-5xl lg:text-6xl">
-          Agenda
+          {heading}
         </h2>
 
         {/* Tracks */}
@@ -28,7 +28,8 @@ export default function Agenda() {
             return (
               <div
                 key={track.id}
-                className="overflow-hidden rounded-xl border border-[#E5E7EB]"
+                className="overflow-hidden rounded-xl border border-[#E5E7EB] border-l-4"
+                style={{ borderLeftColor: track.color }}
               >
                 {/* Track Header */}
                 <button

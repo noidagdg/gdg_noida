@@ -10,6 +10,7 @@ import type { GalleryCategory, GalleryCategoryId, GalleryImage } from "@/lib/con
 interface MomentsGalleryProps {
   categories?: GalleryCategory[];
   images?: GalleryImage[];
+  heading?: string;
 }
 
 // ─── Constants & Sequences ──────────────────────────────────────────────────
@@ -45,6 +46,7 @@ const MOBILE_SEQUENCES = [
 export default function MomentsGallery({
   categories = [],
   images = [],
+  heading = "Moments from DevFest",
 }: MomentsGalleryProps) {
   const [activeCategory, setActiveCategory] = useState<GalleryCategoryId>("all");
   const [isDesktop, setIsDesktop] = useState(true);
@@ -131,7 +133,7 @@ export default function MomentsGallery({
           className="mb-8 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-black"
           style={{ fontFamily: "'Product Sans', sans-serif" }}
         >
-          <span className="font-bold">Moments</span> <span className="font-normal">from DevFest</span>
+          {heading}
         </h2>
 
         {/* ── Filter Tabs ──────────────────────────────────────────── */}

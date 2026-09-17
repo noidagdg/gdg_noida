@@ -145,7 +145,7 @@ export const testimonials: TestimonialsData = {
 
 // ─── Gallery Types & Data ───────────────────────────────────────────────────
 
-export type GalleryCategoryId = "all" | "talks" | "workshops" | "networking";
+export type GalleryCategoryId = string;
 
 export interface GalleryCategory {
   id: GalleryCategoryId;
@@ -156,7 +156,7 @@ export interface GalleryImage {
   id: number;
   src: string;
   alt: string;
-  category: "talks" | "workshops" | "networking";
+  category: string;
   aspectRatio: number; // width / height
 }
 

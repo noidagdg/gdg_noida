@@ -1,13 +1,17 @@
 export interface Speaker {
   name: string;
   designation?: string;
+  avatar?: string;
+  company?: string;
 }
 
 export interface Session {
-  id: string;
+  id: string | number;
   startTime: string;
   endTime: string;
   title: string;
+  description?: string;
+  hasQnA?: boolean;
   speakers?: Speaker[];
 }
 
