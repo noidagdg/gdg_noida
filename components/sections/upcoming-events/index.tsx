@@ -11,7 +11,6 @@ interface UpcomingEvent {
   link: string;
   backgroundColor: string;
 }
-
 const upcomingEvents: UpcomingEvent[] = [
   {
     id: "1",
