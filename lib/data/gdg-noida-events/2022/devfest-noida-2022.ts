@@ -29,15 +29,10 @@ export const devfestNoida2022: EventsCatalog["devfest-noida-2022"] = {
       "heading": "About this event",
       "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+    "uniqueStats": {
+      "speakers": "7+",
+      "attendees": "153+",
+      "registered": "611+"
     },
     "feedback": {
       "heading": "What attendees said",

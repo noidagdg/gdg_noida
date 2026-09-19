@@ -25,13 +25,10 @@ export const designSamvaadBeyondAesthetics: EventsCatalog["design-samvaad-beyond
       "heading": "Event overview",
       "stats": []
     },
-    "about": {
-      "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
-    },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
+    "uniqueStats": {
+      "speakers": "7+",
+      "attendees": "153+",
+      "registered": "611+"
     },
     "attendees": {
       "heading": "Attendees",

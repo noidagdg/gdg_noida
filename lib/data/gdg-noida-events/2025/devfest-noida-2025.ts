@@ -42,8 +42,8 @@ export const devfestNoida2025: EventsCatalog["devfest-noida-2025"] = {
       "heading": "Agenda",
       "tracks": [
         {
-          "id": "main-track",
-          "name": "Main Track",
+          "id": "think",
+          "name": "Think",
           "color": "#4285F4",
           "sessions": [
             {
@@ -87,11 +87,743 @@ export const devfestNoida2025: EventsCatalog["devfest-noida-2025"] = {
             },
             {
               "id": 5,
-              "startTime": "9",
-              "endTime": "",
-              "title": "View More",
+              "startTime": "11:25",
+              "endTime": "11:45",
+              "title": "Design for Social Impact",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Akshata Malhotra",
+                  "designation":""
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "startTime": "11:55",
+              "endTime": "12:15",
+              "title": "Replacing Human Departments with AI Swarm: Designing Systems beyond Human Accuracy",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Aashish Pahwa",
+                  "designation":"Founder | koso.ai"
+                }
+              ]
+            },
+            {
+              "id": 7,
+              "startTime": "12:20",
+              "endTime": "12:40",
+              "title": "Human Defaults And Desires : How Behavior Shapes Product Choice ?",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Paromita Saha",
+                  "designation":""
+                }
+              ]
+            },
+            {
+              "id": 8,
+              "startTime": "12:45",
+              "endTime": "13:10",
+              "title": "Co-Creation Era : How AI Joins the Design Team",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Sujit Kumar Pradhan",
+                  "designation":"UX Designer"
+                }
+              ]
+            },
+            {
+              "id": 9,
+              "startTime": "13:10",
+              "endTime": "13:40",
+              "title": "LUNCH",
               "description": "",
               "speakers": []
+            },
+            {
+              "id": 10,
+              "startTime": "13:40",
+              "endTime": "14:00",
+              "title": "Fun Activity",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 11,
+              "startTime": "14:20",
+              "endTime": "14:55",
+              "title": "The Invisible Patterns of Nature : Laws that Quietly Shape our World",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Joy Banerjee",
+                  "designation":"VP, Design"
+                }
+              ]
+            },
+            {
+              "id": 12,
+              "startTime": "15:00",
+              "endTime": "15:20",
+              "title": "AI and The Future for Product Managers",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Nitya Sagar",
+                  "designation":""
+                }
+              ]
+            },
+            {
+              "id": 13,
+              "startTime": "15:25",
+              "endTime": "16:00",
+              "title": "Group Discussion",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Jatin Garg",
+                  "designation":""
+                },
+                {
+                  "name":"Vishal",
+                  "designation":"Senior Product Manager"
+                },
+                {
+                  "name":"Tarushi Sharma",
+                  "designation":"Procduct Manager | American Express"
+                },
+                {
+                  "name":"Shruti Tiwari",
+                  "designation":"Sr. Product Marketing Manager"
+                }
+              ]
+            },
+            {
+              "id": 14,
+              "startTime": "16:00",
+              "endTime": "17:00",
+              "title": "Small Business Fair, Networking, Activities",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 15,
+              "startTime": "17:00",
+              "endTime": "18:00",
+              "title": "Closing Keynote",
+              "description": "",
+              "speakers": []
+            },
+          ]
+        },
+        {
+          "id": "build-track",
+          "name": "Build",
+          "color": "#4285F4",
+          "sessions": [
+            {
+              "id": 1,
+              "startTime": "9:00",
+              "endTime": "9:30",
+              "title": "Registrations",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 2,
+              "startTime": "10:00",
+              "endTime": "10:30",
+              "title": "Opening Note",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 3,
+              "startTime": "10:30",
+              "endTime": "11:00",
+              "title": "Introduction by Google",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 4,
+              "startTime": "11:00",
+              "endTime": "11:30",
+              "title": "Building Hybrid AI mobile apps using Gemini and LiteRT",
+              "description": "",
+              "speakers": [
+                {
+                  "name": "Shivay Lamba",
+                  "designation": "GSOC Mentor at Tensorflow",
+                  "avatar": "",
+                  "company": ""
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "11:35",
+              "endTime": "11:55",
+              "title": "The Product and Engineering Behind Climate Intelligence",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Supriya Purohit",
+                  "designation":""
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "startTime": "12:00",
+              "endTime": "12:25",
+              "title": "CLS, INP & LCP Walk Into a Bar... (And Google Takes Notes)",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Aparjita Verma",
+                  "designation":"Frontend Architect"
+                }
+              ]
+            },
+            {
+              "id": 7,
+              "startTime": "12:30",
+              "endTime": "12:50",
+              "title": "Time to commit and get Git Gud: GitHub Workflow upgrades you need to know about",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Vipul Gupta",
+                  "designation":"1x Founder"
+                }
+              ]
+            },
+            {
+              "id": 8,
+              "startTime": "12:55",
+              "endTime": "13:20",
+              "title": "LLM-Powered IoT: How Vertex Al & Gemini Understand Live Sensor Data",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Avirup Basu",
+                  "designation":"Developer"
+                }
+              ]
+            },
+            {
+              "id": 9,
+              "startTime": "13:25",
+              "endTime": "14:10",
+              "title": "LUNCH",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 10,
+              "startTime": "14:10",
+              "endTime": "14:25",
+              "title": "Fun Activity",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 11,
+              "startTime": "14:30",
+              "endTime": "14:55",
+              "title": "Web Al - Built-in APls, Developer Supplied Models and a lot more",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Saurabh Rajpal",
+                  "designation":"Staff Web Ecosystem Consultant | Google"
+                }
+              ]
+            },
+            {
+              "id": 12,
+              "startTime": "15:00",
+              "endTime": "15:20",
+              "title": "How Open Source Made Me a Generalist & Why That’s a Good Thing",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Utkarsh Gupta",
+                  "designation":"Principal Engineer "
+                }
+              ]
+            },
+            {
+              "id": 13,
+              "startTime": "15:25",
+              "endTime": "15:45",
+              "title": "Building Flutter apps that scale : SDUI benefits and challenges",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Anupam Singh",
+                  "designation":"Mobile App Development Geek Turned Entrepreneur"
+                }
+              ]
+            },
+            {
+              "id": 14,
+              "startTime": "16:00",
+              "endTime": "17:00",
+              "title": "Small Business Fair, Networking, Activities",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 15,
+              "startTime": "17:00",
+              "endTime": "18:00",
+              "title": "Closing Keynote",
+              "description": "",
+              "speakers": []
+            },
+          ]
+        },
+        {
+          "id": "grow-track",
+          "name": "Grow",
+          "color": "#4285F4",
+          "sessions": [
+            {
+              "id": 1,
+              "startTime": "9:00",
+              "endTime": "9:30",
+              "title": "Registrations",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 2,
+              "startTime": "10:00",
+              "endTime": "10:30",
+              "title": "Opening Note",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 3,
+              "startTime": "10:30",
+              "endTime": "11:00",
+              "title": "Introduction by Google",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 4,
+              "startTime": "11:00",
+              "endTime": "11:20",
+              "title": "Responsible AI - Ethics and Governance",
+              "description": "",
+              "speakers": [
+                {
+                  "name": "Saakshar Duggal",
+                  "designation": "AI Governance and Law Expert",
+                  "avatar": "",
+                  "company": ""
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "11:25",
+              "endTime": "11:50",
+              "title": "Don't Just Find, Solve: Building Agentic Search",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Puranjay Rohan Gulati",
+                  "designation":"Lead AI Architect | FutureSoft"
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "startTime": "11:55",
+              "endTime": "12:15",
+              "title": "Making AI Agents Go Brrrrr with Audio AI",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Harsh",
+                  "designation":"ML Infra Architect"
+                }
+              ]
+            },
+            {
+              "id": 7,
+              "startTime": "12:20",
+              "endTime": "12:40",
+              "title": "Semantic Search: Add a Brain To Your Search Bar",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Akshat Sharma",
+                  "designation":"ML/AI Innovator"
+                }
+              ]
+            },
+            {
+              "id": 8,
+              "startTime": "12:45",
+              "endTime": "13:05",
+              "title": "Don’t Build a House Without a Lock: Security Steps for Developers",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Nikita Purwar",
+                  "designation":"Lead Consultant at Thoughtworks"
+                }
+              ]
+            },
+            {
+              "id": 9,
+              "startTime": "13:10",
+              "endTime": "13:40",
+              "title": "LUNCH",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 10,
+              "startTime": "13:45",
+              "endTime": "14:00",
+              "title": "Fun Activity",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 11,
+              "startTime": "14:20",
+              "endTime": "14:40",
+              "title": "Designing a Future-Proof Finance Portfolio",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shivani Gera",
+                  "designation":""
+                }
+              ]
+            },
+            {
+              "id": 12,
+              "startTime": "14:45",
+              "endTime": "15:05",
+              "title": "The Hidden Cost of AI: Sustainability and Cognition",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shubhangi Gupta",
+                  "designation":"Organiser @GDG Noida"
+                }
+              ]
+            },
+            {
+              "id": 13,
+              "startTime": "15:10",
+              "endTime": "15:30",
+              "title": "Behind the Scenes of Safer AI: Red-Teaming, Moderation & Breaking Models Before They Break Us",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Abhigya Verma",
+                  "designation":"Developer @ServiceNow"
+                }
+              ]
+            },
+            {
+              "id": 14,
+              "startTime": "15:35",
+              "endTime": "16:10",
+              "title": "Gemini and Synthetics: AI for Next-Gen Monitoring",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Siddhi Khaire",
+                  "designation":"GDG Pune Volunteer",
+                }
+              ]
+            },
+            {
+              "id": 15,
+              "startTime": "16:10",
+              "endTime": "17:00",
+              "title": "Small Business Fair, Networking, Activities",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 16,
+              "startTime": "17:00",
+              "endTime": "178:00",
+              "title": "Closing Keynote",
+              "description": "",
+              "speakers": []
+            },
+          ]
+        },
+        {
+          "id": "workshop-track",
+          "name": "Workshop",
+          "color": "#4285F4",
+          "sessions": [
+            {
+              "id": 1,
+              "startTime": "11:00",
+              "endTime": "11:50",
+              "title": "Code the Cognitive Web: Google's AI Tookit",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Ashish Kumar Verma",
+                  "designation":"Google Developer Expert"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "startTime": "11:55",
+              "endTime": "12:45",
+              "title": "Open Source for Everyone: A Practical Hands-On Contribution Workshop",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Pushplata Ranjan",
+                  "designation":"Senior Lead Engineer"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "startTime": "12:45",
+              "endTime": "13:45",
+              "title": "LUNCH",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 4,
+              "startTime": "13:45",
+              "endTime": "14:00",
+              "title": "Fun Activity",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 5,
+              "startTime": "14:00",
+              "endTime": "14:50",
+              "title": "Vibe Coding 101 for Beginners",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Aditya Mishra",
+                  "designation":"Product Designer"
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "startTime": "15:00",
+              "endTime": "15:45",
+              "title": "Build Your Own Pair Programmer in Antigravity",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shekhar Patel",
+                  "designation":"MTS@Lambdatest"
+                }
+              ]
+            },
+          ]
+        },{
+          "id": "speaker-corner-track",
+          "name": "Speaker Corner",
+          "color": "#4285F4",
+          "sessions": [
+            {
+              "id": 1,
+              "startTime": "11:00",
+              "endTime": "11:30",
+              "title": "Group 1",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Vipul Gupta",
+                  "designation":"Senior Product Engineer @1xFounder"
+                },
+                {
+                  "name":"Nikita Purwar",
+                  "designation":"Lead Consultant @Thoughtworks"
+                },
+                {
+                  "name":"Aditya Mishra",
+                  "designation":"Product Designer"
+                },
+                {
+                  "name":"Aashish Pahwa",
+                  "designation":"Founder @koso.ai"
+                }
+              ]
+            },
+            {
+              "id": 2,
+              "startTime": "11:30",
+              "endTime": "12:00",
+              "title": "Group 2",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Mamta Kumari",
+                  "designation":""
+                },
+                {
+                  "name":"Siddhi Khaire",
+                  "designation":"GDG Pune Volunteer"
+                },
+                {
+                  "name":"Vishal",
+                  "designation":"Senior Product Engineer"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "startTime": "12:00",
+              "endTime": "12:30",
+              "title": "Grou3",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shurti Tiwari",
+                  "designation":"Sr. Product Marketing Manager"
+                },
+                {
+                  "name":"Avirup Basu",
+                  "designation":"Developer"
+                },
+                {
+                  "name":"Saakshar Duggal",
+                  "designation":"AI Governance and Law Expert"
+                },
+                {
+                  "name":"Tarushi Sharma",
+                  "designation":"Product Manager @American Express"
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "startTime": "12:30",
+              "endTime": "13:00",
+              "title": "Group 4",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Jatinn Garg",
+                  "designation":""
+                },
+                {
+                  "name":"Supriya Purohit",
+                  "designation":""
+                },
+                {
+                  "name":"Puranjay Rohan Gulati",
+                  "designation":"Lead AI Architect @FutureSoft"
+                },
+                {
+                  "name":"Anupam Singh",
+                  "designation":"Mobile App Development Geek Turned Entrepreneur"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "13:00",
+              "endTime": "14:30",
+              "title": "Lunch & Networking",
+              "description": "",
+              "speakers": []
+            },
+            {
+              "id": 6,
+              "startTime": "14:30",
+              "endTime": "15:00",
+              "title": "Group 5",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Nitya Sagar",
+                  "designation":""
+                },
+                {
+                  "name":"Abhigya Verma",
+                  "designation":"Developer @ServiceNow"
+                },
+                {
+                  "name":"Pushplata Ranjan",
+                  "designation":"Senior Lead Engineer"
+                },
+                {
+                  "name":"Shivay Lamba",
+                  "designation":"GSoC Mentor @Tensorflow"
+                }
+              ]
+            },{
+              "id": 7,
+              "startTime": "15:00",
+              "endTime": "15:30",
+              "title": "Group 6",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Paromita Saha",
+                  "designation":""
+                },
+                {
+                  "name":"Aprajita Verma",
+                  "designation":"Frontend Architect"
+                },
+                {
+                  "name":"Ashish Kumar Verma",
+                  "designation":"Google Developer Expert"
+                },
+                {
+                  "name":"Harsh",
+                  "designation":"Making ML Infra Systems"
+                }
+              ]
+            },{
+              "id": 6,
+              "startTime": "15:30",
+              "endTime": "16:00",
+              "title": "Group 7",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Akshata Malhotra",
+                  "designation":""
+                },
+                {
+                  "name":"Shivani Gera",
+                  "designation":""
+                },
+                {
+                  "name":"Sujit Kumar Pradhan",
+                  "designation":"UX Designer"
+                }
+              ]
             }
           ]
         }
@@ -108,373 +840,114 @@ export const devfestNoida2025: EventsCatalog["devfest-noida-2025"] = {
       "images": [
         {
           "id": 1,
-          "src": "https://json.commudle.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd0w5QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--3b7c869fa6871bb32f28d61bbf246f64bab09820/devfest%20noida%20banner.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src":"/Images/2025/devfest-25/1.jpg",
+          "alt": "DevFest Noida 2025 1",
+          "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 2,
-          "src": "https://json.commudle.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZ3UzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c793a76a579714d72bf7e51b0fe9d4d13640a460/commudle-logo-full.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/6.jpg",
+          "alt": "DevFest Noida 2025 6",
+          "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 3,
-          "src": "https://json.commudle.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNmZLQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d66f9155a4bb4bdf4dfbc9a4cc77613dd7709893/Commudle%20Logo.svg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/11.jpg",
+          "alt": "DevFest Noida 2025 11",
+          "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 4,
-          "src": "https://json.commudle.com/icons/dark-mode-sun-icon.svg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/5.jpg",
+          "alt": "DevFest Noida 2025 5",
+          "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 5,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbzhkIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ed0b3e638d73483e10a8858050ae95e07a925dad/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/GDG%20Noida%20Light%20Horizontal-Logo.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/4.JPG",
+          "alt": "DevFest Noida 2025 4",
+          "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 6,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOTdxQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--7a27e6f76b6f6720adfd0747c5bb35145516841a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/2.jpg",
+          "alt": "DevFest Noida 2025 2",
+          "category": "networking",
           "aspectRatio": 1
         },
         {
           "id": 7,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeW50QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--75b719f3e75cfb82c3a267c513845f6ae77d7ac8/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/Vishal%20-%20Picture.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/7.jpg",
+          "alt": "DevFest Noida 2025 7",
+          "category": "networking",
           "aspectRatio": 1
         },
         {
           "id": 8,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdU04IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--28fa8e3b9aba67babc1dc170b7aee2b66b11fed9/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/google_8839.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/8.jpg",
+          "alt": "DevFest Noida 2025 8",
+          "category": "workshops",
           "aspectRatio": 1
         },
         {
           "id": 9,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOTY5QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--8936c12961e18a01102d2fe74f879826788d0157/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/dp.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/9.jpg",
+          "alt": "DevFest Noida 2025 9",
+          "category": "networking",
           "aspectRatio": 1
         },
         {
           "id": 10,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL3BRQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--57102969a3381ad5be4dae4febc56697ddb2933a/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/1658173474165.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/10.jpg",
+          "alt": "DevFest Noida 2025 10",
+          "category": "workshops",
           "aspectRatio": 1
         },
         {
           "id": 11,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNmNlQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--00258e15e74ed6e6c4e2e68bbca09f13fe6703c6/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/3.jpg",
+          "alt": "DevFest Noida 2025 3",
+          "category": "workshops",
           "aspectRatio": 1
         },
         {
           "id": 12,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN1htQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--535e991a9dc3492618228fcd137df7f6ac3a32db/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
+          "src": "/Images/2025/devfest-25/12.jpg",
+          "alt": "DevFest Noida 2025 12",
           "category": "all",
           "aspectRatio": 1
         },
         {
           "id": 13,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOWd6QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--56dd2cd7cdc1045037f264d682ac7bf9143aff77/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJVUU1SEJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--a2aae39a44f3697c0fb849b94f8ebf6fd36bd632/another.PNG",
-          "alt": "DevFest Noida 2025",
+          "src": "/Images/2025/devfest-25/13.jpg",
+          "alt": "DevFest Noida 2025 13",
           "category": "all",
           "aspectRatio": 1
         },
         {
           "id": 14,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBK1dtQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f80de503f8cdf9338db369be9ad75bd152b7be78/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/avatar.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/14.jpg",
+          "alt": "DevFest Noida 2025 14",
+          "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 15,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeHJuQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--38292e1b8a871b11935966716cd827e2813686ca/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/PRG_Headshot_Nov25.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/15.jpg",
+          "alt": "DevFest Noida 2025 15",
+          "category": "networking",
           "aspectRatio": 1
         },
         {
           "id": 16,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBemZWQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--a137aea5e8e86001c84596d6035cd0a77e9a95cc/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/tushika_thumbnail_-removebg.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 17,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBN3JYQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--eeddfb9cfb290a96afc341f3b0d95f2e779d92cf/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/IMG_6833.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 18,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNVVsQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--7992924fce2bc54ceb2649fe683ea9811924bcc8/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/IMG_8138.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 19,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOVhvQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--7ca031c8f5972bb9c9406ef49369708a12bae8bc/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 20,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMnl6QVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--fd42920ba7b23b8ddf6bd0ceac7cfd911994edec/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/IMG_20191116_213121%20(2).jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 21,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdjlnIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7dd32f89766b70fa808c2bf15a5640563b45041b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/google_19723.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 22,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd1QzQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--a674c733d65ac8082bcb5f89e21922f6d7a02c30/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/directory-photo.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 23,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBLy92QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f327b4095f830681ad30970d0252410039b3a6f0/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/Gemini_Generated_Image_6w4ke16w4ke16w4k%20copy.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 24,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBM2NRQnc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--0d5e4e3e0d19ee627178bdd14fd0846994adddb8/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/com_36ddcb229e73d19a_20260608184133.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 25,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMkN3QVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d2ed341ee017b4904c46a35972707beba5a9da05/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/WhatsApp%20Image%202023-11-03%20at%201.01.35%20PM.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 26,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMDN5QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--55d7c1934e744d01cbdadcea5b1a651c1cb12624/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/IMG-20251202-WA0007.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 27,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBLytyQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--3190d37ab8556a87b4eb5c6adebbbb6d0a2737f7/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJU2xCSEJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--8aa5cc3a1ba972c02c2a679713c934a44596b1df/DSC02966.JPG",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 28,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeDdZQkE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ab38cbdca5101f661019fd17fcac9157f1b572d7/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/1725879179845.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 29,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd0wwQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--4463ff670a3d28a1851257040af303ad26545294/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/Gemini_Generated_Image_p51x68p51x68p51x%20(1)%20copy.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 30,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcm1tIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d4515a9ecb5055a07eddab9f6940176efd2b9aac/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 31,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOTNiQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ad0ae312b3ca268a473b64f77c277b74a98e64d2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/avatar.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 32,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNlB2QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--7ce230c9d94267ea5ece1d7f40ea9ba29c9862d1/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/1750848915868.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 33,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMkxWQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--8aedfc5f5aadbe64bc668225c519421ad684f3ee/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 34,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeHU0QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ab1b1bb258df05b1c18830bbc480d3c097c915df/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 35,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcG8vIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ec42b7dcbece181e92559582c6b8f6ab3dede69d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/google_9650.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 36,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBeVN4QWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b56244249c5233c176d619135ca898b32e091224/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/IMG_7071%203.CR2.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 37,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbFF4IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--62360a32dc820f0fb1ab304b81be6b078addbc2f/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/google_5331.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 38,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNmo3QWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--11a2d787ddfe982a034e230814d697b09d17ed56/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/WhatsApp%20Image%202024-10-24%20at%2022.26.43.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 39,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMXYwQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--ce5d5b5b8db964afd279ac49e01a0fd7de02e1ec/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/IMG_0245.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 40,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBK1RtQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--1d8de9d2be00164db98c77e118626c013b1231d1/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/headshot_paromita.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 41,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOWhqQVE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--7544bf806e21c50e9226241b6fd3cb80dd9d47f9/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/9161C986-487E-42F3-811F-E4522BA9C87C.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 42,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL1BzQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--07ce20dc1804a7a163bcc9b932a42db487d5fe3d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/WhatsApp%20Image%202025-10-29%20at%208.41.36%20PM.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 43,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd1hTQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--18fea747a6075396b61c3988c4d0bebcc75b5e04/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/1748777175743%20(3).jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 44,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBL3Y4Qmc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--c78c77aaec0294add90282c439bf0bcb0714ba0b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVNWcEpUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--cc9745bc98d3057a1d009e2fc5cce6fc9e479f67/com_0bc2981b4d48ccba_20260525175859.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 45,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBMTJrQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--13a037be43b9abab317cd070eaa482a372ad6ec2/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVNWcEpUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--3ddca6f6c247c2a968f56480e328f90094ff9d95/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 46,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBK0VtQXc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--b6d33f47e5d029bc5eb21eb3aa48f469f570ae67/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/PicMa_2875987_1708766595365.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 47,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNVBkQkE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--675adf6166a2ba4df07a15a2be45e3e8931bd193/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/1000181794.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 48,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBK0Z0QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--f6974c793dcc63fd2bacbd49acb24236e6ed4c1e/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/Untitled%20design_20250803_140539_0000.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 49,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBNGl2QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--6cb5fd6d07c5e73b584f0554ff18b2ce0c216dfe/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 50,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBelRlQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--55c4d6de3dcea0ab460b732697444187e8c8670b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lKYW5CbFp3WTZCa1ZVT2hSeVpYTnBlbVZmZEc5ZmJHbHRhWFJiQjJsRmFVVTZDMnh2WVdSbGNuc0dPZ2x3WVdkbE1BPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--1f38ba38cbd08e0e52ad1086f1646943350cad48/Lalit_Image.jpeg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 51,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOG5wQlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--30cbfc604b3240a6e50ad7f2ad06e75eb3e6a683/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJY0c1bkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--2435c0338fa7cddd280234f2da44100890e88310/avatar.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 52,
-          "src": "https://json.commudle.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBejd2QlE9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--17b4ef61cacc8e194f1a848731606c51e7d94d1b/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVVWcFJUb0xiRzloWkdWeWV3WTZDWEJoWjJVdyIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--d98d8d7f00147e4586d1b19b8f18ed1c04902eb8/avatar.jpg",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 53,
-          "src": "https://json.commudle.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBZzYzIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ec4a1cbde1227bc84c1fc145325263b3dfb219e4/commudle-logo128.png",
-          "alt": "DevFest Noida 2025",
-          "category": "all",
+          "src": "/Images/2025/devfest-25/17.jpg",
+          "alt": "DevFest Noida 2025 17",
+          "category": "networking",
           "aspectRatio": 1
         }
       ]
