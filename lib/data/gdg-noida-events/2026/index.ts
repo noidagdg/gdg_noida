@@ -16,9 +16,9 @@ export {
 
 export const events2026 = [
   { id: "devfest-noida-2026", ...devfestNoida2026["2026"] },
+  { id: "design-samvaad-2026", ...designSamvaad2026["2026"] },
   { id: "agentic-premiere-league", ...agenticPremiereLeague["2026"] },
   { id: "data-and-ai-nexus-7-0", ...dataAndAiNexus70["2026"] },
-  { id: "design-samvaad-2026", ...designSamvaad2026["2026"] },
-  { id: "found-and-fixed-search-and-observability", ...foundAndFixedSearchAndObservability["2026"] },
   { id: "women-s-day-2026-break-the-pattern", ...womenSDay2026BreakThePattern["2026"] },
+  { id: "found-and-fixed-search-and-observability", ...foundAndFixedSearchAndObservability["2026"] },
 ];

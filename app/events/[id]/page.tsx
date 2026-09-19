@@ -29,12 +29,6 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
     const eventYear = event.year || 2026;
     const isUpcoming = event.status?.toLowerCase() === "upcoming";
 
-    // Only DevFest 2023 is the complete file with all details; other events use only what's in their ts file
-    const isDevfest2023 = useMemo(() => {
-        const cleanId = event.id.toLowerCase();
-        return cleanId === "devfest-noida-2023" || cleanId === "devfest-2023" || (event.year === 2023 && cleanId.includes("devfest"));
-    }, [event]);
-
     // Related events from the same year
     const sameYearEvents = useMemo(() => {
         return eventsByYear[eventYear] || [];
@@ -42,6 +36,10 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
 
     // Unique statistics for this event (returns "TBA" for upcoming events)
     const stats = useMemo(() => {
+        if (event.uniqueStats) {
+            return event.uniqueStats;
+        }
+
         return getEventUniqueStats(
             event.id,
             event.speakers?.list?.length,
@@ -55,14 +53,8 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
         event.branding?.coverImage ||
         "/assets/who-we-are/successful-events.png";
 
-    // Agenda tracks:
-    // For DevFest 2023, undefined is passed so Agenda uses its complete default multi-tracks.
-    // For all other files, keep only the agenda given by the info of each file. If none, null.
+    // Agenda tracks: render only tracks and sessions provided by the event data.
     const eventTracks = useMemo(() => {
-        if (isDevfest2023) {
-            return undefined; // complete multi-tracks
-        }
-
         if (!event.agenda?.tracks || event.agenda.tracks.length === 0) {
             return null;
         }
@@ -88,7 +80,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
             .filter((t: Track) => t.sessions.length > 0);
 
         return parsed.length > 0 ? parsed : null;
-    }, [event, isDevfest2023]);
+    }, [event]);
 
     // Gallery images:
     // Only DevFest 2023 has complete default moments; other files show only images mentioned in their ts file
@@ -102,18 +94,14 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
                 aspectRatio: img.aspectRatio || 1,
             })) as GalleryImage[];
         }
-        if (isDevfest2023) {
-            return undefined; // uses default gallery images for DevFest 2023
-        }
         return null;
-    }, [event, isDevfest2023]);
+    }, [event]);
 
     // Feedback:
     // Only DevFest 2023 or events that have feedback reviews in their ts file
     const hasFeedback = useMemo(() => {
-        if (isDevfest2023) return true;
         return Boolean(event.feedback?.reviews && event.feedback.reviews.length > 0);
-    }, [event, isDevfest2023]);
+    }, [event]);
 
     return (
         <div className="min-h-screen bg-white pt-24 sm:pt-28 md:pt-32">
@@ -195,7 +183,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
             </div>
 
             {/* Events from the same year selector tabs */}
-            {sameYearEvents.length > 1 && (
+            {sameYearEvents.length >= 1 && (
                 <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pt-8 pb-4">
                     <div className="text-center mb-4">
                         <span
@@ -243,19 +231,19 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
                 about={event.about?.description}
             />
 
-            {/* Community Feedback (Only DevFest 2023 or events with reviews in their ts file) */}
+            {/* Community Feedback for events with reviews in their data */}
             {hasFeedback && <CommunityFeedback />}
 
-            {/* Agenda Section (DevFest 2023 has full multi-track; other files only show tracks from their ts file) */}
-            {(isDevfest2023 || eventTracks !== null) && (
+            {/* Agenda Section for events with track data */}
+            {eventTracks !== null && (
                 <Agenda
                     tracks={eventTracks ?? undefined}
                     title={event.agenda?.heading || "Agenda"}
                 />
             )}
 
-            {/* Moments Gallery (DevFest 2023 or events with gallery images in their ts file) */}
-            {(isDevfest2023 || galleryImages !== null) && (
+            {/* Moments Gallery for events with gallery images in their data */}
+            {galleryImages !== null && (
                 <MomentsGallery
                     categories={galleryCategories}
                     images={galleryImages ?? undefined}

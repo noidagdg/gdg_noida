@@ -27,26 +27,12 @@ export const dataAndAiNexus70: EventsCatalog["data-and-ai-nexus-7-0"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "We’re bringing you a hands-on workshop and a full day of practical AI building at Data & AI Nexus 7.0 🚀"
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 5000,
-      "distribution": [
-        {
-          "label": "Attended",
-          "percentage": 14.29
-        },
-        {
-          "label": "Remaining",
-          "percentage": 85.71
-        }
-      ]
+    "uniqueStats": {
+      "speakers": 10,
+      "attendees": "125+",
+      "registered": "256+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -57,43 +43,48 @@ export const dataAndAiNexus70: EventsCatalog["data-and-ai-nexus-7-0"] = {
       "tracks": [
         {
           "id": "main-track",
-          "name": "Main Track",
+          "name": "Agenda",
           "color": "#4285F4",
           "sessions": [
             {
               "id": 1,
-              "startTime": "2",
-              "endTime": "",
-              "title": "Details Share",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 2,
-              "startTime": "10:00",
-              "endTime": "",
+              "startTime": "9:30",
+              "endTime": "10:30",
               "title": "Entry/Registrations Starts",
               "description": "",
               "speakers": []
             },
             {
-              "id": 3,
-              "startTime": "10:45",
-              "endTime": "",
-              "title": "Opening keynote",
+              "id": 2,
+              "startTime": "10:30",
+              "endTime": "10:45",
+              "title": "Opening Keynote",
               "description": "",
               "speakers": []
             },
             {
-              "id": 4,
-              "startTime": "11:15",
-              "endTime": "",
-              "title": "From Agents to Systems: Building Real-World Agentic AI with Event-Driven Platforms Giri Venkatesan Principal Developer Advocate & Architect",
+              "id": 3,
+              "startTime": "10:50",
+              "endTime": "11:15",
+              "title": "From Agents to Systems: Building Real-World Agentic AI with Event-Driven Platforms",
               "description": "",
               "speakers": [
                 {
-                  "name": "Event-Driven Platforms Giri Venkatesan Principal Developer",
-                  "designation": "",
+                  "name":"Giri Venkatesan",
+                  "designation":"Principal Developer Advocate & Architect",
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "startTime": "11:20",
+              "endTime": "11:40",
+              "title": "Build, Text, Create: AI for Beginners",
+              "description": "",
+              "speakers": [
+                {
+                  "name": "Shivangini Sarmah Kashyap",
+                  "designation": "AI Creative Specialist",
                   "avatar": "",
                   "company": ""
                 }
@@ -101,65 +92,72 @@ export const dataAndAiNexus70: EventsCatalog["data-and-ai-nexus-7-0"] = {
             },
             {
               "id": 5,
-              "startTime": "11:40",
-              "endTime": "",
-              "title": "Build, Test, Create: AI for Beginners Shivangini Sarmah Kashyap AI Creative Specialist",
+              "startTime": "11:45",
+              "endTime": "13:10",
+              "title": "Solace Agent Mesh: Wiring UP Real-World Agentic AI",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name": "Giri Venkatesan",
+                  "designation": "Principal Developer Advocate & Architect",
+                }
+              ]
             },
             {
               "id": 6,
               "startTime": "13:10",
-              "endTime": "",
-              "title": "Solace Agent Mesh: Wiring Up Real-World Agentic AI Giri Venkatesan Principal Developer Advocate & Architect",
+              "endTime": "13:50",
+              "title": "LUNCH",
               "description": "",
               "speakers": []
             },
             {
               "id": 7,
-              "startTime": "13:50",
-              "endTime": "",
-              "title": "Lunch",
+              "startTime": "13:55",
+              "endTime": "14:15",
+              "title": "Fun Acitivity & Networking",
               "description": "",
               "speakers": []
             },
             {
               "id": 8,
-              "startTime": "14:15",
-              "endTime": "",
-              "title": "Fun Activity & Networking",
+              "startTime": "14:20",
+              "endTime": "14:50",
+              "title": "From Code to Robot: Build Physical AI Agents Live",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name": "Khushi Sharma",
+                  "designation": "Senior Software Engineer",
+                }
+              ]
             },
             {
               "id": 9,
-              "startTime": "14:50",
-              "endTime": "",
-              "title": "From Code to Robot: Build Physical AI Agents Live Khushi Sharma Building Physical AI | Senior DevRel Engineer",
+              "startTime": "14:55",
+              "endTime": "15:20",
+              "title": "Tracing Agent Decisions unsing Graph Eval and Neo4j",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Ashok Vishwakarma",
+                  "designation":"CTO at Implusive Web",
+                }
+              ]
             },
             {
               "id": 10,
-              "startTime": "15:20",
-              "endTime": "",
-              "title": "Tracing Agent Decisions using Graph Eval and Neo4j Ashok Vishwakarma CTO at Impulsive Web | @GoogleDevExpert | #Writes @Medium | #Speaker | #Entrepreneur",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 11,
-              "startTime": "15:45",
-              "endTime": "",
+              "startTime": "15:25",
+              "endTime": "15:45",
               "title": "A Quick dive into Master's Union programmes",
               "description": "",
               "speakers": []
             },
             {
-              "id": 12,
-              "startTime": "16:30",
-              "endTime": "",
-              "title": "Ending keynote",
+              "id": 11,
+              "startTime": "16:00",
+              "endTime": "16:30",
+              "title": "Ending Keynote",
               "description": "",
               "speakers": []
             }

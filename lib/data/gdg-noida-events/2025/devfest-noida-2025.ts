@@ -27,17 +27,12 @@ export const devfestNoida2025: EventsCatalog["devfest-noida-2025"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "DevFest is the world’s largest community-led technology conference, hosted annually by Google Developer Groups (GDG) chapters globally.  These decentralized events bring together developers, students, and tech enthusiasts for full-day conferences featuring keynotes, hands-on workshops, codelabs, and networking sessions focused on Google technologies such as Android, Cloud, AI, and Web development. "
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+    "uniqueStats": {
+      "speakers": "40+",
+      "attendees": "828+",
+      "registered": "2730+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -53,44 +48,37 @@ export const devfestNoida2025: EventsCatalog["devfest-noida-2025"] = {
           "sessions": [
             {
               "id": 1,
-              "startTime": "2",
-              "endTime": "",
-              "title": "Entry passes going out today! Are you excited?! 6:00 PM · Tue, 2nd Dec 2025 9",
+              "startTime": "9:00",
+              "endTime": "9:30",
+              "title": "Registrations",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "9",
-              "endTime": "",
-              "title": "Hi All, We have rolled out our Regular passes, which are available at a Flat pricing of INR 1500(use coupon code DF1000 to avail it), We have limited seats in this batch, Post which we will be adding a few seats with Late Bird pricing, Do grab your chance before its too late",
+              "startTime": "10:00",
+              "endTime": "10:30",
+              "title": "Opening Note",
               "description": "",
-              "speakers": [
-                {
-                  "name": "Late Bird pricing",
-                  "designation": "",
-                  "avatar": "",
-                  "company": ""
-                }
-              ]
+              "speakers": []
             },
             {
               "id": 3,
-              "startTime": "4",
-              "endTime": "",
-              "title": "Hi Everyone, For those who are shortlisted and have confirmed their RSVPs, your seat is reserved and we will send your entry passes within today and tomorrow.",
+              "startTime": "10:30",
+              "endTime": "11:00",
+              "title": "Introduction by Google",
               "description": "",
               "speakers": []
             },
             {
               "id": 4,
-              "startTime": "5",
-              "endTime": "",
-              "title": "Final round of RSVPs are finally rolled out, Congratulations to all those who got shortlisted, those who didn't get any chance, we have our gold passes open now with a very early pricing for a few limited seats with a 50% discount(Code : DF1250), go grab them. 5:30 AM · Sat, 29th Nov 2025 9",
+              "startTime": "11:00",
+              "endTime": "11:20",
+              "title": "Journey of Enterprenerurship from Ideation to Funding",
               "description": "",
               "speakers": [
                 {
-                  "name": "a very early pricing for a",
+                  "name": "Mamta Kumari",
                   "designation": "",
                   "avatar": "",
                   "company": ""

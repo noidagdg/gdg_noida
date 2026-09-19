@@ -27,17 +27,12 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "Modern systems generate massive amounts of data — logs, metrics, traces, and search queries. ​But finding what’s broken and fixing it fast is what truly matters. Join Elastic and GDG Noida for an interactive session focused on how search and observability come together to help teams detect issues, investigate faster, and keep systems running smoothly."
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+    "uniqueStats": {
+      "speakers": 4,
+      "attendees": "80+",
+      "registered": "199+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -53,74 +48,61 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
           "sessions": [
             {
               "id": 1,
-              "startTime": "10:00",
-              "endTime": "",
+              "startTime": "09:00",
+              "endTime": "10:00",
               "title": "Registrations",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "11:00",
-              "endTime": "",
+              "startTime": "10:00",
+              "endTime": "11:00",
               "title": "Opening Keynote",
               "description": "",
               "speakers": []
             },
             {
               "id": 3,
-              "startTime": "11:30",
-              "endTime": "",
+              "startTime": "11:00",
+              "endTime": "11:30",
               "title": "Chaos is a Ladder: Navigating Sophisticated Cyber Attacks with Machine Learning & Threat Intel By Simranjeet Singh Ahuja",
               "description": "",
-              "speakers": [
-                {
-                  "name": "Machine Learning",
-                  "designation": "",
-                  "avatar": "",
-                  "company": ""
-                },
-                {
-                  "name": "Simranjeet Singh Ahuja",
-                  "designation": "",
-                  "avatar": "",
-                  "company": ""
-                }
-              ]
+              "speakers": []
             },
             {
               "id": 4,
-              "startTime": "12:00",
-              "endTime": "",
+              "startTime": "11:30",
+              "endTime": "12:00",
               "title": "Beyond SIEM: Building an Al-Powered Cloud Detection & Response System on Google Cloud using Elastic By Jitendra Gupta Jitendra Gupta Enterprise Architect - Cloud & AI, Google Developer Expert - Google Cloud",
               "description": "",
               "speakers": [
                 {
-                  "name": "Jitendra Gupta Jitendra Gupta Enterprise Architect",
-                  "designation": "",
+                  "name": "Jitendra Gupta",
+                  "designation": "Enterprise Architect - Google Cloud",
                   "avatar": "",
-                  "company": ""
+                  "company": "Google"
                 }
               ]
             },
             {
               "id": 5,
-              "startTime": "12:15",
-              "endTime": "",
+              "startTime": "12:00",
+              "endTime": "12:15",
               "title": "Fun Activity",
               "description": "",
               "speakers": []
             },
             {
               "id": 6,
-              "startTime": "12:30",
-              "endTime": "",
+              "startTime": "12:15",
+              "endTime": "12:30",
               "title": "Semantic Search: Add a Brain To Your Search Bar By Akshat Sharma Akshat Sharma ML/AI Innovator and Enthusiast",
               "description": "",
               "speakers": [
                 {
-                  "name": "Akshat Sharma Akshat Sharma ML",
-                  "designation": "",
+                  "name": "Akshat Sharma",
+                  "designation": "ML/AI Innovator and Enthusiast",
                   "avatar": "",
                   "company": ""
                 }
@@ -128,14 +110,14 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
             },
             {
               "id": 7,
-              "startTime": "13:05",
-              "endTime": "",
+              "startTime": "12:35",
+              "endTime": "13:05",
               "title": "From Float32 to BBQ: Practical Vector Search Optimization By Someshwaran Mohan Kumar Someshwaran Mohan Kumar Developer Advocate",
               "description": "",
               "speakers": [
                 {
-                  "name": "Someshwaran Mohan Kumar Someshwaran Mohan Kumar",
-                  "designation": "",
+                  "name": "Someshwaran Mohan Kumar",
+                  "designation": "Developer Advocate",
                   "avatar": "",
                   "company": ""
                 }
@@ -143,29 +125,29 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
             },
             {
               "id": 8,
-              "startTime": "14:10",
-              "endTime": "",
+              "startTime": "13:10",
+              "endTime": "14:10",
               "title": "LUNCH",
               "description": "",
               "speakers": []
             },
             {
               "id": 9,
-              "startTime": "14:30",
-              "endTime": "",
+              "startTime": "14:10",
+              "endTime": "14:30",
               "title": "Fun Activity",
               "description": "",
               "speakers": []
             },
             {
               "id": 10,
-              "startTime": "15:05",
-              "endTime": "",
+              "startTime": "14:35",
+              "endTime": "15:05",
               "title": "Everything Was Green Until It Wasn’t By Aman Pruthi Aman Pruthi --",
               "description": "",
               "speakers": [
                 {
-                  "name": "Aman Pruthi Aman Pruthi",
+                  "name": "Aman Pruthi",
                   "designation": "",
                   "avatar": "",
                   "company": ""
@@ -174,8 +156,8 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
             },
             {
               "id": 11,
-              "startTime": "15:30",
-              "endTime": "",
+              "startTime": "15:10",
+              "endTime": "15:30",
               "title": "Closing Keynote and Photo session",
               "description": "",
               "speakers": []

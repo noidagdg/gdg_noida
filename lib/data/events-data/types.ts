@@ -52,6 +52,12 @@ export interface EventStat {
   suffix?: string;
 }
 
+export interface EventUniqueStats {
+  speakers: number | string;
+  attendees: string;
+  registered: string;
+}
+
 export interface AttendeeDistribution {
   label: string;
   percentage: number;
@@ -81,6 +87,7 @@ export interface EventData {
     heading?: string;
     stats?: EventStat[];
   };
+  uniqueStats?: EventUniqueStats;
   about?: {
     heading?: string;
     description?: string;

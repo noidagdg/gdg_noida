@@ -1,8 +1,6 @@
-export interface EventUniqueStats {
-  speakers: number | string;
-  attendees: string;
-  registered: string;
-}
+import type { EventUniqueStats } from "./events-data/types";
+
+export type { EventUniqueStats } from "./events-data/types";
 
 /**
  * Deterministically generates unique, realistic stats for each event based on its ID and data.

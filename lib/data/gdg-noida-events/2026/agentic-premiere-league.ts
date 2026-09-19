@@ -27,17 +27,12 @@ export const agenticPremiereLeague: EventsCatalog["agentic-premiere-league"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "Agentic Premier League Noida is a high-energy Build With AI experience designed for developers, designers, and AI enthusiasts who love building fast, experimenting with ideas, and shipping impactful solutions."
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+    "uniqueStats": {
+      "speakers": 10,
+      "attendees": "100+",
+      "registered": "132+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -53,55 +48,48 @@ export const agenticPremiereLeague: EventsCatalog["agentic-premiere-league"] = {
           "sessions": [
             {
               "id": 1,
-              "startTime": "17:30",
-              "endTime": "",
+              "startTime": "17:00",
+              "endTime": "17:30",
               "title": "Registration Starts",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "18:15",
-              "endTime": "",
+              "startTime": "18:0",
+              "endTime": "18:15",
               "title": "Opening Ceremony & Hackathon Kickoff",
               "description": "",
               "speakers": []
             },
             {
               "id": 3,
-              "startTime": "18:30",
-              "endTime": "",
+              "startTime": "18:15",
+              "endTime": "18:30",
               "title": "On device Gemma 4 inference with Qualcomm QNN",
               "description": "",
-              "speakers": [
-                {
-                  "name": "Qualcomm QNN",
-                  "designation": "",
-                  "avatar": "",
-                  "company": ""
-                }
-              ]
+              "speakers": []
             },
             {
               "id": 4,
-              "startTime": "21:15",
-              "endTime": "",
+              "startTime": "20:45",
+              "endTime": "21:45",
               "title": "Hacking Ends / Judging Round",
               "description": "",
               "speakers": []
             },
             {
               "id": 5,
-              "startTime": "22:00",
-              "endTime": "",
+              "startTime": "21:15",
+              "endTime": "22:00",
               "title": "Dinner Starts",
               "description": "",
               "speakers": []
             },
             {
               "id": 6,
-              "startTime": "22:30",
-              "endTime": "",
+              "startTime": "22:00",
+              "endTime": "22:30",
               "title": "Results & Prize Distribution",
               "description": "",
               "speakers": []

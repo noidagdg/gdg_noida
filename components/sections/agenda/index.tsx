@@ -33,7 +33,7 @@ export default function Agenda({ tracks: propTracks, title = "Agenda" }: AgendaP
         {/* Tracks */}
         <div className="space-y-4">
           {activeTracks.map((track) => {
-            const isOpen = openTrack === track.id || activeTracks.length === 1;
+            const isOpen = openTrack === track.id;
 
             return (
               <div
@@ -50,13 +50,11 @@ export default function Agenda({ tracks: propTracks, title = "Agenda" }: AgendaP
                     {track.name}
                   </span>
 
-                  {activeTracks.length > 1 && (
-                    <ChevronDown
-                      className={`h-5 w-5 transition-transform duration-300 ${
-                        isOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  )}
+                  <ChevronDown
+                    className={`h-5 w-5 transition-transform duration-300 ${
+                      isOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
                 {/* Accordion */}

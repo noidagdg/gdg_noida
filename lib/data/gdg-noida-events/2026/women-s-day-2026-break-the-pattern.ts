@@ -27,17 +27,12 @@ export const womenSDay2026BreakThePattern: EventsCatalog["women-s-day-2026-break
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "Breaking the pattern means to stop accepting things just because they’ve always been that way. This is the moment to disrupt old biases, step into spaces where we weren’t expected, and rewrite the rules of who gets to shape technology’s future."
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+    "uniqueStats": {
+      "speakers": 6,
+      "attendees": "40+",
+      "registered": "566+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -53,112 +48,123 @@ export const womenSDay2026BreakThePattern: EventsCatalog["women-s-day-2026-break
           "sessions": [
             {
               "id": 1,
-              "startTime": "1",
-              "endTime": "",
-              "title": "Venue update : 100x School, plot no 19, west, Techzone 4, Amrapali Dream Valley, Greater Noida, Uttar Pradesh 201318 Map link : https://maps.app.goo.gl/41jKiu3sPQGFhTtQ6 3:21 PM · Mon, 16th Mar 2026 4",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 2,
-              "startTime": "4",
-              "endTime": "",
-              "title": "Details Share",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "10:30",
-              "endTime": "",
+              "startTime": "10:00",
+              "endTime": "10:30",
               "title": "Registration starts",
               "description": "",
               "speakers": []
             },
             {
-              "id": 4,
-              "startTime": "10:40",
-              "endTime": "",
-              "title": "Opening Keynote",
+              "id": 2,
+              "startTime": "10:30",
+              "endTime": "10:40",
+              "title": "Opening Keynoye",
               "description": "",
               "speakers": []
+            },
+            {
+              "id": 3,
+              "startTime": "10:45",
+              "endTime": "11:20",
+              "title": "Production-Grade LLM & Agent Evaluation",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Rajni Singh",
+                  "designation":"Data & AI Architect",
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "startTime": "11:20",
+              "endTime": "11:55",
+              "title": "Designing education in the age of AI",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Akshata Malhotra"
+                }
+              ]
             },
             {
               "id": 5,
-              "startTime": "11:20",
-              "endTime": "",
-              "title": "Production-Grade LLM & Agent Evaluation rajni singh Data & AI Architect",
+              "startTime": "11:55",
+              "endTime": "12:10",
+              "title": "Doors in Tech: Opportunities Every Woman Should Know",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Tanu Singh",
+                  "designation":"AI Engineer, 2x Founder"
+                }
+              ]
             },
             {
               "id": 6,
-              "startTime": "11:55",
-              "endTime": "",
-              "title": "Designing education in the age of AI Akshata Malhotra --",
+              "startTime": "12:15",
+              "endTime": "13:10",
+              "title": "LUNCH",
               "description": "",
               "speakers": []
             },
             {
               "id": 7,
-              "startTime": "12:10",
-              "endTime": "",
-              "title": "Doors in Tech: Opportunities Every Woman Should Know Tanu Singh AI Engineer , 2x Founder",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 8,
               "startTime": "13:10",
-              "endTime": "",
-              "title": "Lunch",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 9,
-              "startTime": "13:45",
-              "endTime": "",
+              "endTime": "13:45",
               "title": "Fun Activity",
               "description": "",
               "speakers": []
             },
             {
-              "id": 10,
-              "startTime": "14:30",
-              "endTime": "",
-              "title": "Choice Trade offs : What are we missing in user preference data? Paromita Saha --",
+              "id": 8,
+              "startTime": "13:45",
+              "endTime": "14:30",
+              "title": "Choice Trade offs : What are we missing in user preference data?",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Paromita Saha"
+                }
+              ]
+            },
+            {
+              "id": 9,
+              "startTime": "14:30",
+              "endTime": "14:50",
+              "title": "Women in Tech – Advancing Careers in the Age of AI",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shivani Joshi",
+                  "designation":"Senior Cloud and AI Engineer"
+                }
+              ]
+            },
+            {
+              "id": 10,
+              "startTime": "14:50",
+              "endTime": "15:25",
+              "title": "AI and Future of Product Management",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Nitya Sagar",
+                }
+              ]
             },
             {
               "id": 11,
-              "startTime": "14:50",
-              "endTime": "",
-              "title": "Women in Tech – Advancing Careers in the Age of AI Shivani joshi Senior Cloud and AI Engineer",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 12,
               "startTime": "15:25",
-              "endTime": "",
-              "title": "AI and Future of Product Management Nitya Sagar --",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 13,
-              "startTime": "15:45",
-              "endTime": "",
+              "endTime": "15:45",
               "title": "Unlearning the Competition We Never Signed Up For",
               "description": "",
               "speakers": []
             },
             {
-              "id": 14,
-              "startTime": "16:00",
-              "endTime": "",
+              "id": 12,
+              "startTime": "15:45",
+              "endTime": "16:00",
               "title": "Closing Keynote",
               "description": "",
               "speakers": []

@@ -27,17 +27,12 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "“Samvaad” means dialogue. Design Samvaad is a community-run gathering by GDG Noida where product designers, industry leaders, students, and makers meet in real rooms — an office, a campus, a studio — to swap process, critique work, and push the craft forward."
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+    "uniqueStats": {
+      "speakers": 10,
+      "attendees": "100+",
+      "registered": "264+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,176 +43,203 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
       "tracks": [
         {
           "id": "main-track",
-          "name": "Main Track",
+          "name": "Main Track (MTV)",
           "color": "#4285F4",
           "sessions": [
             {
               "id": 1,
-              "startTime": "2",
-              "endTime": "",
-              "title": "Hi Everyone, The Final batch of tickets are going to be out tomorrow, Keep an eye on GDG Noida Instagram of Live updates. 5:50 PM · Mon, 7th Sep 2026 6",
+              "startTime": "9:30",
+              "endTime": "10:45",
+              "title": "Resgistrations",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "6",
-              "endTime": "",
-              "title": "Early Bird tickets are SOLD OUT!🚨 Final batch opening soon — stay tuned and get ready to grab yours! 🔥 8:05 PM · Sun, 30th Aug 2026 15",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "15",
-              "endTime": "",
-              "title": "Early Bird Tickets to be out Today at 7 PM, Get ready to book yours! 3:58 AM · Sun, 30th Aug 2026 6",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 4,
-              "startTime": "6",
-              "endTime": "",
-              "title": "View More",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 5,
-              "startTime": "10:45",
-              "endTime": "",
-              "title": "Registrations",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 6,
-              "startTime": "11:30",
-              "endTime": "",
+              "startTime": "11:00",
+              "endTime": "11:30",
               "title": "Opening Keynote",
               "description": "",
               "speakers": []
             },
             {
-              "id": 7,
-              "startTime": "11:50",
-              "endTime": "",
+              "id": 3,
+              "startTime": "11:30",
+              "endTime": "11:50",
               "title": "The Design of Abundance Joy Banerjee VP, Design",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name": "Joy Banerjee",
+                  "designation": "VP, Blinkit",
+                  "avatar": "",
+                  "company": "Blinkit"
+                }
+              ]
             },
             {
-              "id": 8,
-              "startTime": "12:15",
-              "endTime": "",
-              "title": "The Irrational User Ankur Sardana Founder, Design Leader, Improv Pioneer",
+              "id": 4,
+              "startTime": "11:55",
+              "endTime": "12:15",
+              "title": "View More",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name": "Ankur Sardana",
+                  "designation": "Founder, Design Leader, Improv Pioneer",
+                }
+              ]
             },
             {
-              "id": 9,
-              "startTime": "12:40",
-              "endTime": "",
-              "title": "How to Sell Design Without Selling Design varedh nigam Associate Director",
+              "id": 5,
+              "startTime": "12:20",
+              "endTime": "12:40",
+              "title": "How to Sell Design Without Selling Design",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name": "Varedh Nigam",
+                  "designation": "Associate Director"
+                }
+              ]
             },
             {
-              "id": 10,
+              "id": 6,
+              "startTime": "12:45",
+              "endTime": "13:05",
+              "title": "The Designer I'm looking for",
+              "description": "",
+              "speakers": [
+                {
+                  "name": "Akanksha Singh",
+                  "designation": "Experience design director"
+                }
+              ]
+            },
+            {
+              "id": 7,
               "startTime": "13:05",
-              "endTime": "",
-              "title": "The Designer I'm looking for Akanksha Singh Experience design director",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 11,
-              "startTime": "14:00",
-              "endTime": "",
+              "endTime": "14:00",
               "title": "LUNCH",
               "description": "",
               "speakers": []
             },
             {
-              "id": 12,
-              "startTime": "14:30",
-              "endTime": "",
+              "id": 8,
+              "startTime": "14:00",
+              "endTime": "14:30",
               "title": "Activity",
               "description": "",
               "speakers": []
             },
             {
-              "id": 13,
-              "startTime": "14:55",
-              "endTime": "",
-              "title": "ixigo Next : The Experiential Redesign Ashutosh Parihar Vice President & Head of Design - ixigo",
+              "id": 9,
+              "startTime": "14:35",
+              "endTime": "14:55",
+              "title": "ixigo Next : The Experiential Redesign",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Ashutosh Parihar",
+                  "designation":"Vice President & Head of Design - ixigo"
+                }
+              ]
             },
             {
-              "id": 14,
-              "startTime": "16:00",
-              "endTime": "",
-              "title": "Design Panel with Aakash & Akanksha Aakash Kumar -- Akanksha Singh Experience design director",
+              "id": 10,
+              "startTime": "15:00",
+              "endTime": "16:00",
+              "title": "The Design Panel with Aakash & Akanksha",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Aakash Kumar",
+                  "designation":""
+                },
+                {
+                  "name":"Akanksha Singh",
+                  "designation":"Experience design director"
+                }
+              ]
             },
             {
               "id": 15,
-              "startTime": "16:30",
-              "endTime": "",
+              "startTime": "16:00",
+              "endTime": "16:30",
               "title": "Ending Keynote",
               "description": "",
               "speakers": []
             },
             {
               "id": 16,
-              "startTime": "17:30",
-              "endTime": "",
+              "startTime": "16:30",
+              "endTime": "17:30",
               "title": "Tea & Networking",
               "description": "",
               "speakers": []
             },
+          ]
+        },
+        {
+          "id": "workshop-track",
+          "name": "Workshop Track (NYC)",
+          "color": "#4285F4",
+          "sessions": [
             {
-              "id": 17,
+              "id": 1,
+              "startTime": "11:30",
+              "endTime": "12:45",
+              "title": "Designing with AI : Hands on Workshop",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Anmol Arora",
+                  "designation":"Product Design Lead at District"
+                }
+              ]
+            },
+            {
+              "id": 2,
               "startTime": "12:45",
-              "endTime": "",
-              "title": "Designing with AI : Hands on Workshop Anmol Arora Product Design Lead at District by Zomato",
+              "endTime": "14:00",
+              "title": "LUNCH",
               "description": "",
               "speakers": []
             },
             {
-              "id": 19,
-              "startTime": "14:15",
-              "endTime": "",
+              "id": 3,
+              "startTime": "14:00",
+              "endTime": "14:15",
               "title": "Activity",
               "description": "",
               "speakers": []
             },
             {
-              "id": 20,
-              "startTime": "15:00",
-              "endTime": "",
-              "title": "Get moving with Figma motion : Hands on Workshop Tanmoy Saha Design & Art",
+              "id": 4,
+              "startTime": "14:15",
+              "endTime": "15:00",
+              "title": "Get moving with Figma motion : Hands on Workshop",
               "description": "",
               "speakers": [
                 {
-                  "name": "Figma motion",
-                  "designation": "",
-                  "avatar": "",
-                  "company": ""
+                  "name": "Tanmoy Saha",
+                  "designation": "Design & Art",
                 }
               ]
             },
             {
-              "id": 21,
-              "startTime": "16:00",
-              "endTime": "",
-              "title": "Pixel se Product Tak : Hands on Workshop Brahmjit Singh UX Consultant | Designing in Oil & Gas technology",
+              "id": 5,
+              "startTime": "15:00",
+              "endTime": "16:00",
+              "title": "Pixel se Product tak : Hands on Workshop",
               "description": "",
-              "speakers": []
-            }
+              "speakers": [
+                {
+                  "name": "Brahmjit Singh",
+                  "designation": "UX Consultant, Designing in Oil & Gas technology"
+                }
+              ]
+            },
           ]
         }
       ]

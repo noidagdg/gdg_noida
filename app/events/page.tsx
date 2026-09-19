@@ -148,7 +148,7 @@ export default function EventsPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                     {displayedEvents.map((ev) => {
                         const isUpcoming = ev.status?.toLowerCase() === "upcoming";
-                        const stats = getEventUniqueStats(
+                        const stats = ev.uniqueStats || getEventUniqueStats(
                             ev.id,
                             ev.speakers?.list?.length,
                             ev.attendees?.total,
