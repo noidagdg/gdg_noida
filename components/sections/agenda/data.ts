@@ -1,6 +1,7 @@
 export interface Speaker {
   name: string;
   designation?: string;
+  avatar?: string | null;
 }
 
 export interface Session {
