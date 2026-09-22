@@ -38,7 +38,7 @@ export function getEventUniqueStats(
   const regNum = 450 + ((abs * 41) % 4750);
 
   // Attendees: unique realistic conversion (55% - 85% of registrations)
-  let attNum =
+  const attNum =
     actualAttendeesTotal && actualAttendeesTotal > 0 && actualAttendeesTotal < 10000
       ? actualAttendeesTotal
       : Math.floor(regNum * (0.55 + ((abs % 30) / 100)));

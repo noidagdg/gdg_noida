@@ -156,12 +156,10 @@ const eventSets: EventSet[] = [
 
 function CounterNumber({
   value,
-  eventKey,
   color,
   run,
 }: {
   readonly value: string;
-  readonly eventKey: string;
   readonly color: string;
   readonly run: boolean;
 }) {
@@ -175,9 +173,6 @@ function CounterNumber({
     // Hold at zero until the section is on screen, so the count-up is something
     // the visitor actually sees rather than something finished before they arrive.
     if (!run) return;
-
-    setCount(0);
-    setShowPlus(false);
 
     const duration = 2000;
     const steps = 60;
@@ -196,7 +191,7 @@ function CounterNumber({
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [numericValue, hasPlus, eventKey, run]);
+  }, [numericValue, hasPlus, run]);
 
   return (
     <span className="text-[17px] font-semibold tabular-nums md:text-[19px]" style={{ color }}>
@@ -398,8 +393,8 @@ export default function FlagshipEvents() {
                               className="flex w-fit max-w-full items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur-sm md:gap-2.5 md:px-4 md:py-2.5"
                             >
                               <CounterNumber
+                                key={`${runId}-${currentSet}-${event.year}-${stat.label}`}
                                 value={stat.value}
-                                eventKey={`${currentSet}-${event.year}-${stat.label}`}
                                 color={accentDeep}
                                 run={inView}
                               />

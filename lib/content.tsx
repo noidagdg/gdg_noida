@@ -144,7 +144,7 @@ export interface GalleryImage {
   id: number;
   src: string;
   alt: string;
-  category: "talks" | "workshops" | "networking";
+  category: GalleryCategoryId;
   aspectRatio: number; // width / height
 }
 
@@ -154,4 +154,3 @@ export const galleryCategories: GalleryCategory[] = [
   { id: "workshops", label: "Workshops" },
   { id: "networking", label: "Networking" },
 ];
-

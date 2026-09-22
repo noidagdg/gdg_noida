@@ -42,7 +42,7 @@ export interface EventReview {
   avatar?: string;
   review?: string;
   role?: string;
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export interface EventStat {
@@ -115,7 +115,7 @@ export interface EventData {
     categories?: EventGalleryCategory[];
     images?: EventGalleryImage[];
   };
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export type EventByYear = Record<string, EventData>;

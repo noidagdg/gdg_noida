@@ -19,7 +19,7 @@ export const devfestNoida2024: EventsCatalog["devfest-noida-2024"] = {
     },
     "branding": {
       "logo": "",
-      "coverImage": "https://json.commudle.com/rails/active_storage/blobs/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbzhkIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ed0b3e638d73483e10a8858050ae95e07a925dad/GDG%20Noida%20Light%20Horizontal-Logo.png"
+      "coverImage": "https://res.cloudinary.com/startup-grind/image/upload/c_scale,w_2560/c_crop,h_640,w_2560,y_0.49_mul_h_sub_0.49_mul_640/c_crop,h_640,w_2560/c_fill,dpr_2.0,f_auto,g_center,q_auto:good/v1/gcs/platform-data-goog/event_banners/Announcement%20Post_EIVfXpn.png"
     },
     "overview": {
       "heading": "Event overview",

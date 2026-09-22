@@ -1,5 +1,4 @@
 import type { EventsCatalog } from "../events-data/types";
-import { tracks as devfestAgendaTracks } from "../../../../components/sections/agenda/data";
 
 export const devfestNoida2023: EventsCatalog["devfest-noida-2023"] = {
   "2023": {

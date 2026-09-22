@@ -60,18 +60,18 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
         }
 
         const parsed: Track[] = event.agenda.tracks
-            .map((t: any) => ({
+            .map((t) => ({
                 id: String(t.id || t.name || "main"),
                 name: t.name || t.title || "Main Track",
                 color: t.color || "#4285F4",
                 sessions: (t.sessions || [])
-                    .filter((s: any) => s && s.title && String(s.title).trim().length > 0)
-                    .map((s: any, idx: number) => ({
+                    .filter((s) => s && s.title && String(s.title).trim().length > 0)
+                    .map((s, idx) => ({
                         id: String(s.id ?? idx),
                         startTime: s.startTime || s.time || "",
                         endTime: s.endTime || "",
                         title: s.title || "",
-                        speakers: (s.speakers || (s.speaker ? [{ name: s.speaker }] : [])).map((sp: any) => ({
+                        speakers: (s.speakers || (s.speaker ? [{ name: s.speaker }] : [])).map((sp) => ({
                             name: typeof sp === "string" ? sp : sp.name || "",
                             designation: sp.designation || sp.company || "",
                         })),
@@ -86,13 +86,13 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
     // Only DevFest 2023 has complete default moments; other files show only images mentioned in their ts file
     const galleryImages = useMemo(() => {
         if (event.gallery?.images && event.gallery.images.length > 0) {
-            return event.gallery.images.map((img: any, idx: number) => ({
+            return event.gallery.images.map((img, idx) => ({
                 id: typeof img.id === "number" ? img.id : idx + 1,
                 src: img.src,
                 alt: img.alt || event.title,
-                category: img.category || "all",
+                category: galleryCategories.find(({ id }) => id === img.category)?.id ?? "all",
                 aspectRatio: img.aspectRatio || 1,
-            })) as GalleryImage[];
+            } satisfies GalleryImage));
         }
         return null;
     }, [event]);
