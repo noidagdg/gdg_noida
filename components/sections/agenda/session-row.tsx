@@ -1,7 +1,50 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
 import { Session } from "./data";
 
 interface SessionRowProps {
   session: Session;
+}
+
+function isValidImageSource(value: unknown): value is string {
+  if (typeof value !== "string" || value.trim() === "") {
+    return false;
+  }
+
+  const source = value.trim();
+  if (source.startsWith("/")) {
+    return true;
+  }
+
+  try {
+    const url = new URL(source);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function SpeakerAvatar({ name, source }: { name: string; source: unknown }) {
+  const [hasLoadError, setHasLoadError] = useState(false);
+
+  if (hasLoadError || !isValidImageSource(source)) {
+    return null;
+  }
+
+  return (
+    <div className="h-8 w-8 overflow-hidden rounded-full bg-[#D9D9D9] flex-shrink-0">
+      <Image
+        src={source}
+        alt={name}
+        fill
+        sizes="32px"
+        className="object-cover"
+        onError={() => setHasLoadError(true)}
+      />
+    </div>
+  );
 }
 
 export default function SessionRow({ session }: SessionRowProps) {
@@ -34,8 +77,7 @@ export default function SessionRow({ session }: SessionRowProps) {
                 key={speaker.name}
                 className="flex items-start gap-3"
               >
-                {/* Avatar */}
-                <div className="h-8 w-8 rounded-full bg-[#D9D9D9] flex-shrink-0" />
+                <SpeakerAvatar name={speaker.name} source={speaker.avatar} />
 
                 {/* Speaker Details */}
                 <div className="min-w-0">
@@ -59,8 +101,7 @@ export default function SessionRow({ session }: SessionRowProps) {
                 key={speaker.name}
                 className="flex items-center gap-3"
               >
-                {/* Avatar */}
-                <div className="h-8 w-8 rounded-full bg-[#D9D9D9] flex-shrink-0" />
+                <SpeakerAvatar name={speaker.name} source={speaker.avatar} />
 
                 {/* Speaker Details */}
                 <div className="min-w-[180px]">
@@ -95,7 +136,7 @@ export default function SessionRow({ session }: SessionRowProps) {
             key={speaker.name}
             className="flex items-center gap-3"
           >
-            <div className="h-8 w-8 rounded-full bg-[#D9D9D9] flex-shrink-0" />
+            <SpeakerAvatar name={speaker.name} source={speaker.avatar} />
 
             <div>
               <p className="text-sm font-medium text-black">
