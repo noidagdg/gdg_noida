@@ -301,119 +301,63 @@ export const IWD: EventsCatalog["IWD"] = {
           "label": "All"
         }
       ],
-      "images": [
+            "images": [
         {
           "id": 1,
-          "src":"/Images/2022/devfest/4.JPG",
-          "alt": "Devfest 2022 4",
+          "src": "/Images/2023/IWD 2023/IMG-20230319-WA0010.jpg",
+          "alt": "IWD 2023 1",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 2,
-          "src": "/Images/2022/devfest/8.JPG",
-          "alt": "Devfest 2022 8",
+          "src": "/Images/2023/IWD 2023/IMG_2973.JPG",
+          "alt": "IWD 2023 2",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 3,
-          "src": "/Images/2022/devfest/13.JPG",
-          "alt": "Devfest 2022 13",
+          "src": "/Images/2023/IWD 2023/IMG_3080.JPG",
+          "alt": "IWD 2023 3",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 4,
-          "src": "/Images/2022/devfest/5.JPG",
-          "alt": "Devfest 2022 5",
+          "src": "/Images/2023/IWD 2023/IMG_3095.JPG",
+          "alt": "IWD 2023 4",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 6,
-          "src": "/Images/2022/devfest/2.JPG",
-          "alt": "Devfest 2022 2",
+          "id": 5,
+          "src": "/Images/2023/IWD 2023/IMG_3118.JPG",
+          "alt": "IWD 2023 5",
           "category": "workshops",
           "aspectRatio": 1
         },
         {
+          "id": 6,
+          "src": "/Images/2023/IWD 2023/IMG_3139.JPG",
+          "alt": "IWD 2023 6",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
           "id": 7,
-          "src": "/Images/2022/devfest/7.JPG",
-          "alt": "Devfest 2022 7",
+          "src": "/Images/2023/IWD 2023/IMG_3147.JPG",
+          "alt": "IWD 2023 7",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 8,
-          "src": "/Images/2022/devfest/3.JPG",
-          "alt": "Devfest 2022 3",
-          "category": "talks",
+          "src": "/Images/2023/IWD 2023/IMG_3237.JPG",
+          "alt": "IWD 2023 8",
+          "category": "workshops",
           "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2022/devfest/9.JPG",
-          "alt": "Devfest 2022 9",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2022/devfest/1.JPG",
-          "alt": "Devfest 2022 1",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2022/devfest/6.JPG",
-          "alt": "Devfest 2022 6",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2022/devfest/12.JPG",
-          "alt": "Devfest 2022 12",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2022/devfest/11.JPG",
-          "alt": "Devfest 2022 11",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2022/devfest/14.JPG",
-          "alt": "Devfest 2022 14",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2022/devfest/15.JPG",
-          "alt": "Devfest 2022 15",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2022/devfest/16.JPG",
-          "alt": "Devfest 2022 16",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 17,
-          "src": "/Images/2022/devfest/5.JPG",
-          "alt": "Devfest 2022 5",
-          "category": "networking",
-          "aspectRatio": 1
-        },
+        }
       ]
     }
   }

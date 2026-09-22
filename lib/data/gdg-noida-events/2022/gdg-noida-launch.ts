@@ -157,9 +157,7 @@ export const gdgNoidaLaunch: EventsCatalog["gdg-noida-launch"] = {
           "label": "All"
         }
       ],
-      "images": [
-        
-      ]
+      "images": []
     }
   }
 };
