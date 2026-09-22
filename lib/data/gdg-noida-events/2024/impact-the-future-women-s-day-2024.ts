@@ -30,9 +30,9 @@ export const impactTheFutureWomenSDay2024: EventsCatalog["impact-the-future-wome
       "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "8+",
+      "attendees": "157+",
+      "registered": "890+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,140 +48,146 @@ export const impactTheFutureWomenSDay2024: EventsCatalog["impact-the-future-wome
           "sessions": [
             {
               "id": 1,
-              "startTime": "3",
-              "endTime": "",
-              "title": "First set of RSVPs rolled out 8:28 PM · Tue, 26th Mar 2024 5",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 2,
-              "startTime": "5",
-              "endTime": "",
-              "title": "Women leaders and allies wanted! Call for papers is live - https://www.commudle.com/fill-form/2170 6:55 PM · Fri, 26th Jan 2024 11",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "11",
-              "endTime": "",
-              "title": "Details Share",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 4,
-              "startTime": "10:00",
-              "endTime": "",
+              "startTime": "9:30",
+              "endTime": "10:00",
               "title": "Registration",
               "description": "",
               "speakers": []
             },
             {
-              "id": 5,
-              "startTime": "11:00",
-              "endTime": "",
+              "id": 2,
+              "startTime": "10:00",
+              "endTime": "11:00",
               "title": "Introduction to Impact the Future",
               "description": "",
               "speakers": []
             },
             {
-              "id": 6,
-              "startTime": "11:20",
-              "endTime": "",
-              "title": "Gemini: The AI Platform That Makes AI Easy for Everyone Neelam N --",
+              "id": 3,
+              "startTime": "11:00",
+              "endTime": "11:20",
+              "title": "Gemini: The AI Platform That Makes AI Easy for Everyone",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Neelam N"
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "startTime": "11:30",
+              "endTime": "11:50",
+              "title": "Stage Fright to Speak Right: An Introvert's Guide",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shubhangi Gupta",
+                  "designation":"Organiser @ GDG Noida"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "12:00",
+              "endTime": "12:20",
+              "title": "Integrating sustainability into GenAI through semiconductors",
+              "description": "",
+              "speakers": [
+                {
+                  "name":" Smita Mishra",
+                  "designation":"CEO, Fandoro Technologies Pvt Ltd"
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "startTime": "12:30",
+              "endTime": "12:45",
+              "title": "Building a Personal Brand & Monetizing Your Skills",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shivangi Singh",
+                  "designation":"Co-founder at MyCTO"
+                }
+              ]
             },
             {
               "id": 7,
-              "startTime": "11:50",
-              "endTime": "",
-              "title": "Stage Fright to Speak Right: An Introvert's Guide Shubhangi Gupta Organiser @ GDG Noida | Product and DevRel | Mental Health | Diversity and Inclusion 🏳️‍🌈 Public Speaking",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 8,
-              "startTime": "12:20",
-              "endTime": "",
-              "title": "Integrating sustainability into GenAI through semiconductors Smita Mishra CEO, Fandoro Technologies Pvt Ltd GenAI",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 9,
               "startTime": "12:45",
-              "endTime": "",
-              "title": "Building a Personal Brand & Monetizing Your Skills Shivangi Singh Entrepreneur | Co-founder at MyCTO | Designer Branding",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 10,
-              "startTime": "13:45",
-              "endTime": "",
+              "endTime": "13:45",
               "title": "LUNCH",
               "description": "",
               "speakers": []
             },
             {
-              "id": 11,
-              "startTime": "14:30",
-              "endTime": "",
-              "title": "#IAmRemarkable Deekshita Verma AR Developer",
+              "id": 8,
+              "startTime": "13:45",
+              "endTime": "14:30",
+              "title": "#IAmRemarkable",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Deekshita Verma",
+                  "designation":"AR Developer"
+                }
+              ]
+            },
+            {
+              "id": 9,
+              "startTime": "14:30",
+              "endTime": "14:40",
+              "title": "An OG's Rulebook: Zero to Hero",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Bhumika Arora",
+                  "designation":"An enthusiastic learner"
+                }
+              ]
+            },
+            {
+              "id": 10,
+              "startTime": "14:40",
+              "endTime": "14:50",
+              "title": "Google Women Engineering Program",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Mahima Kaushik",
+                  "designation":"Upcoming SWE @microsoft"
+                }
+              ]
+            },
+            {
+              "id": 11,
+              "startTime": "14:40",
+              "endTime": "15:10",
+              "title": "Navigating Diverse Paths in a Year",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Unnati Chhabra"
+                }
+              ]
             },
             {
               "id": 12,
-              "startTime": "14:40",
-              "endTime": "",
-              "title": "An OG's Rulebook: Zero to Hero Bhumika Arora An enthusiastic learner",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 13,
-              "startTime": "14:50",
-              "endTime": "",
-              "title": "Google Women Engineering Program Mahima Kaushik Upcoming SWE @microsoft | Citizen Scientist",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 14,
               "startTime": "15:10",
-              "endTime": "",
-              "title": "Navigating Diverse Paths in a Year unnati chhabra --",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 15,
-              "startTime": "15:15",
-              "endTime": "",
+              "endTime": "15:15",
               "title": "PixelPeps",
               "description": "",
               "speakers": []
             },
             {
-              "id": 16,
-              "startTime": "16:00",
-              "endTime": "",
+              "id": 13,
+              "startTime": "15:20",
+              "endTime": "16:00",
               "title": "Closing Note",
               "description": "",
               "speakers": []
             },
-            {
-              "id": 17,
-              "startTime": "4",
-              "endTime": "",
-              "title": "141,890 members combined",
-              "description": "",
-              "speakers": []
-            }
           ]
         }
       ]

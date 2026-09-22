@@ -28,7 +28,7 @@ export const devfestNoida2023: EventsCatalog["devfest-noida-2023"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "DevFest is the world’s largest community-led technology conference, hosted annually by Google Developer Groups (GDG) chapters globally.  These decentralized events bring together developers, students, and tech enthusiasts for full-day conferences featuring keynotes, hands-on workshops, codelabs, and networking sessions focused on Google technologies such as Android, Cloud, AI, and Web development. "
     },
     "uniqueStats": {
       "speakers": "7+",

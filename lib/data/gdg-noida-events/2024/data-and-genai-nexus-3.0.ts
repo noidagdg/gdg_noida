@@ -30,9 +30,9 @@ export const theDataGenAiNexus110096fe1715452cAcc24d8936b385be: EventsCatalog["t
       "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
     },
     "uniqueStats": {
-      "speakers": "7+",
+      "speakers": "8+",
       "attendees": "153+",
-      "registered": "611+"
+      "registered": "831+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,120 +48,142 @@ export const theDataGenAiNexus110096fe1715452cAcc24d8936b385be: EventsCatalog["t
           "sessions": [
             {
               "id": 1,
-              "startTime": "3",
-              "endTime": "",
-              "title": "Registrations are open! 💫 2:45 AM · Thu, 2nd May 2024 3",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 2,
-              "startTime": "3",
-              "endTime": "",
-              "title": "Details Share",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "10:20",
-              "endTime": "",
+              "startTime": "10:00",
+              "endTime": "10:20",
               "title": "Registration and Networking",
               "description": "",
               "speakers": []
             },
             {
-              "id": 4,
-              "startTime": "10:30",
-              "endTime": "",
+              "id": 2,
+              "startTime": "10:20",
+              "endTime": "10:30",
               "title": "Kick off by Neo4j",
               "description": "",
               "speakers": []
             },
             {
-              "id": 5,
-              "startTime": "11:00",
-              "endTime": "",
+              "id": 3,
+              "startTime": "10:30",
+              "endTime": "11:00",
               "title": "Keynote: Updates in AI from around the world 🤖",
               "description": "",
               "speakers": []
             },
             {
-              "id": 6,
-              "startTime": "11:30",
-              "endTime": "",
-              "title": "Gemma Inference using JAX and KerasNLP Kartikey Rawat Founder @ OpInCo Community Gemma AI",
+              "id": 4,
+              "startTime": "11:00",
+              "endTime": "11:30",
+              "title": "Gemma Inference using JAX and KerasNLP",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Kartikey Rawat",
+                  "designation":"Founder @ OpInCo Community"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "11:35",
+              "endTime": "12:15",
+              "title": "Talk to Neo4j Database in Natural Language using Google’s Gemini Model",
+              "description": "",
+              "speakers": [
+                {
+                  "name":" Bhavesh Bhatt",
+                  "designation":"GDE in AI/ML & Cloud"
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "startTime": "12:20",
+              "endTime": "12:45",
+              "title": "Beyond Tables - Leveraging Graph Databases for Modern Data Challenges",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Ashok Vishwakarma",
+                  "designation":" CTO @Impulsive Web"
+                }
+              ]
             },
             {
               "id": 7,
-              "startTime": "12:15",
-              "endTime": "",
-              "title": "Talk to Neo4j Database in Natural Language using Google’s Gemini Model Bhavesh Bhatt GDE in AI/ML & Cloud, GitHub Star, 40 Under 40 Data Scientist Neo4j AI Gemini",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 8,
-              "startTime": "12:45",
-              "endTime": "",
-              "title": "Beyond Tables - Leveraging Graph Databases for Modern Data Challenges Ashok Vishwakarma CTO at Impulsive Web | @GoogleDevExpert | #Writes @Medium | #Speaker | #Entrepreneur AI Graph",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 9,
-              "startTime": "13:45",
-              "endTime": "",
+              "startTime": "13:00",
+              "endTime": "13:45",
               "title": "Lunch",
               "description": "",
               "speakers": []
             },
             {
-              "id": 10,
-              "startTime": "14:10",
-              "endTime": "",
+              "id": 8,
+              "startTime": "13:45",
+              "endTime": "14:10",
               "title": "Activity",
               "description": "",
               "speakers": []
             },
             {
-              "id": 11,
-              "startTime": "14:45",
-              "endTime": "",
-              "title": "Agent Foundations Raghav Ravishankar --",
+              "id": 9,
+              "startTime": "14:10",
+              "endTime": "14:45",
+              "title": "Agent Foundations",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Raghav Ravishankar"
+                }
+              ]
+            },
+            {
+              "id": 10,
+              "startTime": "14:45",
+              "endTime": "15:15",
+              "title": "RAG and Advancements",
+              "description": "",
+              "speakers": [
+                {
+                  "name":" Kumar Saurabh",
+                  "designation":" AI Practitioner"
+                }
+              ]
+            },
+            {
+              "id": 11,
+              "startTime": "15:20",
+              "endTime": "15:50",
+              "title": "Advancements in Large Language Model architectures and how they will benefit businesses",
+              "description": "",
+              "speakers": [
+                {
+                  "name":" jyotishko biswas",
+                  "designation":"AI Leader"
+                }
+              ]
             },
             {
               "id": 12,
-              "startTime": "15:15",
-              "endTime": "",
-              "title": "RAG and Advancements Kumar Saurabh AI Practitioner AI RAG",
+              "startTime": "15:55",
+              "endTime": "16:25",
+              "title": "Building Better Hacks Faster",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Shubhangi Gupta",
+                  "designation":"Organiser @ GDG Noida"
+                },
+                {
+                  "name":"Himank Varshney",
+                  "designation":"GitHub Campus Expert"
+                }
+              ]
             },
             {
               "id": 13,
-              "startTime": "15:50",
-              "endTime": "",
-              "title": "Advancements in Large Language Model architectures and how they will benefit businesses jyotishko biswas Ai Leader AI LLM",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 14,
               "startTime": "16:25",
-              "endTime": "",
-              "title": "Building Better Hacks Faster Shubhangi Gupta Organiser @ GDG Noida | Product and DevRel | Mental Health | Diversity and Inclusion 🏳️‍🌈 Himank Varshney 🚩GitHub Campus Expert | Ex- GDSC Lead @ Amity University, Noida AI",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 15,
-              "startTime": "16:50",
-              "endTime": "",
+              "endTime": "16:50",
               "title": "Closing",
               "description": "",
               "speakers": []

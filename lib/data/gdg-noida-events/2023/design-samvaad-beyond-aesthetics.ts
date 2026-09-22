@@ -26,15 +26,9 @@ export const designSamvaadBeyondAesthetics: EventsCatalog["design-samvaad-beyond
       "stats": []
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+      "speakers": "6+",
+      "attendees": "29+",
+      "registered": "58+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -50,88 +44,122 @@ export const designSamvaadBeyondAesthetics: EventsCatalog["design-samvaad-beyond
           "sessions": [
             {
               "id": 1,
-              "startTime": "11:30",
-              "endTime": "",
+              "startTime": "11:00",
+              "endTime": "11:30",
               "title": "Opening Keynote",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "11:50",
-              "endTime": "",
-              "title": "Implementing design thinking in Health care Industry Avnish Gautam Problem Solver through design thinking",
+              "startTime": "11:30",
+              "endTime": "11:50",
+              "title": "Implementing design thinking in Health care Industry",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Avnish Gautam",
+                  "designation":"Problem Solver through design thinking"
+                }
+              ]
             },
             {
               "id": 3,
-              "startTime": "12:15",
-              "endTime": "",
-              "title": "Effective Services through Design and Strategy Sarthak Jain Senior Product Designer @Rightpoint | Ex-Design Lead at 1GEN | Founder Frisbee Design",
+              "startTime": "11:55",
+              "endTime": "12:15",
+              "title": "Effective Services through Design and Strategy",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Sarthak Jain",
+                  "designation":"Senior Product Designer @RightPoint"
+                }
+              ]
             },
             {
               "id": 4,
-              "startTime": "12:40",
-              "endTime": "",
-              "title": "Basic of AI for creative professionals Ansh Mehra --",
+              "startTime": "12:20",
+              "endTime": "12:40",
+              "title": "Basic of AI for creative professionals",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Ansh Mehra"
+                }
+              ]
             },
             {
               "id": 5,
-              "startTime": "13:00",
-              "endTime": "",
-              "title": "Fireside Chat kamaljeet singh design for ease",
+              "startTime": "12:50",
+              "endTime": "13:00",
+              "title": "Fireside Chat",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Kamaljeet Singh",
+                  "designation":"Design for Ease"
+                }
+              ]
             },
             {
               "id": 6,
-              "startTime": "13:10",
-              "endTime": "",
-              "title": "Fireside Chat Avnish Gautam Problem Solver through design thinking",
+              "startTime": "13:00",
+              "endTime": "13:10",
+              "title": "Fireside Chat",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Avnish Gautam",
+                  "designation":"Problem Solver through design thinking"
+                }
+              ]
             },
             {
               "id": 7,
-              "startTime": "14:20",
-              "endTime": "",
+              "startTime": "13:30",
+              "endTime": "14:20",
               "title": "Lunch",
               "description": "",
               "speakers": []
             },
             {
               "id": 8,
-              "startTime": "14:45",
-              "endTime": "",
-              "title": "Design Dash Kushagra Tripathi UX Designer",
+              "startTime": "14:30",
+              "endTime": "14:45",
+              "title": "Design Dash",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Kushagra Tripathi",
+                  "designation":"UX Designer"
+                }
+              ]
             },
             {
               "id": 9,
-              "startTime": "15:00",
-              "endTime": "",
-              "title": "Design Dash Manish Thakur Senior Product Designer",
+              "startTime": "14:45",
+              "endTime": "15:00",
+              "title": "Design Dash",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name": "Manish Thakur",
+                  "designation":"Senior Product Designer"
+                }
+              ]
             },
             {
               "id": 10,
-              "startTime": "15:15",
-              "endTime": "",
+              "startTime": "15:00",
+              "endTime": "15:15",
               "title": "Design Dash",
               "description": "",
               "speakers": []
             },
             {
               "id": 11,
-              "startTime": "16:30",
-              "endTime": "",
+              "startTime": "16:00",
+              "endTime": "16:30",
               "title": "Networking",
               "description": "",
               "speakers": []

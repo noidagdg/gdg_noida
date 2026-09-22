@@ -30,9 +30,9 @@ export const bhashaTechathonLaunchEvent: EventsCatalog["bhasha-techathon-launch-
       "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "1+",
+      "attendees": "166+",
+      "registered": "244+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,84 +48,68 @@ export const bhashaTechathonLaunchEvent: EventsCatalog["bhasha-techathon-launch-
           "sessions": [
             {
               "id": 1,
-              "startTime": "5",
-              "endTime": "",
-              "title": "Details Share",
+              "startTime": "10:30",
+              "endTime": "11:00",
+              "title": "Registration",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
               "startTime": "11:00",
-              "endTime": "",
-              "title": "Registration",
+              "endTime": "11:10",
+              "title": "Welcome address",
               "description": "",
               "speakers": []
             },
             {
               "id": 3,
               "startTime": "11:10",
-              "endTime": "",
-              "title": "Welcome address",
+              "endTime": "11:20",
+              "title": "What is Bhashini and Hackathon Problem statements",
               "description": "",
               "speakers": []
             },
             {
               "id": 4,
               "startTime": "11:20",
-              "endTime": "",
-              "title": "What is Bhashini and Hackathon Problem statements",
+              "endTime": "11:30",
+              "title": "Session on advancement in AI and Academics",
               "description": "",
               "speakers": []
             },
             {
               "id": 5,
               "startTime": "11:30",
-              "endTime": "",
-              "title": "Session on advancement in AI and Academics",
+              "endTime": "11:50",
+              "title": "Session on AI for India and women innovators",
               "description": "",
               "speakers": []
             },
             {
               "id": 6,
-              "startTime": "11:50",
-              "endTime": "",
-              "title": "Session on AI for India and women innovators",
+              "startTime": "12:00",
+              "endTime": "12:15",
+              "title": "Session on Women innovation and participation in Hackathon and Google Datasets",
               "description": "",
               "speakers": []
             },
             {
               "id": 7,
               "startTime": "12:15",
-              "endTime": "",
-              "title": "Session on Women innovation and participation in Hackathon and Google Datasets",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 8,
-              "startTime": "12:40",
-              "endTime": "",
+              "endTime": "12:40",
               "title": "How to build career in AI and Solve for India",
               "description": "",
               "speakers": []
             },
             {
-              "id": 9,
-              "startTime": "14:00",
-              "endTime": "",
+              "id": 8,
+              "startTime": "13:00",
+              "endTime": "14:00",
               "title": "Lunch",
               "description": "",
               "speakers": []
             },
-            {
-              "id": 10,
-              "startTime": "2",
-              "endTime": "",
-              "title": "79,278 members combined",
-              "description": "",
-              "speakers": []
-            }
           ]
         }
       ]

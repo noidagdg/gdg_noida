@@ -27,12 +27,12 @@ export const startupSuccessDaysNoida: EventsCatalog["startup-success-days-noida"
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "An event for entrepreneurs and startup folks."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "8+",
+      "attendees": "132+",
+      "registered": "576+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,96 +48,132 @@ export const startupSuccessDaysNoida: EventsCatalog["startup-success-days-noida"
           "sessions": [
             {
               "id": 1,
-              "startTime": "11:00",
-              "endTime": "",
+              "startTime": "10:00",
+              "endTime": "11:00",
               "title": "Registration",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "11:30",
-              "endTime": "",
+              "startTime": "11:00",
+              "endTime": "11:30",
               "title": "Breakfast",
               "description": "",
               "speakers": []
             },
             {
               "id": 3,
-              "startTime": "11:55",
-              "endTime": "",
-              "title": "Google for Startups Offerings Srishti Tibrewal --",
+              "startTime": "11:30",
+              "endTime": "11:55",
+              "title": "Google for Startups Offerings",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Srishti Tibrewal"
+                }
+              ]
             },
             {
               "id": 4,
-              "startTime": "12:20",
-              "endTime": "",
-              "title": "From Algorithms to Anecdotes Vanshika Mehta --",
+              "startTime": "12:00",
+              "endTime": "12:20",
+              "title": "From Algorithms to Anecdotes",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Vanshika Mehta"
+                }
+              ]
             },
             {
               "id": 5,
-              "startTime": "12:45",
-              "endTime": "",
-              "title": "Startups, Technology & Bharat: Unlocking Potential, Bridging Divides Himanshu Chaurasia Building Futuristic School for Rural India",
+              "startTime": "12:25",
+              "endTime": "12:45",
+              "title": "Startups, Technology & Bharat: Unlocking Potential, Bridging Divides",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Himanshu Chaurasia",
+                  "designation":"Building Futuristic School for Rural India"
+                }
+              ]
             },
             {
               "id": 6,
-              "startTime": "13:15",
-              "endTime": "",
-              "title": "Successful Entrepreneurship Dr.Tanya Singh Entrepreneurship",
+              "startTime": "12:45",
+              "endTime": "13:15",
+              "title": "Successful Entrepreneurship",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Dr.Tanya Singh",
+                  "designation":"Entrepreneurship"
+                }
+              ]
             },
             {
               "id": 7,
-              "startTime": "13:30",
-              "endTime": "",
-              "title": "Crafting Technology at Startups : A Cinematic Approach Kavach Chandra CTO @ FreeStand",
+              "startTime": "13:15",
+              "endTime": "13:30",
+              "title": "Crafting Technology at Startups : A Cinematic Approach",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Kavach Chandra",
+                  "designation":"CTO @ FreeStand"
+                }
+              ]
             },
             {
               "id": 8,
-              "startTime": "14:00",
-              "endTime": "",
+              "startTime": "13:30",
+              "endTime": "14:00",
               "title": "Lunch",
               "description": "",
               "speakers": []
             },
             {
               "id": 9,
-              "startTime": "14:30",
-              "endTime": "",
+              "startTime": "14:00",
+              "endTime": "14:30",
               "title": "Networking Circles",
               "description": "",
               "speakers": []
             },
             {
               "id": 10,
-              "startTime": "15:30",
-              "endTime": "",
-              "title": "Panel: Are Startups worth it? Arpan Garg Founder, Commudle Rohan Mishra Founder- Mastry Shubhangi Gupta Organiser @ GDG Noida | Product and DevRel | Mental Health | Diversity and Inclusion 🏳️‍🌈",
+              "startTime": "14:30",
+              "endTime": "15:30",
+              "title": "Panel: Are Startups worth it?",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Arpan Garg",
+                  "designation":"Founder @Commudle"
+                },
+                {
+                  "name":"Rohan Mishra",
+                  "designation":"Founder @Mastry"
+                },
+                {
+                  "name":"Shubhangi Gupta",
+                  "designation":"Organiser @GDG Noida"
+                }
+              ]
             },
             {
               "id": 11,
-              "startTime": "16:00",
-              "endTime": "",
+              "startTime": "15:30",
+              "endTime": "16:00",
               "title": "Closing Note",
               "description": "",
               "speakers": []
             },
             {
               "id": 12,
-              "startTime": "16:30",
-              "endTime": "",
+              "startTime": "16:00",
+              "endTime": "16:30",
               "title": "Tea and networking",
               "description": "",
               "speakers": []

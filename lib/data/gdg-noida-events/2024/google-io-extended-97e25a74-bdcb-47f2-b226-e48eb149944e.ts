@@ -27,12 +27,12 @@ export const googleIoExtended97e25a74Bdcb47f2B226E48eb149944e: EventsCatalog["go
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "Deep dive into the future of tech! Join us for Google I/O Extended Noida and explore the hottest announcements from Google I/O 2024. Get hands-on with advancements in AI integration, cross-platform development, and cutting-edge web technologies. Network with fellow creators, unlock your next project's potential, and shape the future of design and development!"
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "5+",
+      "attendees": "111+",
+      "registered": "1749+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -40,39 +40,7 @@ export const googleIoExtended97e25a74Bdcb47f2B226E48eb149944e: EventsCatalog["go
     },
     "agenda": {
       "heading": "Agenda",
-      "tracks": [
-        {
-          "id": "main-track",
-          "name": "Main Track",
-          "color": "#4285F4",
-          "sessions": [
-            {
-              "id": 1,
-              "startTime": "27",
-              "endTime": "",
-              "title": "Registrations are closed. 🔴 5:04 PM · Fri, 26th Jul 2024 5",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 2,
-              "startTime": "5",
-              "endTime": "",
-              "title": "Watch this space! Registrations opening soon ✨ 8:25 PM · Fri, 17th May 2024 48",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "48",
-              "endTime": "",
-              "title": "Details Share",
-              "description": "",
-              "speakers": []
-            }
-          ]
-        }
-      ]
+      "tracks": []
     },
     "gallery": {
       "heading": "Moments from the event",

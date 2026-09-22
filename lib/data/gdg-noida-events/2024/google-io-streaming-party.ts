@@ -27,17 +27,12 @@ export const googleIoStreamingParty: EventsCatalog["google-io-streaming-party"] 
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "Let's watch the keynote of Google IO together, and discover how Google is furthering its mission to organize the world's information and make it universally accessible and useful."
     },
-    "speakers": {
-      "heading": "Featured speakers",
-      "list": []
-    },
-    "attendees": {
-      "heading": "Attendees",
-      "description": "",
-      "total": 35000,
-      "distribution": []
+    "uniqueStats": {
+      "speakers": "5+",
+      "attendees": "122+",
+      "registered": "264+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -45,23 +40,7 @@ export const googleIoStreamingParty: EventsCatalog["google-io-streaming-party"] 
     },
     "agenda": {
       "heading": "Agenda",
-      "tracks": [
-        {
-          "id": "main-track",
-          "name": "Main Track",
-          "color": "#4285F4",
-          "sessions": [
-            {
-              "id": 1,
-              "startTime": "1",
-              "endTime": "",
-              "title": "Details Share Let's watch the keynote of Google IO together, and discover how Google is furthering its mission to organize the world's information and make it universally accessible and useful. You can try out this puzzle before the event - io.google/2024/puzzle Read more - io.google/2024",
-              "description": "",
-              "speakers": []
-            }
-          ]
-        }
-      ]
+      "tracks": []
     },
     "gallery": {
       "heading": "Moments from the event",

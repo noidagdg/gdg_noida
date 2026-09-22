@@ -27,12 +27,12 @@ export const designSamwaad20: EventsCatalog["design-samwaad-2-0"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "Design Samvaad is a community-driven meetup organized by GDG Noida (Google Developer Group Noida) that brings together designers, developers, product managers, and tech enthusiasts for learning, networking, and inspiration.  The event features curated talks on design thinking, UX/UI trends, and AI integration, along with workshops and panel discussions to foster collaboration within the design community."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "8+",
+      "attendees": "134+",
+      "registered": "243+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,72 +48,110 @@ export const designSamwaad20: EventsCatalog["design-samwaad-2-0"] = {
           "sessions": [
             {
               "id": 1,
-              "startTime": "11:30",
-              "endTime": "",
-              "title": "Beyond Borders, Beyond Pixels : My Journey Yug Principal Product Designer, Mrsool Growth Airtel Design Journey",
+              "startTime": "11:00",
+              "endTime": "11:30",
+              "title": "Beyond Borders, Beyond Pixels : My Journey",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Yug",
+                  "designation":" Principal Product Designer, Mrsool"
+                }
+              ]
             },
             {
               "id": 2,
-              "startTime": "12:05",
-              "endTime": "",
-              "title": "A11y means accessibility Shivangi Pande Product designer and A11y champion @ Microsoft Accessibility Microsoft",
+              "startTime": "11:35",
+              "endTime": "12:05",
+              "title": "A11y means accessibility",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":" Shivangi Pande",
+                  "designation":"Product designer and A11y champion @ Microsoft"
+                }
+              ]
             },
             {
               "id": 3,
-              "startTime": "12:30",
-              "endTime": "",
-              "title": "ReThinking Constraints Abhishek Shankhdhar Lead Designer @Candescent | Ex-Deloitte | Co-Founder @Designland Design Constraints Delloite",
+              "startTime": "12:10",
+              "endTime": "12:30",
+              "title": "ReThinking Constraints",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Abhishek Shankhdhar",
+                  "designation":" Lead Designer @Candescent | Co-Founder @Designland"
+                }
+              ]
             },
             {
               "id": 4,
-              "startTime": "13:35",
-              "endTime": "",
+              "startTime": "12:35",
+              "endTime": "13:35",
               "title": "Lunch",
               "description": "",
               "speakers": []
             },
             {
               "id": 5,
-              "startTime": "14:15",
-              "endTime": "",
+              "startTime": "13:45",
+              "endTime": "14:15",
               "title": "Activity",
               "description": "",
               "speakers": []
             },
             {
               "id": 6,
-              "startTime": "14:50",
-              "endTime": "",
-              "title": "Turning Clicks Into Quest : Gamification in Design Vishant Kumar Design Lead Gamification MicroInteractions Hike",
+              "startTime": "14:15",
+              "endTime": "14:50",
+              "title": "Turning Clicks Into Quest : Gamification in Design",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Vishant Kumar",
+                  "designation":"Design Lead Gamification MicroInteractions Hike"
+                }
+              ]
             },
             {
               "id": 7,
-              "startTime": "15:15",
-              "endTime": "",
-              "title": "Crafting Stories, Building Brands, Nurturing Minds: A Holistic Approach to Design\" shruti sinha Manager - Brand Designer @ Airtel BrandDesign MentalHealthMatters",
+              "startTime": "14:55",
+              "endTime": "15:15",
+              "title": "Crafting Stories, Building Brands, Nurturing Minds: A Holistic Approach to Design",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":" Shruti Sinha",
+                  "designation":"Manager - Brand Designer @ Airtel"
+                }
+              ]
             },
             {
               "id": 8,
-              "startTime": "16:20",
-              "endTime": "",
-              "title": "Panel : The Real Design Samvaad Varun Dhawan Senior Director - Product Design Tushar Debnath Principal Product Designer Infoedge Abhishek Dubey Senior UX Consultant InfoEdge Innovacer IITDelhi DesignFuture DesignLeadership",
+              "startTime": "15:20",
+              "endTime": "16:20",
+              "title": "Panel : The Real Design Samvaad",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":" Varun Dhawan",
+                  "designation":" Senior Director - Product Design"
+                },
+                {
+                  "name":" Tushar Debnath",
+                  "designation":" Principal Product Designer Infoedge"
+                },
+                {
+                  "name":" Abhishek Dubey",
+                  "designation":"Senior UX Consultant"
+                }
+              ]
             },
             {
               "id": 9,
-              "startTime": "17:00",
-              "endTime": "",
+              "startTime": "16:30",
+              "endTime": "17:00",
               "title": "Snacks & Networking",
               "description": "",
               "speakers": []

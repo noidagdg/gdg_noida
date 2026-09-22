@@ -30,9 +30,9 @@ export const dataScienceMeetup: EventsCatalog["data-science-meetup"] = {
       "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "4+",
+      "attendees": "71+",
+      "registered": "511+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,72 +48,91 @@ export const dataScienceMeetup: EventsCatalog["data-science-meetup"] = {
           "sessions": [
             {
               "id": 1,
-              "startTime": "11:00",
-              "endTime": "",
+              "startTime": "10:30",
+              "endTime": "11:00",
               "title": "Registrations",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "11:30",
-              "endTime": "",
+              "startTime": "11:00",
+              "endTime": "11:30",
               "title": "Community Intro",
               "description": "",
               "speakers": []
             },
             {
               "id": 3,
-              "startTime": "12:00",
-              "endTime": "",
-              "title": "Deciphering Competitive Data Science & Internships Ayon Roy Executive Data Scientist @ NielsenIQ",
+              "startTime": "11:30",
+              "endTime": "12:00",
+              "title": "Deciphering Competitive Data Science & Internships",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Ayon Roy Executive",
+                  "designation":"Data Scientist @ NielsenIQ"
+                }
+              ]
             },
             {
               "id": 4,
-              "startTime": "12:35",
-              "endTime": "",
-              "title": "Why and how of web-scraping for your AI/ML project? Neha Setia --",
+              "startTime": "12:05",
+              "endTime": "12:35",
+              "title": "Why and how of web-scraping for your AI/ML project?",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Neha Setia"
+                }
+              ]
             },
             {
               "id": 5,
-              "startTime": "13:30",
-              "endTime": "",
+              "startTime": "12:40",
+              "endTime": "13:30",
               "title": "Networking over Lunch",
               "description": "",
               "speakers": []
             },
             {
               "id": 6,
-              "startTime": "14:00",
-              "endTime": "",
+              "startTime": "13:45",
+              "endTime": "14:00",
               "title": "Fun activity!",
               "description": "",
               "speakers": []
             },
             {
               "id": 7,
-              "startTime": "14:30",
-              "endTime": "",
-              "title": "Into the exciting world of Graph Databases Siddhant Agarwal DevRel Guy | Ex-Google, Open, Beahead, IBM | ACM DSP | Google for Startups Accelerator Mentor",
+              "startTime": "14:05",
+              "endTime": "14:30",
+              "title": "Into the exciting world of Graph Databases",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Siddhant Agarwal",
+                  "designation":"DevRel Guy"
+                }
+              ]
             },
             {
               "id": 8,
-              "startTime": "15:00",
-              "endTime": "",
-              "title": "Questioning an ML Model Gaurisha R Srivastava SWE and Former SWE Intern'22, Microsoft | Founder, Celestial Biscuit",
+              "startTime": "14:35",
+              "endTime": "15:00",
+              "title": "Questioning an ML Model",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":" Gaurisha R Srivastava",
+                  "designation":"SWE, Microsoft"
+                }
+              ]
             },
             {
               "id": 9,
-              "startTime": "15:30",
-              "endTime": "",
+              "startTime": "15:00",
+              "endTime": "15:30",
               "title": "Wrap Up and Closing remarks",
               "description": "",
               "speakers": []

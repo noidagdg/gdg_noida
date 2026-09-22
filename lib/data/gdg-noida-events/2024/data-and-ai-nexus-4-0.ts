@@ -27,12 +27,12 @@ export const dataAndAiNexus40: EventsCatalog["data-and-ai-nexus-4-0"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "We’re bringing you a hands-on workshop and a full day of practical AI building at Data & AI Nexus 7.0 🚀"
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "5+",
+      "attendees": "67+",
+      "registered": "765+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,110 +48,114 @@ export const dataAndAiNexus40: EventsCatalog["data-and-ai-nexus-4-0"] = {
           "sessions": [
             {
               "id": 1,
-              "startTime": "2",
-              "endTime": "",
-              "title": "Attendee registrations will be live on 16th September ✨ 9:14 AM · Tue, 10th Sep 2024 16",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 2,
-              "startTime": "16",
-              "endTime": "",
-              "title": "Details Share",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "10:00",
-              "endTime": "",
+              "startTime": "9:00",
+              "endTime": "10:00",
               "title": "Registrations",
               "description": "",
               "speakers": []
             },
             {
-              "id": 4,
-              "startTime": "10:30",
-              "endTime": "",
+              "id": 2,
+              "startTime": "10:00",
+              "endTime": "10:30",
               "title": "Opening Note",
               "description": "",
               "speakers": []
             },
             {
-              "id": 5,
-              "startTime": "11:00",
-              "endTime": "",
+              "id": 3,
+              "startTime": "10:30",
+              "endTime": "11:00",
               "title": "GraphRAG: Powering Up LLMs with Knowledge Graphs by Tomaz Bratanic",
               "description": "",
               "speakers": [
                 {
-                  "name": "Knowledge Graphs by Tomaz Bratanic",
+                  "name": "Tomaz Bratanic",
                   "designation": "",
                   "avatar": "",
                   "company": ""
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "startTime": "11:00",
+              "endTime": "11:30",
+              "title": "End-to-End Multimodal Knowledge Graph Creation from Text and Images for Enhanced Querying",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shubham Shardul",
+                  "designation":"Data & AI Senior Analyst"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "11:30",
+              "endTime": "12:00",
+              "title": "Networking Activity",
+              "description": "",
+              "speakers": [
+                {
+                  "name":" Shubhangi Gupta",
+                  "designation":"Organiser @ GDG Noida"
                 }
               ]
             },
             {
               "id": 6,
-              "startTime": "11:30",
-              "endTime": "",
-              "title": "End-to-End Multimodal Knowledge Graph Creation from Text and Images for Enhanced Querying Shubham Shardul Data & AI Senior Analyst",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 7,
               "startTime": "12:00",
-              "endTime": "",
-              "title": "Networking Activity Shubhangi Gupta Organiser @ GDG Noida | Product and DevRel | Mental Health | Diversity and Inclusion 🏳️‍🌈",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 8,
-              "startTime": "12:30",
-              "endTime": "",
-              "title": "Enterprise Delta Lakehouse nishaagg235 Senior data engineer",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 9,
-              "startTime": "12:50",
-              "endTime": "",
-              "title": "LLM security : detecting LLM prompt injection using NLP Vajratiya Vajrobol Senior Data Analyst @ National News Bureau of Thailand",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 10,
-              "startTime": "13:20",
-              "endTime": "",
-              "title": "Making RAG Ready applications with Unstructured.io and Couchbase Shivay Lamba GSoC Mentor at Tensorflow || TensorFlowJS SIG and Working Group Lead || Software Engineer",
+              "endTime": "12:30",
+              "title": "Enterprise Delta Lakehouse",
               "description": "",
               "speakers": [
                 {
-                  "name": "Unstructured.io and Couchbase Shivay Lamba GSoC",
-                  "designation": "",
+                  "name":"Nishag",
+                  "designation":"Senior data engineer"
+                }
+              ]
+            },
+            {
+              "id": 7,
+              "startTime": "12:30",
+              "endTime": "12:50",
+              "title": "LLM security : detecting LLM prompt injection using NLP",
+              "description": "",
+              "speakers": [
+                {
+                  "name":" Vajratiya Vajrobol",
+                  "designation":"Senior Data Analyst @ National News Bureau of Thailand"
+                }
+              ]
+            },
+            {
+              "id": 8,
+              "startTime": "12:50",
+              "endTime": "13:20",
+              "title": "Making RAG Ready applications with Unstructured.io and Couchbase",
+              "description": "",
+              "speakers": [
+                {
+                  "name": "Shivay Lamba",
+                  "designation": "Shivay Lamba GSoC Mentor at Tensorflow",
                   "avatar": "",
                   "company": ""
                 }
               ]
             },
             {
-              "id": 11,
-              "startTime": "13:40",
-              "endTime": "",
+              "id": 9,
+              "startTime": "13:20",
+              "endTime": "13:40",
               "title": "Closing",
               "description": "",
               "speakers": []
             },
             {
-              "id": 12,
-              "startTime": "14:30",
-              "endTime": "",
+              "id": 10,
+              "startTime": "13:40",
+              "endTime": "12:40",
               "title": "Lunch",
               "description": "",
               "speakers": []

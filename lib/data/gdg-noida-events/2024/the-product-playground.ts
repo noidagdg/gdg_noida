@@ -27,12 +27,12 @@ export const theProductPlayground: EventsCatalog["the-product-playground"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "Join us for a day of insightful talks, interactive workshops, and ample networking opportunities. Learn from industry leaders and your peers about the latest trends and best practices in creating successful products through seamless collaboration between product, design, and developer relations teams."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "8+",
+      "attendees": "91+",
+      "registered": "310+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,104 +48,124 @@ export const theProductPlayground: EventsCatalog["the-product-playground"] = {
           "sessions": [
             {
               "id": 1,
-              "startTime": "2",
-              "endTime": "",
-              "title": "This event is for specifically for people working (or aspiring to work) as PMs and DevRels! 🌷 9:28 PM · Sat, 4th May 2024 3",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 2,
-              "startTime": "3",
-              "endTime": "",
-              "title": "Details Share",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "10:30",
-              "endTime": "",
+              "startTime": "10:00",
+              "endTime": "10:30",
               "title": "Registration",
               "description": "",
               "speakers": []
             },
             {
-              "id": 4,
-              "startTime": "11:00",
-              "endTime": "",
+              "id": 2,
+              "startTime": "10:30",
+              "endTime": "11:00",
               "title": "Keynote + updates from Google IO",
               "description": "",
               "speakers": []
             },
             {
-              "id": 5,
-              "startTime": "11:30",
-              "endTime": "",
-              "title": "Mastering LLM AI: Product Journey Kavach Chandra CTO @ FreeStand Product AI",
+              "id": 3,
+              "startTime": "11:00",
+              "endTime": "11:30",
+              "title": "Mastering LLM AI: Product Journey",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Kavach Chandra",
+                  "designation":"CTO @FreeStand"
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "startTime": "11:30",
+              "endTime": "12:00",
+              "title": "How Failures Can Shape Your Product Skills",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Ish Kapoor",
+                  "designation":"Product Manager"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "12:00",
+              "endTime": "12:20",
+              "title": "Customer Journey Mapping and Technical Writing",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Aman Chopra",
+                  "designation":"Cloud and DevOps Engineer"
+                }
+              ]
             },
             {
               "id": 6,
-              "startTime": "12:00",
-              "endTime": "",
-              "title": "How Failures Can Shape Your Product Skills Ish Kapoor Product Manager",
+              "startTime": "12:30",
+              "endTime": "13:15",
+              "title": "Unconference it: Product Round",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Gaurav Verma"
+                },
+                {
+                  "name":"Himanshu Chaurasia",
+                  "designation":"Building Futuristic School"
+                },
+                {
+                  "name":"Sharanya Srivastava",
+                  "designation":"Product Owner @Gartner"
+                }
+              ]
             },
             {
               "id": 7,
-              "startTime": "12:20",
-              "endTime": "",
-              "title": "Customer Journey Mapping and Technical Writing Aman Chopra Cloud and DevOps Engineer | Developer Advocate | Tech Writer DevRel Technical Documentation",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 8,
               "startTime": "13:15",
-              "endTime": "",
-              "title": "Unconference it: Product Round Gaurav verma -- Himanshu Chaurasia Building Futuristic School for Rural India Sharanya Srivastava Product Owner @Gartner, Community Enthusiast",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 9,
-              "startTime": "13:30",
-              "endTime": "",
+              "endTime": "13:30",
               "title": "Surprise!",
               "description": "",
               "speakers": []
             },
             {
-              "id": 10,
-              "startTime": "14:00",
-              "endTime": "",
+              "id": 8,
+              "startTime": "13:30",
+              "endTime": "14:00",
               "title": "Lunch",
               "description": "",
               "speakers": []
             },
             {
-              "id": 11,
-              "startTime": "14:20",
-              "endTime": "",
+              "id": 9,
+              "startTime": "14:00",
+              "endTime": "14:20",
               "title": "Activity",
               "description": "",
               "speakers": []
             },
             {
-              "id": 12,
-              "startTime": "15:15",
-              "endTime": "",
-              "title": "Unconference it: DevRel Edition Shubhangi Gupta Organiser @ GDG Noida | Product and DevRel | Mental Health | Diversity and Inclusion 🏳️‍🌈 Chanchal Kuntal Co-founder & COO @PeerHire",
+              "id": 10,
+              "startTime": "14:30",
+              "endTime": "15:15",
+              "title": "Unconference it: DevRel Edition",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Shubhangi Gupta",
+                  "designation":"Organiser @GDG Noida"
+                },
+                {
+                  "name":"Chanchal Kuntal",
+                  "designation":"COO/Co-Founder @PeerHire"
+                }
+              ]
             },
             {
-              "id": 13,
-              "startTime": "15:45",
-              "endTime": "",
+              "id": 11,
+              "startTime": "15:20",
+              "endTime": "15:45",
               "title": "Closing",
               "description": "",
               "speakers": []

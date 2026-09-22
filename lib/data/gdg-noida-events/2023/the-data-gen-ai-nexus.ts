@@ -30,9 +30,9 @@ export const theDataGenAiNexus: EventsCatalog["the-data-gen-ai-nexus"] = {
       "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "5+",
+      "attendees": "83+",
+      "registered": "760+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,64 +48,81 @@ export const theDataGenAiNexus: EventsCatalog["the-data-gen-ai-nexus"] = {
           "sessions": [
             {
               "id": 1,
-              "startTime": "3",
-              "endTime": "",
-              "title": "Details Share",
+              "startTime": "11:00",
+              "endTime": "11:30",
+              "title": "Updates in AI from around the globe",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Shubhangi Gupta",
+                  "designation":"Organiser @ GDG Noida"
+                }
+              ]
             },
             {
               "id": 2,
               "startTime": "11:30",
-              "endTime": "",
-              "title": "Updates in AI from around the globe Shubhangi Gupta Organiser @ GDG Noida | Product and DevRel | Mental Health | Diversity and Inclusion 🏳️‍🌈",
+              "endTime": "11:50",
+              "title": "Designing Machine Learning Systems like a Pro",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":" Sumit Tyagi (tyagi.py)",
+                  "designation":"Lead Data Scientist @ Paytm"
+                }
+              ]
             },
             {
               "id": 3,
-              "startTime": "11:50",
-              "endTime": "",
-              "title": "Designing Machine Learning Systems like a Pro Sumit Tyagi (tyagi.py) Lead Data Scientist @ Paytm",
+              "startTime": "12:00",
+              "endTime": "12:35",
+              "title": "AI Workshop - OneAPI and Intel® Developer Cloud (IDC)",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":" Kazi Haque",
+                  "designation":"Co-founder Dynopii Inc. , Intel Software Innovator"
+                }
+              ]
             },
             {
               "id": 4,
-              "startTime": "12:35",
-              "endTime": "",
-              "title": "AI Workshop - OneAPI and Intel® Developer Cloud (IDC) Kazi Haque Co-founder Dynopii Inc. , Intel Software Innovator",
+              "startTime": "12:40",
+              "endTime": "14:00",
+              "title": "Building a Q&A Chatbot using Google PaLM 2 Model on Neo4j Database",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Siddhant Agarwal",
+                  "designation":"Dev Rel"
+                }
+              ]
             },
             {
               "id": 5,
-              "startTime": "14:00",
-              "endTime": "",
-              "title": "Building a Q&A Chatbot using Google PaLM 2 Model on Neo4j Database Siddhant Agarwal DevRel Guy | Ex-Google, Open, Beahead, IBM | ACM DSP | Google for Startups Accelerator Mentor",
+              "startTime": "14:45",
+              "endTime": "15:50",
+              "title": "Building a Q&A Chatbot using Google PaLM 2 Model on Neo4j Database",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Siddhant Agarwal",
+                  "designation":"Dev Rel"
+                }
+              ]
             },
             {
               "id": 6,
               "startTime": "15:50",
-              "endTime": "",
-              "title": "Building a Q&A Chatbot using Google PaLM 2 Model on Neo4j Database Siddhant Agarwal DevRel Guy | Ex-Google, Open, Beahead, IBM | ACM DSP | Google for Startups Accelerator Mentor",
+              "endTime": "16:20",
+              "title": "Q&A and Networking",
               "description": "",
               "speakers": []
             },
             {
               "id": 7,
               "startTime": "16:20",
-              "endTime": "",
-              "title": "Q&A and Networking",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 8,
-              "startTime": "16:30",
-              "endTime": "",
+              "endTime": "16:30",
               "title": "Closing",
               "description": "",
               "speakers": []

@@ -27,7 +27,7 @@ export const dataAndAiNexus50: EventsCatalog["data-and-ai-nexus-5-0"] = {
     },
     "about": {
       "heading": "About this event",
-      "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
+      "description": "We’re bringing you a hands-on workshop and a full day of practical AI building at Data & AI Nexus 7.0 🚀"
     },
     "uniqueStats": {
       "speakers": "4+",

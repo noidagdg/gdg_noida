@@ -30,9 +30,9 @@ export const ioExtendedNoida5c9dab9b95cc4028Acc23c06653b493f: EventsCatalog["io-
       "description": "This community-led event brings together developers, designers, and professionals to learn from each other, discover new ideas, and build meaningful connections in the local tech ecosystem."
     },
     "uniqueStats": {
-      "speakers": "7+",
-      "attendees": "153+",
-      "registered": "611+"
+      "speakers": "9+",
+      "attendees": "128+",
+      "registered": "1282+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -48,53 +48,80 @@ export const ioExtendedNoida5c9dab9b95cc4028Acc23c06653b493f: EventsCatalog["io-
           "sessions": [
             {
               "id": 1,
-              "startTime": "10:30",
-              "endTime": "",
+              "startTime": "10:00",
+              "endTime": "10:30",
               "title": "Important announcements",
               "description": "",
               "speakers": []
             },
             {
               "id": 2,
-              "startTime": "11:25",
-              "endTime": "",
-              "title": "Exploring Generative AI through the lens of Open source Aparna Soneja Full Stack AI Engineer Gen ai",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 3,
-              "startTime": "11:55",
-              "endTime": "",
-              "title": "Game Alchemy: Blending Art and Technology for Interactive Worlds Kushagra nagar Senior Game Developer / Game Designer Gaming",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 4,
-              "startTime": "12:25",
-              "endTime": "",
-              "title": "The Art of Making Communities Ritvi Mishra --",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 5,
-              "startTime": "14:00",
-              "endTime": "",
-              "title": "IO Connect & Community Experiences",
-              "description": "",
-              "speakers": []
-            },
-            {
-              "id": 6,
-              "startTime": "14:25",
-              "endTime": "",
-              "title": "Empowering Android Apps with On-Device Machine Learning pankaj.rai16 --",
+              "startTime": "11:00",
+              "endTime": "11:25",
+              "title": "Exploring Generative AI through the lens of Open source",
               "description": "",
               "speakers": [
                 {
-                  "name": "On-Device Machine Learning pankaj.rai",
+                  "name":"Aparna Soneja",
+                  "designation":"Full Stack AI Engineer"
+                }
+              ]
+            },
+            {
+              "id": 3,
+              "startTime": "11:30",
+              "endTime": "11:55",
+              "title": "Game Alchemy: Blending Art and Technology for Interactive Worlds",
+              "description": "",
+              "speakers": [
+                {
+                  "name":" Kushagra Nagar",
+                  "designation":"Senior Game Developer / Game Designer"
+                }
+              ]
+            },
+            {
+              "id": 4,
+              "startTime": "12:00",
+              "endTime": "12:25",
+              "title": "The Art of Making Communities",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Ritvi Mishra"
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "startTime": "13:30",
+              "endTime": "14:00",
+              "title": "IO Connect & Community Experiences",
+              "description": "",
+              "speakers": [
+                {
+                  "name":"Shubhangi Gupta",
+                  "designation":"Organiser @GDG Noida"
+                },
+                {
+                  "name":"Vanshita Singh",
+                  "designation":"Product Designer-2 @Spinny | Co-Organiser @GDG Noida"
+                },
+                {
+                  "name":"Aryendra Prakash Singh",
+                  "designation":"Co-Organiser @GDG Noida"
+                }
+              ]
+            },
+            {
+              "id": 6,
+              "startTime": "14:00",
+              "endTime": "14:25",
+              "title": "Empowering Android Apps with On-Device Machine Learning",
+              "description": "",
+              "speakers": [
+                {
+                  "name": "Pankaj Rai",
                   "designation": "",
                   "avatar": "",
                   "company": ""
@@ -103,19 +130,29 @@ export const ioExtendedNoida5c9dab9b95cc4028Acc23c06653b493f: EventsCatalog["io-
             },
             {
               "id": 7,
-              "startTime": "14:55",
-              "endTime": "",
-              "title": "Mind Over Product: Building a Product Mindset Aman Soni Product Manager",
+              "startTime": "14:30",
+              "endTime": "14:55",
+              "title": "Mind Over Product: Building a Product Mindset",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Aman Soni",
+                  "designation":"Product Manager"
+                }
+              ]
             },
             {
               "id": 8,
               "startTime": "15:25",
               "endTime": "",
-              "title": "From Frontend Developer to Developer Advocate! swastika yadav Developer Relations Engineer",
+              "title": "From Frontend Developer to Developer Advocate!",
               "description": "",
-              "speakers": []
+              "speakers": [
+                {
+                  "name":"Swastika Yadav",
+                  "designation":"Developer Relations Engineer"
+                }
+              ]
             }
           ]
         }
