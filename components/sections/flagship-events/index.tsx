@@ -178,7 +178,6 @@ function CounterNumber({
     const steps = 60;
     const increment = numericValue / steps;
     let currentStep = 0;
-    let plusTimer: ReturnType<typeof setTimeout> | undefined;
 
     const timer = setInterval(() => {
       currentStep++;
@@ -187,14 +186,11 @@ function CounterNumber({
       } else {
         setCount(numericValue);
         clearInterval(timer);
-        if (hasPlus) plusTimer = setTimeout(() => setShowPlus(true), 100);
+        if (hasPlus) setTimeout(() => setShowPlus(true), 100);
       }
     }, duration / steps);
 
-    return () => {
-      clearInterval(timer);
-      if (plusTimer) clearTimeout(plusTimer);
-    };
+    return () => clearInterval(timer);
   }, [numericValue, hasPlus, run]);
 
   return (
@@ -216,20 +212,11 @@ export default function FlagshipEvents() {
   const [currentSet, setCurrentSet] = useState(0);
   const [direction, setDirection] = useState(0);
   const [inView, setInView] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
   // Bumped on every resume so the countdown bar replays in step with the timer.
   const [runId, setRunId] = useState(0);
 
   // Being on screen is the only gate — hovering the cards does not hold it.
-  const running = inView && isDesktop;
-
-  useEffect(() => {
-    const query = window.matchMedia("(min-width: 1024px) and (prefers-reduced-motion: no-preference)");
-    const update = () => setIsDesktop(query.matches);
-    update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
-  }, []);
+  const running = inView;
 
   // Hold the carousel until the section is on screen — otherwise a visitor who
   // scrolls down here lands on whichever set the clock happened to reach.
@@ -250,6 +237,12 @@ export default function FlagshipEvents() {
   const goTo = useCallback((index: number, newDirection: number) => {
     setDirection(newDirection);
     setCurrentSet(index);
+    setRunId((n) => n + 1);
+  }, []);
+
+  const paginate = useCallback((newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentSet((prev) => (prev + newDirection + eventSets.length) % eventSets.length);
     setRunId((n) => n + 1);
   }, []);
 
@@ -293,6 +286,9 @@ export default function FlagshipEvents() {
     }),
   };
 
+  const swipeConfidenceThreshold = 10000;
+  const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity;
+
   const activeSet = eventSets[currentSet];
 
   return (
@@ -318,6 +314,14 @@ export default function FlagshipEvents() {
               initial="enter"
               animate={carouselInView ? "center" : "enter"}
               exit="exit"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x);
+                if (swipe < -swipeConfidenceThreshold) paginate(1);
+                else if (swipe > swipeConfidenceThreshold) paginate(-1);
+              }}
             >
               <div className="block lg:flex lg:flex-row lg:items-start lg:justify-center lg:gap-16 xl:gap-24">
                 {activeSet.cards.map((event, index) => {
@@ -347,10 +351,11 @@ export default function FlagshipEvents() {
                         "after:shadow-[0_18px_40px_-16px_rgba(16,24,40,0.30)]",
                         "after:opacity-0 after:transition-opacity after:duration-400 after:ease-out",
                         "lg:hover:after:opacity-100",
-                        index === 0 ? "mt-0" : "mt-6 lg:mt-0",
+                        index === 0 ? "mt-0" : "mt-[25vh] lg:mt-0",
                         marginTopClass,
                         `lg:z-auto ${zIndexClass}`,
-                        "static",
+                        // Sticky stacking on mobile, plain row on desktop.
+                        "sticky top-[20vh] lg:static",
                       )}
                     >
                       {/* Event Logo */}

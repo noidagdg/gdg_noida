@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from "@/components/sections/navbar";
+import Loader from "@/components/Loader";
 import HeroSection from "@/components/HeroSection";
 import FlagshipEvents from "@/components/sections/flagship-events";
 import UpcomingEvents from "@/components/sections/upcoming-events";
@@ -13,34 +14,29 @@ import Testimonials from "@/components/sections/Testimonials";
 import Marquee from "@/components/sections/marquee";
 import WhoWeAre from "@/components/sections/who-we-are";
 import { SecretDialog } from "@/components/ui/secret-dialog";
-import { useLenis } from "lenis/react";
-import { smoothScrollTo } from "@/lib/scroll-to";
 
 export default function Home() {
   const [isSecretDialogOpen, setIsSecretDialogOpen] = useState(false);
-  const lenis = useLenis();
+  const [loaderDone, setLoaderDone] = useState(false);
 
   useEffect(() => {
-    const targetId = window.location.hash.slice(1);
-    if (!targetId) return;
-
-    const frame = window.requestAnimationFrame(() => {
-      const target = document.getElementById(targetId);
-      if (target) smoothScrollTo(lenis, target, -100);
-    });
-
-    return () => window.cancelAnimationFrame(frame);
-  }, [lenis]);
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen">
+      <Loader onComplete={() => setLoaderDone(true)} />
+
       {/* Navbar will rely on data-navbar-theme attributes attached to sections below */}
       <Navbar onSecretUnlocked={() => setIsSecretDialogOpen(true)} />
 
       <main>
         {/* Light theme for Hero */}
         <section data-navbar-theme="light">
-          <HeroSection />
+          <HeroSection heroReady={loaderDone} />
         </section>
 
         {/* Light theme for all other sections */}

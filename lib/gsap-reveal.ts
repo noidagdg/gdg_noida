@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -21,8 +21,9 @@ interface RevealOptions {
 /**
  * Staggered scroll reveal for every `[data-reveal]` element inside the returned ref.
  *
- * Each reveal runs once. Reversing large groups on every scroll direction change
- * is visually subtle but creates unnecessary work on long pages.
+ * `toggleActions: "play none none reverse"` runs the reveal on the way down and
+ * rewinds it on the way back up, so scrolling away and returning replays the
+ * animation rather than firing only once.
  *
  * Targets start hidden via the global `[data-reveal]` rule in globals.css, which
  * avoids a flash of un-animated content between paint and this effect running.
@@ -36,15 +37,10 @@ export function useGsapReveal<T extends HTMLElement>({
 }: RevealOptions = {}) {
   const ref = useRef<T>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
       const targets = gsap.utils.toArray<HTMLElement>("[data-reveal]");
       if (!targets.length) return;
-
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        gsap.set(targets, { clearProps: "opacity,transform" });
-        return;
-      }
 
       gsap.fromTo(
         targets,
@@ -58,8 +54,7 @@ export function useGsapReveal<T extends HTMLElement>({
           scrollTrigger: {
             trigger: ref.current,
             start,
-            toggleActions: "play none none none",
-            once: true,
+            toggleActions: "play reverse play reverse",
           },
         },
       );

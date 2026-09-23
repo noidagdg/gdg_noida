@@ -154,6 +154,7 @@ export default function WhoWeAre({ className }: WhoWeAreProps) {
               aspect="aspect-[468/437]"
               delay={0.55}
               sizes={SIZES_FULL}
+              priority
             />
 
             <Tile

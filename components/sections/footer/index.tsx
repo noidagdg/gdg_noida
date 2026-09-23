@@ -72,9 +72,10 @@ function Footer() {
       return;
     }
 
-    // Let the destination route own the scroll once its target exists. A fixed
-    // delay here previously left stale callbacks running after later navigation.
-    router.push(hash ? `/#${hash}` : '/');
+    // Not on home page, navigate home first
+    router.push('/');
+    // Wait for navigation and page load, then scroll
+    setTimeout(scrollToHash, 1500); // Wait for home page animations to show
   };
 
   return (

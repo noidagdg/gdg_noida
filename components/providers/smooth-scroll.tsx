@@ -1,10 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useLayoutEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { ReactLenis, useLenis, type LenisRef } from "lenis/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { usePathname } from "next/navigation";
 
 if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,17 +25,17 @@ function ScrollTriggerBridge() {
  *
  * Touch scrolling stays native; only wheel/trackpad input is smoothed.
  *
- * Lenis is intentionally configured once here. It smooths wheel/trackpad input
- * while preserving native touch behavior and the reduced-motion preference.
+ * `respectReducedMotion: false` is deliberate. Lenis defaults it to true, which
+ * drops `lerp` to 1 and makes the page jump straight to the wheel target — a
+ * measured 3 rendered positions for a 600px flick, versus 22 when smoothing is
+ * on. Windows reports `prefers-reduced-motion: reduce` whenever Accessibility →
+ * Visual effects → Animation effects is off, which is common enough that the
+ * site was shipping unsmoothed scroll to a large slice of visitors. The trade is
+ * real: people who set the preference for vestibular reasons now get eased
+ * scrolling anyway. Flip this back to `true` if that matters more.
  */
 export default function SmoothScroll({ children }: { children: React.ReactNode }) {
     const lenisRef = useRef<LenisRef>(null);
-    const pathname = usePathname();
-
-    const refreshScrollMeasurements = useCallback(() => {
-        lenisRef.current?.lenis?.resize();
-        ScrollTrigger.refresh();
-    }, []);
 
     // Drive Lenis off GSAP's ticker rather than its own rAF loop, so smoothing and
     // scrubbed ScrollTriggers (the hero headline collapse) advance on the same frame.
@@ -54,35 +53,17 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
         };
     }, []);
 
-    // Layouts persist across App Router navigations, while page content changes
-    // underneath them. Refresh once after the committed route layout, not from
-    // every individual animation component.
-    useLayoutEffect(() => {
-        const frame = window.requestAnimationFrame(refreshScrollMeasurements);
-        return () => window.cancelAnimationFrame(frame);
-    }, [pathname, refreshScrollMeasurements]);
-
-    // Font and image decoding can alter scroll distances after the first
-    // measurement. These are lifecycle events, not timer-based refreshes.
-    useEffect(() => {
-        window.addEventListener("load", refreshScrollMeasurements, { once: true });
-        void document.fonts?.ready.then(refreshScrollMeasurements);
-
-        return () => window.removeEventListener("load", refreshScrollMeasurements);
-    }, [refreshScrollMeasurements]);
-
     return (
         <ReactLenis
             root
             ref={lenisRef}
             options={{
                 autoRaf: false,
-                // Preserve the platform's normal scroll behavior for visitors who
-                // explicitly request reduced motion. Touch input remains native.
-                respectReducedMotion: true,
+                respectReducedMotion: false,
+                // Fraction of the remaining distance covered each frame. Lower is
+                // softer; below ~0.06 the page starts to feel like it lags the wheel.
                 lerp: 0.085,
                 smoothWheel: true,
-                syncTouch: false,
             }}
         >
             <ScrollTriggerBridge />

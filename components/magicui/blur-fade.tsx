@@ -1,6 +1,6 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { cn } from "@/lib/utils";
@@ -17,13 +17,15 @@ interface BlurFadeProps {
   yOffset?: number;
   inView?: boolean;
   inViewMargin?: string;
+  blur?: string;
 }
 
 /**
  * Scroll reveal driven by GSAP + ScrollTrigger.
  *
- * This is intentionally a one-time transform/opacity reveal. It avoids filter
- * animation and repeat work while someone scrolls back and forth through a page.
+ * `toggleActions: "play none none reverse"` rewinds the reveal when it scrolls
+ * back out of view, so returning to a section replays it instead of it firing
+ * once for the lifetime of the page.
  */
 export default function BlurFade({
   children,
@@ -33,10 +35,11 @@ export default function BlurFade({
   yOffset = 6,
   inView = false,
   inViewMargin = "-120px",
+  blur = "6px",
 }: BlurFadeProps) {
   const ref = useRef<HTMLDivElement>(null);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
@@ -46,29 +49,25 @@ export default function BlurFade({
     const start = `top bottom${margin <= 0 ? "-=" : "+="}${Math.abs(margin)}`;
 
     const ctx = gsap.context(() => {
-      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        gsap.set(el, { clearProps: "opacity,transform,filter" });
-        return;
-      }
-
       gsap.fromTo(
         el,
-        { y: yOffset, opacity: 0 },
+        { y: yOffset, opacity: 0, filter: `blur(${blur})` },
         {
           y: 0,
           opacity: 1,
+          filter: "blur(0px)",
           duration,
           delay: 0.04 + delay,
           ease: "power2.out",
           scrollTrigger: inView
-            ? { trigger: el, start, toggleActions: "play none none none", once: true }
+            ? { trigger: el, start, toggleActions: "play reverse play reverse" }
             : undefined,
         },
       );
     }, ref);
 
     return () => ctx.revert();
-  }, [duration, delay, yOffset, inView, inViewMargin]);
+  }, [duration, delay, yOffset, inView, inViewMargin, blur]);
 
   // Hidden up front so there is no flash before the effect runs; GSAP owns it
   // from mount onward. React will not rewrite this on re-render because the

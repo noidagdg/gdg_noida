@@ -54,8 +54,15 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
 
     // If not on home page and clicking a hash link, navigate to home first
     if (pathname !== "/") {
-      router.push(`/#${targetId}`);
+      router.push('/');
       setIsOpen(false);
+      // Wait for navigation and home page animations, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          smoothScrollTo(lenis, element, NAVBAR_OFFSET);
+        }
+      }, 1500); // Wait for home page animations to show
       return;
     }
 
