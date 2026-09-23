@@ -115,11 +115,20 @@ function Sponsors() {
 
   const [paused, setPaused] = useState(false)
   const [inView, setInView] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
   // Bumped on every resume so the timer effect below re-runs and starts a fresh
   // full interval, rather than resuming whatever was left of the previous one.
   const [runId, setRunId] = useState(0)
 
-  const running = inView && !paused
+  const running = inView && !paused && isDesktop
+
+  useEffect(() => {
+    const query = window.matchMedia('(min-width: 1024px) and (prefers-reduced-motion: no-preference)')
+    const update = () => setIsDesktop(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [])
 
   const goTo = useCallback((index: number) => {
     setActiveIndex(((index % sponsors.length) + sponsors.length) % sponsors.length)
@@ -167,13 +176,13 @@ function Sponsors() {
   useEffect(() => {
     const tab = tabRefs.current[activeIndex]
     const rail = railRef.current
-    if (!tab || !rail || window.matchMedia('(min-width: 1024px)').matches) return
+    if (!tab || !rail || isDesktop) return
 
     rail.scrollTo({
       left: tab.offsetLeft - rail.clientWidth / 2 + tab.clientWidth / 2,
       behavior: 'smooth',
     })
-  }, [activeIndex])
+  }, [activeIndex, isDesktop])
 
   const handleTabKeyDown = (event: React.KeyboardEvent) => {
     const isDesktop = window.matchMedia('(min-width: 1024px)').matches
@@ -230,7 +239,7 @@ function Sponsors() {
                 if (e.target instanceof Element && e.target.matches(':focus-visible')) setPaused(true)
               }}
               onBlurCapture={() => resume()}
-              className="no-scrollbar flex w-full gap-3 overflow-x-auto scroll-smooth lg:h-full lg:flex-col lg:gap-4 lg:overflow-x-visible"
+              className="no-scrollbar flex w-full gap-3 overflow-x-auto lg:h-full lg:flex-col lg:gap-4 lg:overflow-x-visible"
             >
               {sponsors.map((sponsor, index) => {
                 const isActive = index === activeIndex
