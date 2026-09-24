@@ -20,8 +20,8 @@ export default function AttendeeStats({
     about,
 }: AttendeeStatsProps) {
     return (
-        <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
-            <div className="relative overflow-hidden rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
+        <section className="w-full px-4 pt-6 sm:px-6 sm:pt-8 lg:px-10">
+            <div className="relative mx-auto max-w-[1400px] overflow-hidden rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
                 {/* Header */}
                 <div className="relative z-10 mb-6 text-center sm:mb-8">
                     <h2

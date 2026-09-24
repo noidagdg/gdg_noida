@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { Suspense, useMemo } from "react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { eventsByYear } from "@/lib/data/gdg-noida-events";
 import { getEventUniqueStats } from "@/lib/data/event-stats";
@@ -10,7 +11,20 @@ import EventCoverImage from "./event-cover-image";
 const YEARS = [2026, 2025, 2024, 2023, 2022] as const;
 
 export default function EventsPage() {
-    const [selectedYear, setSelectedYear] = useState<number>(2026);
+    return (
+        <Suspense fallback={null}>
+            <EventsPageContent />
+        </Suspense>
+    );
+}
+
+function EventsPageContent() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const requestedYear = Number(searchParams.get("year"));
+    const selectedYear = YEARS.includes(requestedYear as (typeof YEARS)[number])
+        ? requestedYear
+        : YEARS[0];
 
     // Events for the selected year, newest first.
     const yearEvents = useMemo(() => {
@@ -21,12 +35,12 @@ export default function EventsPage() {
 
     // Handle year selection
     const handleYearChange = (year: number) => {
-        setSelectedYear(year);
+        router.push(`/events?year=${year}`);
     };
 
     return (
         <main className="min-h-screen bg-[#f8f9fa] pt-24 sm:pt-28 md:pt-32">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
                 <section className="mb-8 rounded-3xl border border-[#dadce0] bg-white px-5 py-7 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:px-8 sm:py-9 lg:px-10">
                     <header>
                         <div className="max-w-3xl">
@@ -73,7 +87,7 @@ export default function EventsPage() {
             </div>
 
             {/* Main Event Cards Grid */}
-            <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-[1480px] px-4 pb-20 sm:px-6 lg:px-10">
                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
                     {yearEvents.map((ev) => {
                         const isUpcoming = ev.status?.toLowerCase() === "upcoming";
@@ -92,7 +106,7 @@ export default function EventsPage() {
                             >
                                 {/* Main Card Image Banner - click directs to event page */}
                                 <Link
-                                    href={`/events/${ev.id}`}
+                                    href={`/events/${ev.id}?year=${selectedYear}`}
                                     aria-label={`View ${ev.title} event details`}
                                     className="relative block aspect-[16/10] w-full overflow-hidden bg-[#f8f9fa] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1a73e8]"
                                 >
@@ -152,7 +166,7 @@ export default function EventsPage() {
                                         </div>
 
                                         {/* Title - clickable to event page */}
-                                        <Link href={`/events/${ev.id}`} className="block focus-visible:outline-none focus-visible:underline focus-visible:decoration-2 focus-visible:underline-offset-4">
+                                        <Link href={`/events/${ev.id}?year=${selectedYear}`} className="block focus-visible:outline-none focus-visible:underline focus-visible:decoration-2 focus-visible:underline-offset-4">
                                             <h3
                                                 className="mb-1 text-xl font-bold leading-snug text-[#202124] transition-colors group-hover:text-[#1a73e8] sm:text-[22px]"
                                                 style={{ fontFamily: "'Product Sans', sans-serif" }}
@@ -238,7 +252,7 @@ export default function EventsPage() {
                                     {/* Action button: Directs user to event page */}
                                     <div className="mt-4 pt-3 border-t border-gray-100">
                                         <Link
-                                            href={`/events/${ev.id}`}
+                                            href={`/events/${ev.id}?year=${selectedYear}`}
                                             className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#1a73e8] px-4 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#174ea6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a73e8] focus-visible:ring-offset-2"
                                             style={{ fontFamily: "'Inter', sans-serif" }}
                                         >

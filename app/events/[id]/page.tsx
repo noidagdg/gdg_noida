@@ -9,7 +9,6 @@ import AttendeeStats from "@/components/sections/attendee-stats";
 import CommunityFeedback from "@/components/sections/community-feedback";
 import Agenda from "@/components/sections/agenda";
 import MomentsGallery from "@/components/sections/moments-gallery";
-import { galleryCategories } from "@/lib/content";
 import type { GalleryImage } from "@/lib/content";
 import type { Track } from "@/components/sections/agenda/data";
 import EventCoverImage from "../event-cover-image";
@@ -83,7 +82,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
                 id: typeof img.id === "number" ? img.id : idx + 1,
                 src: img.src,
                 alt: img.alt || event.title,
-                category: galleryCategories.find(({ id }) => id === img.category)?.id ?? "all",
+                category: "all",
                 aspectRatio: img.aspectRatio || 1,
             } satisfies GalleryImage));
         }
@@ -97,12 +96,12 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
     }, [event]);
 
     return (
-        <main className="min-h-screen bg-[#f8f9fa] pb-16 pt-24 sm:pt-28 md:pt-32">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <main className="min-h-screen bg-[#f8f9fa] pt-24 sm:pt-28 md:pt-32">
+            <div className="mx-auto max-w-[1480px] px-4 sm:px-6 lg:px-10">
             {/* Top Navigation / Breadcrumb */}
             <div className="mb-5 sm:mb-6">
                 <Link
-                    href="/events"
+                    href={`/events?year=${eventYear}`}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-[#5f6368] hover:text-[#1a73e8] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a73e8] focus-visible:ring-offset-2 rounded-sm"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                 >
@@ -221,7 +220,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
             {/* Moments Gallery for events with gallery images in their data */}
             {galleryImages !== null && (
                 <MomentsGallery
-                    categories={galleryCategories}
+                    eventName={event.title}
                     images={galleryImages ?? undefined}
                 />
             )}

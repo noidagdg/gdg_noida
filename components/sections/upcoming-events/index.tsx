@@ -4,10 +4,27 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import BlurFade from "@/components/magicui/blur-fade";
 import EventCoverImage from "@/app/events/event-cover-image";
-import { eventsByYear } from "@/lib/data/gdg-noida-events";
+import { allEvents, type EventItem } from "@/lib/data/gdg-noida-events";
 
-const upcomingEventIds = ["devfest-noida-2026", "design-samvaad-2026"];
-const upcomingEvents = eventsByYear[2026].filter((event) => upcomingEventIds.includes(event.id));
+const getEventTimestamp = (event: EventItem) => {
+  const timestamp = Date.parse(event.dates?.isoDate || "");
+  return Number.isNaN(timestamp) ? Date.UTC(event.year, 0, 1) : timestamp;
+};
+
+const newestFirst = (events: EventItem[]) =>
+  [...events].sort((first, second) => getEventTimestamp(second) - getEventTimestamp(first));
+
+const upcomingEvents = newestFirst(
+  allEvents.filter((event) => event.status?.toLowerCase() === "upcoming"),
+).slice(0, 2);
+
+const completedEvents = newestFirst(
+  allEvents.filter((event) => event.status?.toLowerCase() === "completed"),
+).slice(0, 2);
+
+const showUpcomingEvents = upcomingEvents.length > 0;
+const displayedEvents = showUpcomingEvents ? upcomingEvents : completedEvents;
+
 const cardBackgrounds: Record<string, string> = {
   "devfest-noida-2026": "#E9F9EE",
   "design-samvaad-2026": "#FFF7E0",
@@ -25,20 +42,35 @@ export default function UpcomingEvents() {
         <div className="mb-12 text-center md:mb-16">
           <BlurFade delay={0.1} inView>
             <h2 className="text-3xl text-zinc-900 md:text-5xl lg:text-6xl">
-              Upcoming <span className="font-bold">Events</span>
+              {showUpcomingEvents ? "Upcoming" : "Recent"} <span className="font-bold">Events</span>
             </h2>
           </BlurFade>
           <BlurFade delay={0.2} inView>
             <p className="mt-4 text-base text-zinc-600 md:text-lg">
-              Exciting experiences on the horizon
+              {showUpcomingEvents
+                ? "Exciting experiences on the horizon"
+                : "A look at our latest community experiences"}
             </p>
           </BlurFade>
         </div>
 
         {/* Event Cards */}
-        <div className="mx-auto grid max-w-[1360px] gap-8 md:grid-cols-2 lg:gap-10">
-          {upcomingEvents.map((event, idx) => (
-            <BlurFade key={event.id} delay={0.3 + idx * 0.1} inView className="h-full">
+        <div
+          className={[
+            "mx-auto grid max-w-[1360px] gap-8 lg:gap-10",
+            displayedEvents.length === 1 ? "md:grid-cols-1" : "md:grid-cols-2",
+          ].join(" ")}
+        >
+          {displayedEvents.map((event, idx) => (
+            <BlurFade
+              key={event.id}
+              delay={0.3 + idx * 0.1}
+              inView
+              className={[
+                "h-full w-full",
+                displayedEvents.length === 1 ? "mx-auto max-w-[650px]" : "",
+              ].join(" ")}
+            >
               {/* The pastel is the card surface; the whole card is the link */}
               <Link
                 href={`/events/${event.id}`}

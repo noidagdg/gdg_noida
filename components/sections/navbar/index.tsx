@@ -191,7 +191,7 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className={cn(
                 "absolute top-full left-0 right-0 mt-3 mx-2 lg:hidden rounded-3xl",
-                "bg-white/55 dark:bg-black/45 backdrop-blur-2xl backdrop-saturate-[180%]",
+                "bg-white dark:bg-black",
                 GLASS_BORDER,
                 "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.65),0_18px_44px_-14px_rgba(16,24,40,0.34)]",
                 "overflow-hidden"

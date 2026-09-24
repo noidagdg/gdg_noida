@@ -97,10 +97,10 @@ function Footer() {
         className="pointer-events-none absolute -top-32 left-1/2 h-64 w-[min(900px,90%)] -translate-x-1/2 rounded-full bg-[#4285F4]/10 blur-[120px]"
       />
 
-      <div className="relative mx-auto px-4 pt-12 pb-6 sm:px-8 md:px-16 md:pt-16 lg:px-24 xl:px-32">
-        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
+      <div className="relative mx-auto w-full max-w-[1400px] px-5 pt-10 pb-8 sm:px-8 md:px-16 md:pt-16 lg:max-w-none lg:px-24 xl:px-32">
+        <div className="grid gap-8 lg:grid-cols-[1.4fr_1fr] lg:gap-20">
           {/* Brand */}
-          <div className="flex flex-col items-start gap-5">
+          <div className="flex flex-col items-center gap-4 text-center lg:items-start lg:gap-5 lg:text-left">
             <Image
               data-reveal
               src="/assets/gdg_logo.svg"
@@ -115,7 +115,7 @@ function Footer() {
             </p>
 
             {/* CTA and socials share a row so the brand column stays short */}
-            <div data-reveal className="flex flex-wrap items-center gap-x-5 gap-y-4">
+            <div data-reveal className="flex flex-wrap items-center justify-center gap-x-5 gap-y-4 lg:justify-start">
               <a
                 href="https://www.commudle.com/communities/gdg-noida"
                 target="_blank"
@@ -146,8 +146,8 @@ function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid grid-cols-2 gap-8 sm:gap-12">
-            <div data-reveal className="flex flex-col gap-4">
+          <div className="grid w-full grid-cols-2 gap-8 sm:gap-12">
+            <div data-reveal className="flex flex-col items-center gap-3 text-center lg:items-start lg:gap-4 lg:text-left">
               <h3 className="text-xs font-semibold tracking-[0.18em] text-white/35 uppercase">
                 About
               </h3>
@@ -165,7 +165,7 @@ function Footer() {
               </div>
             </div>
 
-            <div data-reveal className="flex flex-col gap-4">
+            <div data-reveal className="flex flex-col items-center gap-3 text-center lg:items-start lg:gap-4 lg:text-left">
               <h3 className="text-xs font-semibold tracking-[0.18em] text-white/35 uppercase">
                 Resources
               </h3>
@@ -186,14 +186,14 @@ function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div data-reveal className="mt-10 border-t border-white/10 pt-5 md:mt-12">
-          <div className="flex flex-col-reverse items-center gap-4 md:flex-row md:justify-between">
-            <div className="flex items-center gap-1 text-sm text-white/40">
+        <div data-reveal className="mt-8 border-t border-white/10 pt-6 md:mt-12 md:pt-5">
+          <div className="flex flex-col items-center gap-5 md:flex-row md:justify-between">
+            <div className="order-2 flex items-center gap-1 text-center text-sm text-white/40 md:order-none">
               <span className="text-[15px] leading-none mb-[1px]" style={{ fontFamily: 'system-ui, sans-serif' }}>&copy;</span>
               <span>GDG Noida. All rights reserved.</span>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+            <div className="order-1 flex max-w-[320px] flex-wrap items-center justify-center gap-x-6 gap-y-3 md:order-none md:max-w-none">
               {LEGAL_LINKS.map(({ label, href }) => (
                 <Link
                   key={label}

@@ -1,73 +1,37 @@
 "use client";
 
-import { useState, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import type { GalleryCategory, GalleryCategoryId, GalleryImage } from "@/lib/content";
+import type { GalleryImage } from "@/lib/content";
 
 // ─── Props ──────────────────────────────────────────────────────────────────
 
 interface MomentsGalleryProps {
-  categories?: GalleryCategory[];
+  eventName: string;
   images?: GalleryImage[];
 }
 
 // ─── Component ──────────────────────────────────────────────────────────────
 
 export default function MomentsGallery({
-  categories = [],
+  eventName,
   images = [],
 }: MomentsGalleryProps) {
-  const [activeCategory, setActiveCategory] = useState<GalleryCategoryId>("all");
-
-  const visibleImages = useMemo(() => {
-    const galleryImages = images.slice(0, 8);
-    if (activeCategory === "all") return galleryImages;
-    return galleryImages.filter((img) => img.category === activeCategory);
-  }, [activeCategory, images]);
+  const visibleImages = images.slice(0, 8);
 
   if (images.length === 0) return null;
 
   return (
-    <section className="w-full bg-white px-4 sm:px-6 lg:px-10 py-16 md:py-20 overflow-hidden">
+    <section className="w-full overflow-hidden bg-[#f8f9fa] px-4 pt-6 sm:px-6 sm:pt-8 lg:px-10">
       <div className="mx-auto w-full max-w-[1400px] rounded-3xl border border-[#dadce0] bg-[#f8f9fa] p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-8">
         {/* ── Heading ──────────────────────────────────────────────── */}
         <h2
           className="mb-8 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-black"
           style={{ fontFamily: "'Product Sans', sans-serif" }}
         >
-          <span className="font-bold">Moments</span> <span className="font-normal">from DevFest</span>
+          <span className="font-bold">Moments</span>{" "}
+          <span className="font-normal">from {eventName}</span>
         </h2>
-
-        {/* ── Filter Tabs ──────────────────────────────────────────── */}
-        <div className="mb-10 flex justify-center">
-          <div
-            className="flex gap-2 sm:gap-3 overflow-x-auto no-scrollbar px-1 py-1"
-            aria-label="Gallery category filter"
-          >
-            {categories.map((cat) => {
-              const isActive = cat.id === activeCategory;
-              return (
-                <button
-                  key={cat.id}
-                  type="button"
-                  aria-pressed={isActive}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={[
-                    "shrink-0 px-5 sm:px-6 py-2.5 rounded-lg text-sm sm:text-base font-semibold transition-all duration-200",
-                    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4285F4] focus-visible:ring-offset-2",
-                    isActive
-                      ? "bg-[#4285F4] text-white shadow-md"
-                      : "bg-[#F0F0F1] text-[#4B5563] hover:bg-[#E5E5E6]",
-                  ].join(" ")}
-                  style={{ fontFamily: "'Product Sans', sans-serif" }}
-                >
-                  {cat.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
 
         {/* ── Responsive eight-item grid ───────────────────────────── */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-5">
