@@ -151,15 +151,15 @@ export const journeyIntoOpenSource: EventsCatalog["journey-into-open-source"] = 
         },
         {
           "id": 4,
-          "src": "/Images/2025/data-&-genai-6/1.JPG",
-          "alt": "Data and GenAI 6 2025 1",
+          "src": "/Images/2025/data-&-genai-6/3.JPG",
+          "alt": "Data and GenAI 6 2025 3",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 5,
-          "src": "/Images/2025/data-&-genai-6/7.JPG",
-          "alt": "Data and GenAI 6 2025 7",
+          "src": "/Images/2025/data-&-genai-6/9.JPG",
+          "alt": "Data and GenAI 6 2025 9",
           "category": "talks",
           "aspectRatio": 1
         },

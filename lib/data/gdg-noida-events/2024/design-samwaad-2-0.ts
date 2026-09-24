@@ -168,7 +168,16 @@ export const designSamwaad20: EventsCatalog["design-samwaad-2-0"] = {
           "label": "All"
         }
       ],
-      "images": []
+      "images": [
+        { "id": 1, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/1.JPG", "alt": "Design Samvaad 2024 1", "category": "all", "aspectRatio": 1 },
+        { "id": 2, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/2.JPG", "alt": "Design Samvaad 2024 2", "category": "all", "aspectRatio": 1 },
+        { "id": 3, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/3.JPG", "alt": "Design Samvaad 2024 3", "category": "all", "aspectRatio": 1 },
+        { "id": 4, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/4.JPG", "alt": "Design Samvaad 2024 4", "category": "all", "aspectRatio": 1 },
+        { "id": 5, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/5.JPG", "alt": "Design Samvaad 2024 5", "category": "all", "aspectRatio": 1 },
+        { "id": 6, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/6.JPG", "alt": "Design Samvaad 2024 6", "category": "all", "aspectRatio": 1 },
+        { "id": 7, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/7.JPG", "alt": "Design Samvaad 2024 7", "category": "all", "aspectRatio": 1 },
+        { "id": 8, "src": "/Images/2024/design-samvaad%202024/design-samvaad%202024/8.JPG", "alt": "Design Samvaad 2024 8", "category": "all", "aspectRatio": 1 }
+      ]
     }
   }
 };

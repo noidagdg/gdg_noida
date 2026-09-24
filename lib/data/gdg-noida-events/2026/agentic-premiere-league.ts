@@ -109,8 +109,8 @@ export const agenticPremiereLeague: EventsCatalog["agentic-premiere-league"] = {
       "images": [
         {
           "id": 1,
-          "src": "/Images/2026/agentic-premier-league/3.JPG",
-          "alt": "Design Samvaad 2026 3",
+          "src": "/Images/2026/agentic-premier-league/14.JPG",
+          "alt": "Design Samvaad 2026 14",
           "category": "talks",
           "aspectRatio": 1
         },
@@ -123,8 +123,8 @@ export const agenticPremiereLeague: EventsCatalog["agentic-premiere-league"] = {
         },
         {
           "id": 3,
-          "src": "/Images/2026/agentic-premier-league/1.JPG",
-          "alt": "Design Samvaad 2026 1",
+          "src": "/Images/2026/agentic-premier-league/8.JPG",
+          "alt": "Design Samvaad 2026 8",
           "category": "networking",
           "aspectRatio": 1
         },

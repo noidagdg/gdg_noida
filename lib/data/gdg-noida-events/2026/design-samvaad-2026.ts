@@ -43,7 +43,7 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
       "tracks": [
         {
           "id": "main-track",
-          "name": "Main Track (MTV)",
+          "name": "Main Track",
           "color": "#4285F4",
           "sessions": [
             {
@@ -182,7 +182,7 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
         },
         {
           "id": "workshop-track",
-          "name": "Workshop Track (NYC)",
+          "name": "Workshop Track",
           "color": "#4285F4",
           "sessions": [
             {
@@ -255,15 +255,15 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
       "images": [
         {
           "id": 1,
-          "src": "/Images/2026/design-samvaad/11.jpg",
-          "alt": "Design Samvaad 2026 11",
+          "src": "/Images/2026/design-samvaad/17.JPG",
+          "alt": "Design Samvaad 2026 17",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 2,
-          "src": "/Images/2026/design-samvaad/8.JPG",
-          "alt": "Design Samvaad 2026 8",
+          "src": "/Images/2026/design-samvaad/21.JPG",
+          "alt": "Design Samvaad 2026 21",
           "category": "talks",
           "aspectRatio": 1
         },
@@ -276,8 +276,8 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
         },
         {
           "id": 4,
-          "src": "/Images/2026/design-samvaad/5.JPG",
-          "alt": "Design Samvaad 2026 5",
+          "src": "/Images/2026/design-samvaad/9.JPG",
+          "alt": "Design Samvaad 2026 9",
           "category": "talks",
           "aspectRatio": 1
         },
@@ -297,8 +297,8 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
         },
         {
           "id": 7,
-          "src": "/Images/2026/design-samvaad/19.JPG",
-          "alt": "Design Samvaad 2026 19",
+          "src": "/Images/2026/design-samvaad/8.JPG",
+          "alt": "Design Samvaad 2026 8",
           "category": "talks",
           "aspectRatio": 1
         },

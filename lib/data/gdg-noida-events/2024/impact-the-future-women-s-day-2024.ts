@@ -203,56 +203,56 @@ export const impactTheFutureWomenSDay2024: EventsCatalog["impact-the-future-wome
             "images": [
         {
           "id": 1,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_2536.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_2536.jpg",
           "alt": "Impact the Future Women's Day 2024 1",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 2,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5488.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5488.jpg",
           "alt": "Impact the Future Women's Day 2024 2",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 3,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5502.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5502.jpg",
           "alt": "Impact the Future Women's Day 2024 3",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 4,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5504.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5504.jpg",
           "alt": "Impact the Future Women's Day 2024 4",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 5,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5518.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5518.jpg",
           "alt": "Impact the Future Women's Day 2024 5",
           "category": "workshops",
           "aspectRatio": 1
         },
         {
           "id": 6,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5527.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5527.jpg",
           "alt": "Impact the Future Women's Day 2024 6",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 7,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5528.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5528.jpg",
           "alt": "Impact the Future Women's Day 2024 7",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 8,
-          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5540.HEIC",
+          "src": "/Images/2024/Impact the Future Women's Day 2024/IMG_5540.jpg",
           "alt": "Impact the Future Women's Day 2024 8",
           "category": "workshops",
           "aspectRatio": 1

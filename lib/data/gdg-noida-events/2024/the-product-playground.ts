@@ -199,42 +199,42 @@ export const theProductPlayground: EventsCatalog["the-product-playground"] = {
         },
         {
           "id": 3,
-          "src": "/Images/2024/The Product Playground/IMG_4077.HEIC",
+          "src": "/Images/2024/The Product Playground/IMG_4077.jpg",
           "alt": "The Product Playground 2024 3",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 4,
-          "src": "/Images/2024/The Product Playground/IMG_6741.HEIC",
+          "src": "/Images/2024/The Product Playground/IMG_6741-compatible.jpg",
           "alt": "The Product Playground 2024 4",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 5,
-          "src": "/Images/2024/The Product Playground/IMG_6745.HEIC",
+          "src": "/Images/2024/The Product Playground/IMG_6745.jpg",
           "alt": "The Product Playground 2024 5",
           "category": "workshops",
           "aspectRatio": 1
         },
         {
           "id": 6,
-          "src": "/Images/2024/The Product Playground/IMG_6905.HEIC",
+          "src": "/Images/2024/The Product Playground/IMG_6905.jpg",
           "alt": "The Product Playground 2024 6",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 7,
-          "src": "/Images/2024/The Product Playground/IMG_6912.HEIC",
+          "src": "/Images/2024/The Product Playground/IMG_6912.jpg",
           "alt": "The Product Playground 2024 7",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 8,
-          "src": "/Images/2024/The Product Playground/IMG_6931.HEIC",
+          "src": "/Images/2024/The Product Playground/IMG_6931.jpg",
           "alt": "The Product Playground 2024 8",
           "category": "workshops",
           "aspectRatio": 1

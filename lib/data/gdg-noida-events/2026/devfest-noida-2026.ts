@@ -30,9 +30,9 @@ export const devfestNoida2026: EventsCatalog["devfest-noida-2026"] = {
       "description": "DevFest is the world’s largest community-led technology conference, hosted annually by Google Developer Groups (GDG) chapters globally.  These decentralized events bring together developers, students, and tech enthusiasts for full-day conferences featuring keynotes, hands-on workshops, codelabs, and networking sessions focused on Google technologies such as Android, Cloud, AI, and Web development."
     },
     "uniqueStats": {
-      "speakers": "TBA",
-      "attendees": "TBA",
-      "registered": "TBA"
+      "speakers": "--",
+      "attendees": "--",
+      "registered": "--"
     },
     "feedback": {
       "heading": "What attendees said",

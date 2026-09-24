@@ -252,7 +252,7 @@ export const theDataGenAiNexus110096fe1715452cAcc24d8936b385be: EventsCatalog["t
         },
         {
           "id": 8,
-          "src": "/Images/2024/Data and AI Nexus 2024/IMG_7343.JPG",
+          "src": "/Images/2024/Data and AI Nexus 2024/_DSC0066.JPG",
           "alt": "Data and Gen AI Nexus 2024 8",
           "category": "workshops",
           "aspectRatio": 1

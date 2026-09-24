@@ -198,8 +198,8 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
         },
         {
           "id": 4,
-          "src": "/Images/2026/found-and-fixed/4.JPG",
-          "alt": "found-and-fixed 2026 4",
+          "src": "/Images/2026/found-and-fixed/11.JPG",
+          "alt": "found-and-fixed 2026 11",
           "category": "talks",
           "aspectRatio": 1
         },

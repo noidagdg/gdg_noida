@@ -224,7 +224,7 @@ export const dataAndAiNexus40: EventsCatalog["data-and-ai-nexus-4-0"] = {
         },
         {
           "id": 8,
-          "src": "/Images/2024/Data and AI Nexus 2024/IMG_7343.JPG",
+          "src": "/Images/2024/Data and AI Nexus 2024/IMG_7400.JPG",
           "alt": "Data and AI Nexus 2024 8",
           "category": "workshops",
           "aspectRatio": 1

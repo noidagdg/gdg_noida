@@ -190,8 +190,8 @@ export const dataAndAiNexus70: EventsCatalog["data-and-ai-nexus-7-0"] = {
         },
         {
           "id": 3,
-          "src": "/Images/2026/data-and-genai/11.JPG",
-          "alt": "Data and Genai 2026 11",
+          "src": "/Images/2026/data-and-genai/13.JPG",
+          "alt": "Data and Genai 2026 13",
           "category": "talks",
           "aspectRatio": 1
         },

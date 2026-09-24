@@ -278,7 +278,16 @@ export const sns: EventsCatalog["sns"] = {
           label: "All",
         },
       ],
-      images: [],
+      images: [
+        { id: 1, src: "/Images/2026/sns/sns/1.JPG", alt: "Sketch n Ship with AI 1", category: "all", aspectRatio: 1 },
+        { id: 2, src: "/Images/2026/sns/sns/2.JPG", alt: "Sketch n Ship with AI 2", category: "all", aspectRatio: 1 },
+        { id: 3, src: "/Images/2026/sns/sns/3.JPG", alt: "Sketch n Ship with AI 3", category: "all", aspectRatio: 1 },
+        { id: 4, src: "/Images/2026/sns/sns/4.JPG", alt: "Sketch n Ship with AI 4", category: "all", aspectRatio: 1 },
+        { id: 5, src: "/Images/2026/sns/sns/5.JPG", alt: "Sketch n Ship with AI 5", category: "all", aspectRatio: 1 },
+        { id: 6, src: "/Images/2026/sns/sns/6.JPG", alt: "Sketch n Ship with AI 6", category: "all", aspectRatio: 1 },
+        { id: 7, src: "/Images/2026/sns/sns/7.JPG", alt: "Sketch n Ship with AI 7", category: "all", aspectRatio: 1 },
+        { id: 8, src: "/Images/2026/sns/sns/8.JPG", alt: "Sketch n Ship with AI 8", category: "all", aspectRatio: 1 },
+      ],
     },
     links: {
       community: "https://www.commudle.com/communities/gdg-noida",

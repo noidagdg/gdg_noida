@@ -202,29 +202,29 @@ export const designSamvaad: EventsCatalog["design-samvaad"] = {
       "images": [
         {
           "id": 1,
-          "src": "/Images/2025/design-samvaad/1.JPG",
-          "alt": "design samvaad 2025 1",
+          "src": "/Images/2025/design-samvaad/2.JPG",
+          "alt": "design samvaad 2025 2",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 2,
-          "src": "/Images/2025/design-samvaad/16.JPG",
-          "alt": "design samvaad 2025 16",
+          "src": "/Images/2025/design-samvaad/11.JPG",
+          "alt": "design samvaad 2025 11",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 3,
-          "src": "/Images/2025/design-samvaad/10.JPG",
-          "alt": "design samvaad 2025 10",
+          "src": "/Images/2025/design-samvaad/9.JPG",
+          "alt": "design samvaad 2025 9",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 4,
-          "src": "/Images/2025/design-samvaad/4.JPG",
-          "alt": "design samvaad 2025 4",
+          "src": "/Images/2025/design-samvaad/12.JPG",
+          "alt": "design samvaad 2025 12",
           "category": "talks",
           "aspectRatio": 1
         },
@@ -244,8 +244,8 @@ export const designSamvaad: EventsCatalog["design-samvaad"] = {
         },
         {
           "id": 7,
-          "src": "/Images/2025/design-samvaad/7.JPG",
-          "alt": "design samvaad 2025 7",
+          "src": "/Images/2025/design-samvaad/15.JPG",
+          "alt": "design samvaad 2025 15",
           "category": "talks",
           "aspectRatio": 1
         },

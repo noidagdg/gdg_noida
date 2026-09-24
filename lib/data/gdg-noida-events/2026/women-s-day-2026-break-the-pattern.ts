@@ -184,8 +184,8 @@ export const womenSDay2026BreakThePattern: EventsCatalog["women-s-day-2026-break
       "images": [
         {
           "id": 1,
-          "src": "/Images/2026/IWD/13.JPG",
-          "alt": "IWD 2026 13",
+          "src": "/Images/2026/IWD/2.JPG",
+          "alt": "IWD 2026 2",
           "category": "networking",
           "aspectRatio": 1
         },
@@ -212,22 +212,22 @@ export const womenSDay2026BreakThePattern: EventsCatalog["women-s-day-2026-break
         },
         {
           "id": 5,
-          "src": "/Images/2026/IWD/1.JPG",
-          "alt": "IWD 2026 1",
+          "src": "/Images/2026/IWD/12.JPG",
+          "alt": "IWD 2026 12",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 6,
-          "src": "/Images/2026/IWD/3.JPG",
-          "alt": "IWD 2026 3",
+          "src": "/Images/2026/IWD/13.JPG",
+          "alt": "IWD 2026 13",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 7,
-          "src": "/Images/2026/IWD/11.JPG",
-          "alt": "IWD 2026 11",
+          "src": "/Images/2026/IWD/6.JPG",
+          "alt": "IWD 2026 6",
           "category": "talks",
           "aspectRatio": 1
         },
