@@ -409,9 +409,14 @@ export default function FlagshipEvents() {
                       {/* Venue */}
                       <div className="mt-auto flex items-center justify-center gap-1.5 px-4 pt-2 pb-4 text-zinc-800 md:gap-2 md:pb-5 lg:pb-6">
                         <MapPin className="h-4 w-4 shrink-0 md:h-[18px] md:w-[18px]" />
-                        <span className="text-center text-sm leading-tight font-medium md:text-base">
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-center text-sm leading-tight font-medium md:text-base underline decoration-zinc-400/50 underline-offset-2 hover:text-[#EA4335] hover:decoration-[#EA4335] transition-colors"
+                        >
                           {event.venue}
-                        </span>
+                        </a>
                       </div>
                     </motion.div>
                   );

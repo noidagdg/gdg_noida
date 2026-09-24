@@ -153,7 +153,7 @@ export const dataAndAiNexus50: EventsCatalog["data-and-ai-nexus-5-0"] = {
       "images": [
         {
           "id": 1,
-          "src":"/Images/2025/data-&-genai-5/1.JPG",
+          "src": "/Images/2025/data-&-genai-5/1.JPG",
           "alt": "Data and GenAI 5 2025 1",
           "category": "talks",
           "aspectRatio": 1
@@ -188,79 +188,23 @@ export const dataAndAiNexus50: EventsCatalog["data-and-ai-nexus-5-0"] = {
         },
         {
           "id": 6,
-          "src": "/Images/2025/data-&-genai-5/2.JPG",
-          "alt": "Data and GenAI 5 2025 2",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 7,
-          "src": "/Images/2025/data-&-genai-5/11.JPG",
-          "alt": "Data and GenAI 5 2025 11",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 8,
           "src": "/Images/2025/data-&-genai-5/8.JPG",
           "alt": "Data and GenAI 5 2025 8",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 9,
-          "src": "/Images/2025/data-&-genai-5/9.jpg",
-          "alt": "Data and GenAI 5 2025 9",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
+          "id": 7,
           "src": "/Images/2025/data-&-genai-5/10.JPG",
           "alt": "Data and GenAI 5 2025 10",
           "category": "workshops",
           "aspectRatio": 1
         },
         {
-          "id": 11,
+          "id": 8,
           "src": "/Images/2025/data-&-genai-5/3.JPG",
           "alt": "Data and GenAI 5 2025 3",
           "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2025/data-&-genai-5/12.jpg",
-          "alt": "Data and GenAI 5 2025 12",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2025/data-&-genai-5/13.JPG",
-          "alt": "Data and GenAI 5 2025 13",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2025/data-&-genai-5/14.jpg",
-          "alt": "Data and GenAI 5 2025 14",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2025/data-&-genai-5/15.jpg",
-          "alt": "Data and GenAI 5 2025 15",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2025/data-&-genai-5/16.jpg",
-          "alt": "Data and GenAI 5 2025 16",
-          "category": "talks",
           "aspectRatio": 1
         }
       ]

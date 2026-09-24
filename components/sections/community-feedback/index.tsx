@@ -35,10 +35,10 @@ const feedbackColumns = [
 
 export default function CommunityFeedback() {
   return (
-    <section className="w-full bg-white px-6 py-20">
-      <div className="mx-auto max-w-7xl">
+    <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
+      <div className="rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
         {/* Section Heading */}
-        <h2 className="mb-12 text-center text-4xl font-normal tracking-tight text-black md:text-5xl lg:text-6xl">
+        <h2 className="mb-6 text-center text-2xl font-normal tracking-tight text-[#202124] sm:mb-8 sm:text-3xl md:text-4xl">
           Community <span className="font-bold">feedback</span>
         </h2>
 
@@ -49,7 +49,7 @@ export default function CommunityFeedback() {
               {column.map((feedback, feedbackIndex) => (
                 <div
                   key={feedbackIndex}
-                  className={`rounded-2xl px-6 py-7 ${
+                  className={`rounded-2xl border border-white/70 px-6 py-7 shadow-[0_1px_3px_rgba(60,64,67,0.08)] ${
                     columnIndex === 2 && feedbackIndex === 1
                       ? "md:mt-auto"
                       : ""

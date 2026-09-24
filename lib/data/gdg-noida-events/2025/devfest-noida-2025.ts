@@ -840,114 +840,58 @@ export const devfestNoida2025: EventsCatalog["devfest-noida-2025"] = {
       "images": [
         {
           "id": 1,
-          "src":"/Images/2025/devfest-25/1.jpg",
-          "alt": "DevFest Noida 2025 1",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 2,
-          "src": "/Images/2025/devfest-25/6.jpg",
-          "alt": "DevFest Noida 2025 6",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 3,
-          "src": "/Images/2025/devfest-25/11.jpg",
-          "alt": "DevFest Noida 2025 11",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 4,
-          "src": "/Images/2025/devfest-25/5.jpg",
-          "alt": "DevFest Noida 2025 5",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 5,
-          "src": "/Images/2025/devfest-25/4.JPG",
-          "alt": "DevFest Noida 2025 4",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 6,
-          "src": "/Images/2025/devfest-25/2.jpg",
-          "alt": "DevFest Noida 2025 2",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 7,
-          "src": "/Images/2025/devfest-25/7.jpg",
-          "alt": "DevFest Noida 2025 7",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 8,
-          "src": "/Images/2025/devfest-25/8.jpg",
-          "alt": "DevFest Noida 2025 8",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2025/devfest-25/9.jpg",
-          "alt": "DevFest Noida 2025 9",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2025/devfest-25/10.jpg",
-          "alt": "DevFest Noida 2025 10",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2025/devfest-25/3.jpg",
-          "alt": "DevFest Noida 2025 3",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2025/devfest-25/12.jpg",
-          "alt": "DevFest Noida 2025 12",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2025/devfest-25/13.jpg",
-          "alt": "DevFest Noida 2025 13",
-          "category": "all",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2025/devfest-25/14.jpg",
-          "alt": "DevFest Noida 2025 14",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
           "src": "/Images/2025/devfest-25/15.jpg",
           "alt": "DevFest Noida 2025 15",
           "category": "networking",
           "aspectRatio": 1
         },
         {
-          "id": 16,
-          "src": "/Images/2025/devfest-25/17.jpg",
-          "alt": "DevFest Noida 2025 17",
+          "id": 2,
+          "src": "/Images/2025/devfest-25/12.jpg",
+          "alt": "DevFest Noida 2025 12",
+          "category": "all",
+          "aspectRatio": 1
+        },
+        {
+          "id": 3,
+          "src": "/Images/2025/devfest-25/5.jpg",
+          "alt": "DevFest Noida 2025 5",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 4,
+          "src": "/Images/2025/devfest-25/2.jpg",
+          "alt": "DevFest Noida 2025 2",
           "category": "networking",
+          "aspectRatio": 1
+        },
+        {
+          "id": 5,
+          "src": "/Images/2025/devfest-25/7.jpg",
+          "alt": "DevFest Noida 2025 7",
+          "category": "networking",
+          "aspectRatio": 1
+        },
+        {
+          "id": 6,
+          "src": "/Images/2025/devfest-25/8.jpg",
+          "alt": "DevFest Noida 2025 8",
+          "category": "workshops",
+          "aspectRatio": 1
+        },
+        {
+          "id": 7,
+          "src": "/Images/2025/devfest-25/9.jpg",
+          "alt": "DevFest Noida 2025 9",
+          "category": "networking",
+          "aspectRatio": 1
+        },
+        {
+          "id": 8,
+          "src": "/Images/2025/devfest-25/10.jpg",
+          "alt": "DevFest Noida 2025 10",
+          "category": "workshops",
           "aspectRatio": 1
         }
       ]

@@ -30,7 +30,7 @@ export default function MomentsGallery({
 
   return (
     <section className="w-full bg-white px-4 sm:px-6 lg:px-10 py-16 md:py-20 overflow-hidden">
-      <div className="mx-auto w-full max-w-[1400px]">
+      <div className="mx-auto w-full max-w-[1400px] rounded-3xl border border-[#dadce0] bg-[#f8f9fa] p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-8">
         {/* ── Heading ──────────────────────────────────────────────── */}
         <h2
           className="mb-8 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-black"
@@ -84,7 +84,7 @@ export default function MomentsGallery({
                   duration: 0.35,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-[0_2px_16px_rgba(0,0,0,0.06)] transition-shadow duration-300 hover:shadow-[0_8px_40px_rgba(0,0,0,0.12)]"
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white bg-white shadow-[0_2px_12px_rgba(60,64,67,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_24px_rgba(60,64,67,0.18)]"
               >
                 <Image
                   src={image.src}

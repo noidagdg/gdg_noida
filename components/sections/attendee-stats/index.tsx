@@ -20,18 +20,12 @@ export default function AttendeeStats({
     about,
 }: AttendeeStatsProps) {
     return (
-        <section className="w-full bg-white py-12 px-4 sm:px-6 lg:px-8">
-            <div
-                className="max-w-6xl mx-auto px-6 py-10 sm:px-10 sm:py-12 relative overflow-hidden rounded-2xl"
-                style={{
-                    background: "linear-gradient(135deg, #e8f4fb 0%, #dceefb 100%)",
-                    border: "2px dashed #93c5e8",
-                }}
-            >
+        <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
+            <div className="relative overflow-hidden rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
                 {/* Header */}
-                <div className="relative text-center mb-8 z-10">
+                <div className="relative z-10 mb-6 text-center sm:mb-8">
                     <h2
-                        className="text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-1"
+                        className="mb-2 break-words text-2xl leading-tight text-gray-900 sm:text-3xl md:text-4xl"
                         style={{
                             fontFamily: "'Product Sans', sans-serif",
                             fontWeight: 500,
@@ -50,17 +44,17 @@ export default function AttendeeStats({
                 </div>
 
                 {/* 3 columns in a single row - Speakers, Registered, Attendees */}
-                <div className="relative z-10 grid grid-cols-3 gap-3 sm:gap-6 max-w-4xl mx-auto">
+                <div className="relative z-10 mx-auto grid max-w-4xl grid-cols-3 gap-1.5 sm:gap-5">
                     {/* Speakers Column */}
-                    <div className="bg-white/90 backdrop-blur-xs rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center shadow-xs border border-white/80 flex flex-col items-center justify-center">
+                    <div className="flex min-w-0 flex-col items-center justify-center rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-2 text-center sm:rounded-2xl sm:p-6">
                         <span
-                            className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-500 mb-1"
+                            className="mb-1 text-[10px] font-semibold uppercase tracking-normal text-gray-500 sm:text-sm sm:tracking-wider"
                             style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                             Speakers
                         </span>
                         <span
-                            className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#4285F4]"
+                            className="break-all text-xl font-bold text-[#1a73e8] sm:text-4xl md:text-5xl"
                             style={{ fontFamily: "'Product Sans', sans-serif" }}
                         >
                             {speakers}
@@ -68,15 +62,15 @@ export default function AttendeeStats({
                     </div>
 
                     {/* Attendees Column */}
-                    <div className="bg-white/90 backdrop-blur-xs rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center shadow-xs border border-white/80 flex flex-col items-center justify-center">
+                    <div className="flex min-w-0 flex-col items-center justify-center rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-2 text-center sm:rounded-2xl sm:p-6">
                         <span
-                            className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-500 mb-1"
+                            className="mb-1 text-[10px] font-semibold uppercase tracking-normal text-gray-500 sm:text-sm sm:tracking-wider"
                             style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                             Attendees
                         </span>
                         <span
-                            className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#34A853]"
+                            className="break-all text-xl font-bold text-[#188038] sm:text-4xl md:text-5xl"
                             style={{ fontFamily: "'Product Sans', sans-serif" }}
                         >
                             {attendees}
@@ -84,15 +78,15 @@ export default function AttendeeStats({
                     </div>
 
                     {/* Registered Column */}
-                    <div className="bg-white/90 backdrop-blur-xs rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center shadow-xs border border-white/80 flex flex-col items-center justify-center">
+                    <div className="flex min-w-0 flex-col items-center justify-center rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-2 text-center sm:rounded-2xl sm:p-6">
                         <span
-                            className="text-xs sm:text-sm font-semibold uppercase tracking-wider text-gray-500 mb-1"
+                            className="mb-1 text-[10px] font-semibold uppercase tracking-normal text-gray-500 sm:text-sm sm:tracking-wider"
                             style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                             Registered
                         </span>
                         <span
-                            className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#FBBC05]"
+                            className="break-all text-xl font-bold text-[#8a5a00] sm:text-4xl md:text-5xl"
                             style={{ fontFamily: "'Product Sans', sans-serif" }}
                         >
                             {registered}
@@ -102,7 +96,7 @@ export default function AttendeeStats({
 
                 {/* Small About section below main card */}
                 {about && (
-                    <div className="relative z-10 mt-8 max-w-4xl mx-auto bg-white/80 backdrop-blur-xs rounded-xl p-5 border border-white/70 shadow-xs">
+                    <div className="relative z-10 mx-auto mt-6 max-w-4xl rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-4 sm:mt-8 sm:p-5">
                         <h4
                             className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5"
                             style={{ fontFamily: "'Inter', sans-serif" }}

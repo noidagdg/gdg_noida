@@ -109,30 +109,30 @@ export const agenticPremiereLeague: EventsCatalog["agentic-premiere-league"] = {
       "images": [
         {
           "id": 1,
-          "src":"/Images/2026/agentic-premier-league/1.JPG",
-          "alt": "Design Samvaad 2026 1",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 2,
-          "src": "/Images/2026/agentic-premier-league/2.JPG",
-          "alt": "Design Samvaad 2026 2",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 3,
           "src": "/Images/2026/agentic-premier-league/3.JPG",
           "alt": "Design Samvaad 2026 3",
           "category": "talks",
           "aspectRatio": 1
         },
         {
+          "id": 2,
+          "src": "/Images/2026/agentic-premier-league/11.JPG",
+          "alt": "Design Samvaad 2026 11",
+          "category": "networking",
+          "aspectRatio": 1
+        },
+        {
+          "id": 3,
+          "src": "/Images/2026/agentic-premier-league/1.JPG",
+          "alt": "Design Samvaad 2026 1",
+          "category": "networking",
+          "aspectRatio": 1
+        },
+        {
           "id": 4,
-          "src": "/Images/2026/agentic-premier-league/16.jpg",
-          "alt": "Design Samvaad 2026 16",
-          "category": "workshopd",
+          "src": "/Images/2026/agentic-premier-league/2.JPG",
+          "alt": "Design Samvaad 2026 2",
+          "category": "talks",
           "aspectRatio": 1
         },
         {
@@ -162,63 +162,7 @@ export const agenticPremiereLeague: EventsCatalog["agentic-premiere-league"] = {
           "alt": "Design Samvaad 2026 8",
           "category": "networking",
           "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2026/agentic-premier-league/9.JPG",
-          "alt": "Design Samvaad 2026 9",
-          "category": "networkings",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2026/agentic-premier-league/10.JPG",
-          "alt": "Design Samvaad 2026 10",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2026/agentic-premier-league/11.JPG",
-          "alt": "Design Samvaad 2026 11",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2026/agentic-premier-league/12.JPG",
-          "alt": "Design Samvaad 2026 12",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2026/agentic-premier-league/13.JPG",
-          "alt": "Design Samvaad 2026 13",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2026/agentic-premier-league/14.jpg",
-          "alt": "Design Samvaad 2026 14",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2026/agentic-premier-league/15.jpg",
-          "alt": "Design Samvaad 2026 15",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2026/agentic-premier-league/4.JPG",
-          "alt": "Design Samvaad 2026 4",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
+        }
       ]
     }
   }

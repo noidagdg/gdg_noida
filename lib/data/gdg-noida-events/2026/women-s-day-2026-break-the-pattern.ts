@@ -184,116 +184,60 @@ export const womenSDay2026BreakThePattern: EventsCatalog["women-s-day-2026-break
       "images": [
         {
           "id": 1,
-          "src":"/Images/2026/IWD/1.JPG",
-          "alt": "IWD 2026 1",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 2,
-          "src": "/Images/2026/IWD/3.JPG",
-          "alt": "IWD 2026 3",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 3,
-          "src": "/Images/2026/IWD/11.JPG",
-          "alt": "IWD 2026 11",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 4,
-          "src": "/Images/2026/IWD/4.JPG",
-          "alt": "IWD 2026 4",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 5,
-          "src": "/Images/2026/IWD/5.JPG",
-          "alt": "IWD 2026 5",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 6,
-          "src": "/Images/2026/IWD/6.JPG",
-          "alt": "IWD 2026 6",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 7,
-          "src": "/Images/2026/IWD/7.JPG",
-          "alt": "IWD 2026 7",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 8,
-          "src": "/Images/2026/IWD/8.JPG",
-          "alt": "IWD 2026 8",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2026/IWD/9.JPG",
-          "alt": "IWD 2026 9",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2026/IWD/10.JPG",
-          "alt": "IWD 2026 10",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2026/IWD/2.JPG",
-          "alt": "IWD 2026 2",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2026/IWD/12.JPG",
-          "alt": "IWD 2026 12",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
           "src": "/Images/2026/IWD/13.JPG",
           "alt": "IWD 2026 13",
           "category": "networking",
           "aspectRatio": 1
         },
         {
-          "id": 14,
+          "id": 2,
           "src": "/Images/2026/IWD/14.JPG",
           "alt": "IWD 2026 14",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 15,
+          "id": 3,
           "src": "/Images/2026/IWD/15.JPG",
           "alt": "IWD 2026 15",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 16,
+          "id": 4,
           "src": "/Images/2026/IWD/16.JPG",
           "alt": "IWD 2026 16",
           "category": "networking",
           "aspectRatio": 1
         },
+        {
+          "id": 5,
+          "src": "/Images/2026/IWD/1.JPG",
+          "alt": "IWD 2026 1",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 6,
+          "src": "/Images/2026/IWD/3.JPG",
+          "alt": "IWD 2026 3",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 7,
+          "src": "/Images/2026/IWD/11.JPG",
+          "alt": "IWD 2026 11",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 8,
+          "src": "/Images/2026/IWD/4.JPG",
+          "alt": "IWD 2026 4",
+          "category": "talks",
+          "aspectRatio": 1
+        }
       ]
     }
   }

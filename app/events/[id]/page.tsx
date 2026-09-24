@@ -1,10 +1,9 @@
 "use client";
 
 import { use, useMemo } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, Calendar, MapPin } from "lucide-react";
-import { getEventById, allEvents, eventsByYear } from "@/lib/data/gdg-noida-events";
+import { getEventById, allEvents } from "@/lib/data/gdg-noida-events";
 import { getEventUniqueStats } from "@/lib/data/event-stats";
 import AttendeeStats from "@/components/sections/attendee-stats";
 import CommunityFeedback from "@/components/sections/community-feedback";
@@ -13,6 +12,7 @@ import MomentsGallery from "@/components/sections/moments-gallery";
 import { galleryCategories } from "@/lib/content";
 import type { GalleryImage } from "@/lib/content";
 import type { Track } from "@/components/sections/agenda/data";
+import EventCoverImage from "../event-cover-image";
 
 interface EventDetailPageProps {
     params: Promise<{ id: string }>;
@@ -29,11 +29,6 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
     const eventYear = event.year || 2026;
     const isUpcoming = event.status?.toLowerCase() === "upcoming";
 
-    // Related events from the same year
-    const sameYearEvents = useMemo(() => {
-        return eventsByYear[eventYear] || [];
-    }, [eventYear]);
-
     // Unique statistics for this event (returns "TBA" for upcoming events)
     const stats = useMemo(() => {
         if (event.uniqueStats) {
@@ -49,9 +44,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
     }, [event]);
 
     // Cover image
-    const coverImage =
-        event.branding?.coverImage ||
-        "/assets/who-we-are/successful-events.png";
+    const coverImage = event.branding?.coverImage || "";
 
     // Agenda tracks: render only tracks and sessions provided by the event data.
     const eventTracks = useMemo(() => {
@@ -104,12 +97,13 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
     }, [event]);
 
     return (
-        <div className="min-h-screen bg-white pt-24 sm:pt-28 md:pt-32">
+        <main className="min-h-screen bg-[#f8f9fa] pb-16 pt-24 sm:pt-28 md:pt-32">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             {/* Top Navigation / Breadcrumb */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
+            <div className="mb-5 sm:mb-6">
                 <Link
                     href="/events"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-[#3B82F6] transition-colors"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-[#5f6368] hover:text-[#1a73e8] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a73e8] focus-visible:ring-offset-2 rounded-sm"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                     <ArrowLeft className="w-4 h-4" />
@@ -118,9 +112,10 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
             </div>
 
             {/* Title & Metadata */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <section className="rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
+            <header className="pb-3 sm:pb-4">
                 <div className="flex flex-wrap items-center gap-2 mb-3">
-                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#EBF2FE] text-[#1A73E8]">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-[#e8f0fe] text-[#174ea6]">
                         {eventYear}
                     </span>
                     <span
@@ -141,7 +136,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
                 </div>
 
                 <h1
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-black text-center lg:text-left"
+                    className="break-words text-3xl leading-tight tracking-tight text-[#202124] sm:text-4xl lg:text-5xl"
                     style={{
                         fontFamily: "'Product Sans', sans-serif",
                         fontWeight: 500,
@@ -151,70 +146,51 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
                 </h1>
 
                 {/* Date & Venue Bar */}
-                <div className="flex flex-wrap items-center gap-4 text-sm sm:text-base text-gray-600 mt-3 justify-center lg:justify-start">
+                <div className="mt-5 flex flex-col gap-3 rounded-xl border border-[#e8eaed] bg-[#f8f9fa] px-4 py-3 text-sm text-[#5f6368] sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:text-base">
                     {event.dates?.displayDate && (
-                        <span className="flex items-center gap-1.5">
-                            <Calendar className="w-4 h-4 text-[#4285F4]" />
+                        <span className="flex min-w-0 items-start gap-2">
+                            <Calendar className="mt-0.5 h-4 w-4 shrink-0 text-[#4285F4]" aria-hidden="true" />
                             <span>{event.dates.displayDate}</span>
                         </span>
                     )}
                     {event.venue?.name && (
-                        <span className="flex items-center gap-1.5">
-                            <MapPin className="w-4 h-4 text-[#EA4335]" />
-                            <span>{event.venue.name}</span>
+                        <span className="flex min-w-0 items-start gap-2">
+                            <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-[#EA4335]" aria-hidden="true" />
+                            {event.venue.mapLink ? (
+                                <a
+                                    href={event.venue.mapLink}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="underline decoration-[#EA4335]/30 underline-offset-2 hover:text-[#EA4335] hover:decoration-[#EA4335] transition-colors"
+                                >
+                                    {event.venue.name}
+                                </a>
+                            ) : (
+                                <span>{event.venue.name}</span>
+                            )}
                         </span>
                     )}
                 </div>
-            </div>
+            </header>
 
             {/* Hero Cover Image (Full Width, similar to devfest_2023) */}
-            <div className="w-full mt-6 sm:mt-8">
-                <div className="relative w-full h-[220px] sm:h-[340px] md:h-[460px] lg:h-[600px] bg-gray-100">
-                    <Image
+            <figure className="mt-3 w-full sm:mt-4">
+                <div
+                    className="relative mx-auto aspect-[16/10] w-full overflow-hidden rounded-xl sm:aspect-[16/8] lg:aspect-[16/6]"
+                    style={{ clipPath: "inset(0 round 0.75rem)" }}
+                >
+                    <EventCoverImage
                         src={coverImage}
                         alt={event.title}
-                        fill
-                        className="object-cover"
-                        sizes="100vw"
+                        className="rounded-xl object-contain"
+                        sizes="(max-width: 1279px) 100vw, 1152px"
                         priority
-                        unoptimized
                     />
                 </div>
-            </div>
+            </figure>
+            </section>
 
-            {/* Events from the same year selector tabs */}
-            {sameYearEvents.length >= 1 && (
-                <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pt-8 pb-4">
-                    <div className="text-center mb-4">
-                        <span
-                            className="text-xs font-bold uppercase tracking-wider text-gray-500"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                            More Events in {eventYear}
-                        </span>
-                    </div>
-                    <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
-                        {sameYearEvents.map((ev) => {
-                            const isCurrent = ev.id === event.id;
-                            return (
-                                <Link
-                                    key={ev.id}
-                                    href={`/events/${ev.id}`}
-                                    className={[
-                                        "px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 truncate max-w-[240px]",
-                                        isCurrent
-                                            ? "bg-[#3B82F6] text-white shadow-md scale-105"
-                                            : "bg-[#F0F0F1] text-[#4B5563] hover:bg-[#E5E5E6]",
-                                    ].join(" ")}
-                                    style={{ fontFamily: "'Inter', sans-serif" }}
-                                >
-                                    {ev.title}
-                                </Link>
-                            );
-                        })}
-                    </div>
-                </div>
-            )}
+            </div>
 
             {/* 3 Columns in 1 Single Row: Speakers, Attendees, Registered (Circle Removed, TBA if Upcoming) */}
             <AttendeeStats
@@ -249,6 +225,6 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
                     images={galleryImages ?? undefined}
                 />
             )}
-        </div>
+        </main>
     );
 }

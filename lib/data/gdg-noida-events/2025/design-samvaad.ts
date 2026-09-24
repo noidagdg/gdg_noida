@@ -202,7 +202,7 @@ export const designSamvaad: EventsCatalog["design-samvaad"] = {
       "images": [
         {
           "id": 1,
-          "src":"/Images/2025/design-samvaad/1.JPG",
+          "src": "/Images/2025/design-samvaad/1.JPG",
           "alt": "design samvaad 2025 1",
           "category": "talks",
           "aspectRatio": 1
@@ -255,63 +255,7 @@ export const designSamvaad: EventsCatalog["design-samvaad"] = {
           "alt": "design samvaad 2025 8",
           "category": "talks",
           "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2025/design-samvaad/9.JPG",
-          "alt": "design samvaad 2025 9",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2025/design-samvaad/11.JPG",
-          "alt": "design samvaad 2025 11",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2025/design-samvaad/2.JPG",
-          "alt": "design samvaad 2025 2",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2025/design-samvaad/12.JPG",
-          "alt": "design samvaad 2025 12",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2025/design-samvaad/13.JPG",
-          "alt": "design samvaad 2025 13",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2025/design-samvaad/14.JPG",
-          "alt": "design samvaad 2025 14",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2025/design-samvaad/3.JPG",
-          "alt": "design samvaad 2025 3",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2025/design-samvaad/15.JPG",
-          "alt": "design samvaad 2025 15",
-          "category": "networking",
-          "aspectRatio": 1
-        },
+        }
       ]
     }
   }

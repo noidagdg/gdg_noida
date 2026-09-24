@@ -176,7 +176,7 @@ export const dataAndAiNexus70: EventsCatalog["data-and-ai-nexus-7-0"] = {
       "images": [
         {
           "id": 1,
-          "src":"/Images/2026/data-and-genai/1.JPG",
+          "src": "/Images/2026/data-and-genai/1.JPG",
           "alt": "Data and Genai 2026 1",
           "category": "talks",
           "aspectRatio": 1
@@ -229,63 +229,7 @@ export const dataAndAiNexus70: EventsCatalog["data-and-ai-nexus-7-0"] = {
           "alt": "Data and Genai 2026 8",
           "category": "workshops",
           "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2026/data-and-genai/9.JPG",
-          "alt": "Data and Genai 2026 9",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2026/data-and-genai/10.JPG",
-          "alt": "Data and Genai 2026 10",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2026/data-and-genai/3.JPG",
-          "alt": "Data and Genai 2026 3",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2026/data-and-genai/12.JPG",
-          "alt": "Data and Genai 2026 12",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2026/data-and-genai/13.JPG",
-          "alt": "Data and Genai 2026 13",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2026/data-and-genai/14.JPG",
-          "alt": "Data and Genai 2026 14",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2026/data-and-genai/15.JPG",
-          "alt": "Data and Genai 2026 15",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2026/data-and-genai/16.JPG",
-          "alt": "Data and Genai 2026 16",
-          "category": "talks",
-          "aspectRatio": 1
-        },
+        }
       ]
     }
   }

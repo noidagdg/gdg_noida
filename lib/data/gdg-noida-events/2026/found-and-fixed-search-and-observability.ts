@@ -177,7 +177,7 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
       "images": [
         {
           "id": 1,
-          "src":"/Images/2026/found-and-fixed/1.JPG",
+          "src": "/Images/2026/found-and-fixed/1.JPG",
           "alt": "found-and-fixed 2026 1",
           "category": "talks",
           "aspectRatio": 1
@@ -205,88 +205,32 @@ export const foundAndFixedSearchAndObservability: EventsCatalog["found-and-fixed
         },
         {
           "id": 5,
-          "src": "/Images/2026/found-and-fixed/5.JPG",
-          "alt": "found-and-fixed 2026 5",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 6,
           "src": "/Images/2026/found-and-fixed/6.JPG",
           "alt": "found-and-fixed 2026 6",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 7,
+          "id": 6,
           "src": "/Images/2026/found-and-fixed/7.JPG",
           "alt": "found-and-fixed 2026 7",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 8,
+          "id": 7,
           "src": "/Images/2026/found-and-fixed/8.JPG",
           "alt": "found-and-fixed 2026 8",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 9,
+          "id": 8,
           "src": "/Images/2026/found-and-fixed/9.JPG",
           "alt": "found-and-fixed 2026 9",
           "category": "talks",
           "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2026/found-and-fixed/11.JPG",
-          "alt": "found-and-fixed 2026 11",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2026/found-and-fixed/2.JPG",
-          "alt": "found-and-fixed 2026 2",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2026/found-and-fixed/12.JPG",
-          "alt": "found-and-fixed 2026 12",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2026/found-and-fixed/13.JPG",
-          "alt": "found-and-fixed 2026 13",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2026/found-and-fixed/14.JPG",
-          "alt": "found-and-fixed 2026 14",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2026/found-and-fixed/3.JPG",
-          "alt": "found-and-fixed 2026 3",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2026/found-and-fixed/16.JPG",
-          "alt": "found-and-fixed 2026 16",
-          "category": "networking",
-          "aspectRatio": 1
-        },
+        }
       ]
     }
   }

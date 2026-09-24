@@ -7,12 +7,12 @@ export default function EventsPageLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <main>
+        <>
             <Navbar />
             {children}
             <section data-navbar-theme="light">
                 <Footer />
             </section>
-        </main>
+        </>
     );
 }

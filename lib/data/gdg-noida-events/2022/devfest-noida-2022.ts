@@ -658,7 +658,7 @@ export const devfestNoida2022: EventsCatalog["devfest-noida-2022"] = {
       "images": [
         {
           "id": 1,
-          "src":"/Images/2022/devfest/4.JPG",
+          "src": "/Images/2022/devfest/4.JPG",
           "alt": "Devfest 2022 4",
           "category": "talks",
           "aspectRatio": 1
@@ -685,89 +685,33 @@ export const devfestNoida2022: EventsCatalog["devfest-noida-2022"] = {
           "aspectRatio": 1
         },
         {
-          "id": 6,
-          "src": "/Images/2022/devfest/2.JPG",
-          "alt": "Devfest 2022 2",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 7,
-          "src": "/Images/2022/devfest/7.JPG",
-          "alt": "Devfest 2022 7",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 8,
+          "id": 5,
           "src": "/Images/2022/devfest/3.JPG",
           "alt": "Devfest 2022 3",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 9,
+          "id": 6,
           "src": "/Images/2022/devfest/9.JPG",
           "alt": "Devfest 2022 9",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 10,
+          "id": 7,
           "src": "/Images/2022/devfest/1.JPG",
           "alt": "Devfest 2022 1",
           "category": "networking",
           "aspectRatio": 1
         },
         {
-          "id": 11,
+          "id": 8,
           "src": "/Images/2022/devfest/6.JPG",
           "alt": "Devfest 2022 6",
           "category": "talks",
           "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2022/devfest/12.JPG",
-          "alt": "Devfest 2022 12",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2022/devfest/11.JPG",
-          "alt": "Devfest 2022 11",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2022/devfest/14.JPG",
-          "alt": "Devfest 2022 14",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2022/devfest/15.JPG",
-          "alt": "Devfest 2022 15",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2022/devfest/16.JPG",
-          "alt": "Devfest 2022 16",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 17,
-          "src": "/Images/2022/devfest/5.JPG",
-          "alt": "Devfest 2022 5",
-          "category": "networking",
-          "aspectRatio": 1
-        },
+        }
       ]
     }
   }

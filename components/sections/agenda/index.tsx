@@ -23,10 +23,10 @@ export default function Agenda({ tracks: propTracks, title = "Agenda" }: AgendaP
   };
 
   return (
-    <section className="w-full bg-white py-16 px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
+    <section className="mx-auto max-w-7xl px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
+      <div className="rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
         {/* Heading */}
-        <h2 className="mb-10 text-center text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-black" style={{ fontFamily: "'Product Sans', sans-serif" }}>
+        <h2 className="mb-6 text-center text-2xl font-medium tracking-tight text-[#202124] sm:mb-8 sm:text-3xl md:text-4xl" style={{ fontFamily: "'Product Sans', sans-serif" }}>
           {title}
         </h2>
 
@@ -38,7 +38,7 @@ export default function Agenda({ tracks: propTracks, title = "Agenda" }: AgendaP
             return (
               <div
                 key={track.id}
-                className="overflow-hidden rounded-xl border border-[#E5E7EB]"
+                className="overflow-hidden rounded-2xl border border-[#dadce0] bg-white shadow-[0_1px_2px_rgba(60,64,67,0.08)]"
               >
                 {/* Track Header */}
                 <button

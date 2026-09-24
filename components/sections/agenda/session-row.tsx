@@ -34,7 +34,7 @@ function SpeakerAvatar({ name, source }: { name: string; source: unknown }) {
   }
 
   return (
-    <div className="h-8 w-8 overflow-hidden rounded-full bg-[#D9D9D9] flex-shrink-0">
+    <div className="relative h-8 w-8 flex-shrink-0 overflow-hidden rounded-full bg-[#D9D9D9]">
       <Image
         src={source}
         alt={name}
@@ -54,7 +54,7 @@ export default function SessionRow({ session }: SessionRowProps) {
   return (
     <div className="border-b border-[#E5E7EB] last:border-b-0">
       {/* Desktop */}
-      <div className="hidden md:grid md:grid-cols-[120px_1fr_450px] md:items-start md:gap-8 px-8 py-5">
+      <div className="hidden px-6 py-5 lg:grid lg:grid-cols-[7rem_minmax(0,1fr)_minmax(0,16rem)] lg:items-start lg:gap-5 xl:gap-8">
         {/* Time */}
         <div className="pt-1">
           <p className="text-[12px] font-medium leading-5 text-[#4B5563] whitespace-nowrap">
@@ -71,7 +71,7 @@ export default function SessionRow({ session }: SessionRowProps) {
 
         {/* Speakers */}
         {useGridLayout ? (
-          <div className="grid grid-cols-2 gap-x-8 gap-y-5">
+          <div className="grid min-w-0 grid-cols-2 gap-x-4 gap-y-5">
             {session.speakers?.map((speaker) => (
               <div
                 key={speaker.name}
@@ -95,7 +95,7 @@ export default function SessionRow({ session }: SessionRowProps) {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-end gap-3">
+          <div className="flex min-w-0 flex-col gap-3">
             {session.speakers?.map((speaker) => (
               <div
                 key={speaker.name}
@@ -104,7 +104,7 @@ export default function SessionRow({ session }: SessionRowProps) {
                 <SpeakerAvatar name={speaker.name} source={speaker.avatar} />
 
                 {/* Speaker Details */}
-                <div className="min-w-[180px]">
+                <div className="min-w-0">
                   <p className="text-[14px] font-medium leading-5 text-black">
                     {speaker.name}
                   </p>
@@ -122,7 +122,7 @@ export default function SessionRow({ session }: SessionRowProps) {
       </div>
 
       {/* Mobile */}
-      <div className="space-y-3 px-5 py-5 md:hidden">
+      <div className="space-y-3 px-4 py-5 sm:px-6 lg:hidden">
         <p className="text-xs font-medium text-[#4B5563]">
           {session.startTime} - {session.endTime}
         </p>
@@ -138,13 +138,13 @@ export default function SessionRow({ session }: SessionRowProps) {
           >
             <SpeakerAvatar name={speaker.name} source={speaker.avatar} />
 
-            <div>
+            <div className="min-w-0">
               <p className="text-sm font-medium text-black">
                 {speaker.name}
               </p>
 
               {speaker.designation && (
-                <p className="text-xs text-[#6B7280]">
+                <p className="break-words text-xs text-[#6B7280]">
                   {speaker.designation}
                 </p>
               )}

@@ -130,36 +130,36 @@ export const journeyIntoOpenSource: EventsCatalog["journey-into-open-source"] = 
       "images": [
         {
           "id": 1,
-          "src":"/Images/2025/data-&-genai-6/1.JPG",
-          "alt": "Data and GenAI 6 2025 1",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 2,
           "src": "/Images/2025/data-&-genai-6/6.jpg",
           "alt": "Data and GenAI 6 2025 6",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 3,
-          "src": "/Images/2025/data-&-genai-6/7.JPG",
-          "alt": "Data and GenAI 6 2025 7",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 4,
+          "id": 2,
           "src": "/Images/2025/data-&-genai-6/5.jpg",
           "alt": "Data and GenAI 6 2025 5",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 5,
+          "id": 3,
           "src": "/Images/2025/data-&-genai-6/4.jpg",
           "alt": "Data and GenAI 6 2025 4",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 4,
+          "src": "/Images/2025/data-&-genai-6/1.JPG",
+          "alt": "Data and GenAI 6 2025 1",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 5,
+          "src": "/Images/2025/data-&-genai-6/7.JPG",
+          "alt": "Data and GenAI 6 2025 7",
           "category": "talks",
           "aspectRatio": 1
         },
@@ -181,62 +181,6 @@ export const journeyIntoOpenSource: EventsCatalog["journey-into-open-source"] = 
           "id": 8,
           "src": "/Images/2025/data-&-genai-6/8.JPG",
           "alt": "Data and GenAI 6 2025 8",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2025/data-&-genai-6/9.JPG",
-          "alt": "Data and GenAI 6 2025 9",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
-          "src": "/Images/2025/data-&-genai-6/10.JPG",
-          "alt": "Data and GenAI 6 2025 10",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 11,
-          "src": "/Images/2025/data-&-genai-6/3.JPG",
-          "alt": "Data and GenAI 6 2025 3",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 12,
-          "src": "/Images/2025/data-&-genai-6/12.JPG",
-          "alt": "Data and GenAI 6 2025 12",
-          "category": "workshops",
-          "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2025/data-&-genai-6/13.JPG",
-          "alt": "Data and GenAI 6 2025 13",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2025/data-&-genai-6/14.JPG",
-          "alt": "Data and GenAI 6 2025 14",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2025/data-&-genai-6/15.JPG",
-          "alt": "Data and GenAI 6 2025 15",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2025/data-&-genai-6/16.JPG",
-          "alt": "Data and GenAI 6 2025 16",
           "category": "talks",
           "aspectRatio": 1
         }

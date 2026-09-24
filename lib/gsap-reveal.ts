@@ -54,7 +54,7 @@ export function useGsapReveal<T extends HTMLElement>({
           scrollTrigger: {
             trigger: ref.current,
             start,
-            toggleActions: "play reverse play reverse",
+            toggleActions: "play none none reverse",
           },
         },
       );

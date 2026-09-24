@@ -1,152 +1,81 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { eventsByYear } from "@/lib/data/gdg-noida-events";
 import { getEventUniqueStats } from "@/lib/data/event-stats";
+import EventCoverImage from "./event-cover-image";
 
 const YEARS = [2026, 2025, 2024, 2023, 2022] as const;
 
 export default function EventsPage() {
     const [selectedYear, setSelectedYear] = useState<number>(2026);
-    const [selectedEventId, setSelectedEventId] = useState<string>("all");
 
-    // Events for the selected year only
+    // Events for the selected year, newest first.
     const yearEvents = useMemo(() => {
-        return eventsByYear[selectedYear] || [];
+        return [...(eventsByYear[selectedYear] || [])].sort((firstEvent, secondEvent) =>
+            (secondEvent.dates?.isoDate || "").localeCompare(firstEvent.dates?.isoDate || "")
+        );
     }, [selectedYear]);
 
     // Handle year selection
     const handleYearChange = (year: number) => {
         setSelectedYear(year);
-        setSelectedEventId("all");
     };
 
-    // Filtered events to display based on event selection
-    const displayedEvents = useMemo(() => {
-        if (selectedEventId === "all") {
-            return yearEvents;
-        }
-        const filtered = yearEvents.filter((e) => e.id === selectedEventId);
-        return filtered.length > 0 ? filtered : yearEvents;
-    }, [yearEvents, selectedEventId]);
-
     return (
-        <div className="min-h-screen bg-white pt-24 sm:pt-28 md:pt-32">
-            {/* Header Section */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:text-left mb-8">
-                <h1
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-black"
-                    style={{
-                        fontFamily: "'Product Sans', sans-serif",
-                        fontWeight: 500,
-                    }}
-                >
-                    GDG Noida <span className="font-bold text-[#4285F4]">Events</span>
-                </h1>
-                <p
-                    className="text-base sm:text-lg md:text-xl text-gray-600 mt-3 max-w-3xl"
-                    style={{ fontFamily: "'Inter', sans-serif" }}
-                >
-                    Explore all conferences, tech talks, workshops, and community meetups segregated by year. Click on any event to view its dedicated event page.
-                </p>
-            </div>
-
-            {/* Year Selector Buttons */}
-            <div className="px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto pb-6">
-                <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4">
-                    {YEARS.map((year) => {
-                        const isActive = year === selectedYear;
-                        const count = eventsByYear[year]?.length || 0;
-                        return (
-                            <button
-                                key={year}
-                                type="button"
-                                onClick={() => handleYearChange(year)}
-                                aria-pressed={isActive}
-                                className={[
-                                    "px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 rounded-xl text-sm sm:text-base md:text-lg transition-all duration-200 flex items-center gap-2",
-                                    isActive
-                                        ? "bg-[#3B82F6] text-white shadow-md scale-105"
-                                        : "bg-[#F0F0F1] text-[#4B5563] hover:bg-[#E5E5E6]",
-                                ].join(" ")}
-                                style={{
-                                    fontFamily: "'Inter', sans-serif",
-                                    fontWeight: 700,
-                                }}
+        <main className="min-h-screen bg-[#f8f9fa] pt-24 sm:pt-28 md:pt-32">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <section className="mb-8 rounded-3xl border border-[#dadce0] bg-white px-5 py-7 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:px-8 sm:py-9 lg:px-10">
+                    <header>
+                        <div className="max-w-3xl">
+                            <p className="mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#174ea6]">
+                                Explore our community
+                            </p>
+                            <h1
+                                className="text-3xl font-medium leading-tight tracking-tight text-[#202124] sm:text-4xl lg:text-5xl"
+                                style={{ fontFamily: "'Product Sans', sans-serif" }}
                             >
-                                <span>{year}</span>
-                                <span
-                                    className={[
-                                        "text-xs px-2 py-0.5 rounded-full font-medium",
-                                        isActive
-                                            ? "bg-white/20 text-white"
-                                            : "bg-gray-200 text-gray-600",
-                                    ].join(" ")}
-                                >
-                                    {count}
-                                </span>
-                            </button>
-                        );
-                    })}
-                </div>
-            </div>
+                                GDG Noida <span className="font-bold text-[#1a73e8]">Events</span>
+                            </h1>
+                            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-[#5f6368] sm:text-base">
+                                Discover conferences, workshops, and meetups from the GDG Noida community. Pick a year to explore what happened.
+                            </p>
+                        </div>
+                    </header>
 
-            {/* Event Selector for the selected year */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-                <div className="bg-[#F8FAFC] border border-[#E2E8F0] rounded-2xl p-4 sm:p-5">
-                    <div className="flex items-center justify-between mb-3">
-                        <span
-                            className="text-xs sm:text-sm font-bold uppercase tracking-wider text-gray-500"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                            Select Event in {selectedYear}
-                        </span>
-                        <span className="text-xs text-gray-500">
-                            {yearEvents.length} event{yearEvents.length === 1 ? "" : "s"} available
-                        </span>
+                    <div className="mt-7 border-t border-[#e8eaed] pt-5">
+                        <p className="mb-3 text-center text-xs font-bold uppercase tracking-wider text-[#5f6368]">Browse by year</p>
+                        <div className="flex flex-wrap justify-center gap-2 sm:gap-3" role="group" aria-label="Filter events by year">
+                            {YEARS.map((year) => {
+                                const isActive = year === selectedYear;
+                                return (
+                                    <button
+                                        key={year}
+                                        type="button"
+                                        onClick={() => handleYearChange(year)}
+                                        aria-pressed={isActive}
+                                        className={[
+                                            "inline-flex min-h-11 min-w-16 items-center justify-center rounded-full px-4 py-2 text-sm font-semibold transition-colors duration-200 sm:px-5 sm:text-base focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a73e8] focus-visible:ring-offset-2",
+                                            isActive
+                                                ? "bg-[#1a73e8] text-white shadow-sm"
+                                                : "bg-white text-[#3c4043] border border-[#dadce0] hover:bg-[#f1f3f4]",
+                                        ].join(" ")}
+                                    >
+                                        <span>{year}</span>
+                                    </button>
+                                );
+                            })}
+                        </div>
                     </div>
-
-                    <div className="flex flex-wrap gap-2">
-                        {/* Option to view All Events in the year */}
-                        <button
-                            type="button"
-                            onClick={() => setSelectedEventId("all")}
-                            className={[
-                                "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors",
-                                selectedEventId === "all"
-                                    ? "bg-[#1E293B] text-white shadow-xs"
-                                    : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-100",
-                            ].join(" ")}
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                            All Events ({yearEvents.length})
-                        </button>
-
-                        {/* Quick links to each event page */}
-                        {yearEvents.map((ev) => {
-                            return (
-                                <Link
-                                    key={ev.id}
-                                    href={`/events/${ev.id}`}
-                                    className="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium transition-colors truncate max-w-[260px] bg-white text-gray-700 border border-gray-200 hover:bg-blue-50 hover:border-blue-200 hover:text-blue-600"
-                                    title={`Go to ${ev.title} page`}
-                                    style={{ fontFamily: "'Inter', sans-serif" }}
-                                >
-                                    {ev.title}
-                                </Link>
-                            );
-                        })}
-                    </div>
-                </div>
+                </section>
             </div>
 
             {/* Main Event Cards Grid */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    {displayedEvents.map((ev) => {
+            <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6 xl:grid-cols-3">
+                    {yearEvents.map((ev) => {
                         const isUpcoming = ev.status?.toLowerCase() === "upcoming";
                         const stats = ev.uniqueStats || getEventUniqueStats(
                             ev.id,
@@ -154,36 +83,27 @@ export default function EventsPage() {
                             ev.attendees?.total,
                             ev.status
                         );
-                        const coverImage =
-                            ev.branding?.coverImage ||
-                            "/assets/who-we-are/successful-events.png";
+                        const coverImage = ev.branding?.coverImage || "";
 
                         return (
                             <div
                                 key={ev.id}
-                                className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group"
+                                className="group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-[#e8eaed] bg-white shadow-[0_1px_3px_rgba(60,64,67,0.08)] transition-shadow duration-200 hover:shadow-[0_6px_20px_rgba(60,64,67,0.14)]"
                             >
                                 {/* Main Card Image Banner - click directs to event page */}
                                 <Link
                                     href={`/events/${ev.id}`}
-                                    className="relative w-full h-[200px] sm:h-[220px] bg-gray-100 overflow-hidden block"
+                                    aria-label={`View ${ev.title} event details`}
+                                    className="relative block aspect-[16/10] w-full overflow-hidden bg-[#f8f9fa] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-[#1a73e8]"
                                 >
-                                    <Image
+                                    <EventCoverImage
                                         src={coverImage}
                                         alt={ev.title}
-                                        fill
-                                        unoptimized
-                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                        className="object-contain object-center"
+                                        sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
+                                        blurredBackdrop
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-
                                     {/* Badges */}
-                                    <div className="absolute top-3 left-3 flex gap-2">
-                                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-white/90 backdrop-blur-xs text-gray-800 shadow-xs">
-                                            {ev.year || selectedYear}
-                                        </span>
-                                    </div>
                                     <div className="absolute top-3 right-3">
                                         <span
                                             className={[
@@ -193,51 +113,65 @@ export default function EventsPage() {
                                                     : "bg-[#E6F4EA] text-[#137333] border-[#CEEAD6]",
                                             ].join(" ")}
                                         >
-                                            {ev.status || "Completed"}
+                                            {ev.status
+                                                ? `${ev.status.charAt(0).toUpperCase()}${ev.status.slice(1)}`
+                                                : "Completed"}
                                         </span>
                                     </div>
                                 </Link>
 
                                 {/* Main Card Content */}
-                                <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between">
+                                <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
                                     <div>
                                         {/* Date and Venue */}
-                                        <div className="flex items-center justify-between gap-2 text-xs text-gray-500 mb-2.5">
-                                            <span className="flex items-center gap-1.5 truncate">
-                                                <Calendar className="w-3.5 h-3.5 text-[#4285F4] shrink-0" />
-                                                <span className="truncate">
+                                        <div className="mb-3 flex flex-col gap-1.5 text-xs text-[#5f6368]">
+                                            <span className="flex min-w-0 items-center gap-1.5">
+                                                <Calendar className="h-3.5 w-3.5 shrink-0 text-[#4285F4]" aria-hidden="true" />
+                                                <span className="min-w-0 truncate">
                                                     {ev.dates?.displayDate || `${selectedYear}`}
                                                 </span>
                                             </span>
-                                            <span className="flex items-center gap-1.5 truncate max-w-[160px]">
-                                                <MapPin className="w-3.5 h-3.5 text-[#EA4335] shrink-0" />
-                                                <span className="truncate">
-                                                    {ev.venue?.name || ev.venue?.city || "Noida"}
-                                                </span>
+                                            <span className="flex min-w-0 items-center gap-1.5">
+                                                <MapPin className="h-3.5 w-3.5 shrink-0 text-[#EA4335]" aria-hidden="true" />
+                                                {ev.venue?.mapLink ? (
+                                                    <a
+                                                        href={ev.venue.mapLink}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="min-w-0 truncate underline decoration-[#EA4335]/30 underline-offset-2 hover:text-[#EA4335] hover:decoration-[#EA4335] transition-colors"
+                                                        onClick={(e) => e.stopPropagation()}
+                                                    >
+                                                        {ev.venue?.name || ev.venue?.city || "Noida"}
+                                                    </a>
+                                                ) : (
+                                                    <span className="min-w-0 truncate">
+                                                        {ev.venue?.name || ev.venue?.city || "Noida"}
+                                                    </span>
+                                                )}
                                             </span>
                                         </div>
 
                                         {/* Title - clickable to event page */}
-                                        <Link href={`/events/${ev.id}`} className="block group-hover:text-[#3B82F6] transition-colors">
+                                        <Link href={`/events/${ev.id}`} className="block focus-visible:outline-none focus-visible:underline focus-visible:decoration-2 focus-visible:underline-offset-4">
                                             <h3
-                                                className="text-lg sm:text-xl font-bold text-gray-900 leading-snug mb-1"
+                                                className="mb-1 text-xl font-bold leading-snug text-[#202124] transition-colors group-hover:text-[#1a73e8] sm:text-[22px]"
                                                 style={{ fontFamily: "'Product Sans', sans-serif" }}
                                             >
                                                 {ev.title}
                                             </h3>
                                         </Link>
-                                        {ev.subtitle && (
-                                            <p className="text-xs text-gray-500 line-clamp-1 mb-2">
+                                        {ev.id !== "sns" && ev.subtitle && (
+                                            <p className="mb-2 line-clamp-2 text-sm text-[#5f6368]">
                                                 {ev.subtitle}
                                             </p>
                                         )}
 
                                         {/* 3 Columns in 1 Single Row: Speakers, Attendees, Registered (Circle Removed, TBA if Upcoming) */}
-                                        <div className="grid grid-cols-3 gap-2 my-4 p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+                                        <div className="my-4 grid grid-cols-3 gap-1 rounded-xl bg-[#f8f9fa] p-2 sm:gap-2">
                                             {/* Column 1: Speakers */}
-                                            <div className="text-center flex flex-col items-center justify-center p-2 rounded-lg bg-white shadow-xs border border-gray-100">
+                                            <div className="flex min-w-0 flex-col items-center justify-center p-1 text-center sm:p-2">
                                                 <span
-                                                    className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500 mb-0.5"
+                                                    className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-500"
                                                     style={{ fontFamily: "'Inter', sans-serif" }}
                                                 >
                                                     Speakers
@@ -251,9 +185,9 @@ export default function EventsPage() {
                                             </div>
 
                                             {/* Column 2: Attendees */}
-                                            <div className="text-center flex flex-col items-center justify-center p-2 rounded-lg bg-white shadow-xs border border-gray-100">
+                                            <div className="flex min-w-0 flex-col items-center justify-center p-1 text-center sm:p-2">
                                                 <span
-                                                    className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500 mb-0.5"
+                                                    className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-500"
                                                     style={{ fontFamily: "'Inter', sans-serif" }}
                                                 >
                                                     Attendees
@@ -267,15 +201,15 @@ export default function EventsPage() {
                                             </div>
 
                                             {/* Column 3: Registered */}
-                                            <div className="text-center flex flex-col items-center justify-center p-2 rounded-lg bg-white shadow-xs border border-gray-100">
+                                            <div className="flex min-w-0 flex-col items-center justify-center p-1 text-center sm:p-2">
                                                 <span
-                                                    className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-gray-500 mb-0.5"
+                                                    className="mb-0.5 text-[10px] font-semibold uppercase tracking-wide text-gray-500"
                                                     style={{ fontFamily: "'Inter', sans-serif" }}
                                                 >
                                                     Registered
                                                 </span>
                                                 <span
-                                                    className="text-base sm:text-xl font-bold text-[#FBBC05]"
+                                                    className="text-base sm:text-xl font-bold text-[#8a5a00]"
                                                     style={{ fontFamily: "'Product Sans', sans-serif" }}
                                                 >
                                                     {stats.registered}
@@ -284,7 +218,7 @@ export default function EventsPage() {
                                         </div>
 
                                         {/* Small About Section Below Every Main Card (Always Present) */}
-                                        <div className="mt-3 p-3.5 rounded-xl bg-gray-50/90 border border-gray-100">
+                                        <div className="mt-4">
                                             <h4
                                                 className="text-[11px] font-bold uppercase tracking-wider text-gray-500 mb-1"
                                                 style={{ fontFamily: "'Inter', sans-serif" }}
@@ -292,7 +226,7 @@ export default function EventsPage() {
                                                 About this event
                                             </h4>
                                             <p
-                                                className="text-xs sm:text-sm text-gray-600 leading-relaxed line-clamp-3"
+                                                className="line-clamp-3 text-sm leading-relaxed text-[#5f6368]"
                                                 style={{ fontFamily: "'Inter', sans-serif" }}
                                             >
                                                 {ev.about?.description ||
@@ -305,7 +239,7 @@ export default function EventsPage() {
                                     <div className="mt-4 pt-3 border-t border-gray-100">
                                         <Link
                                             href={`/events/${ev.id}`}
-                                            className="w-full py-2.5 px-3 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 bg-[#1E293B] hover:bg-[#3B82F6] text-white flex items-center justify-center gap-1.5 shadow-xs"
+                                            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#1a73e8] px-4 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:bg-[#174ea6] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1a73e8] focus-visible:ring-offset-2"
                                             style={{ fontFamily: "'Inter', sans-serif" }}
                                         >
                                             <span>View Event Page</span>
@@ -318,6 +252,6 @@ export default function EventsPage() {
                     })}
                 </div>
             </div>
-        </div>
+        </main>
     );
 }

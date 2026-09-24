@@ -255,22 +255,22 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
       "images": [
         {
           "id": 1,
-          "src":"/Images/2026/design-samvaad/19.JPG",
-          "alt": "Design Samvaad 2026 19",
+          "src": "/Images/2026/design-samvaad/11.jpg",
+          "alt": "Design Samvaad 2026 11",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 2,
-          "src": "/Images/2026/design-samvaad/3.JPG",
-          "alt": "Design Samvaad 2026 3",
+          "src": "/Images/2026/design-samvaad/8.JPG",
+          "alt": "Design Samvaad 2026 8",
           "category": "talks",
           "aspectRatio": 1
         },
         {
           "id": 3,
-          "src": "/Images/2026/design-samvaad/11.jpg",
-          "alt": "Design Samvaad 2026 11",
+          "src": "/Images/2026/design-samvaad/3.JPG",
+          "alt": "Design Samvaad 2026 3",
           "category": "talks",
           "aspectRatio": 1
         },
@@ -282,89 +282,33 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
           "aspectRatio": 1
         },
         {
-          "id": 6,
+          "id": 5,
           "src": "/Images/2026/design-samvaad/2.JPG",
           "alt": "Design Samvaad 2026 2",
           "category": "workshops",
           "aspectRatio": 1
         },
         {
-          "id": 7,
-          "src": "/Images/2026/design-samvaad/7.JPG",
-          "alt": "Design Samvaad 2026 7",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 8,
-          "src": "/Images/2026/design-samvaad/8.JPG",
-          "alt": "Design Samvaad 2026 8",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 9,
-          "src": "/Images/2026/design-samvaad/9.JPG",
-          "alt": "Design Samvaad 2026 9",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 10,
+          "id": 6,
           "src": "/Images/2026/design-samvaad/1.JPG",
           "alt": "Design Samvaad 2026 1",
           "category": "networking",
           "aspectRatio": 1
         },
         {
-          "id": 11,
-          "src": "/Images/2026/design-samvaad/6.JPG",
-          "alt": "Design Samvaad 2026 6",
+          "id": 7,
+          "src": "/Images/2026/design-samvaad/19.JPG",
+          "alt": "Design Samvaad 2026 19",
           "category": "talks",
           "aspectRatio": 1
         },
         {
-          "id": 12,
-          "src": "/Images/2026/design-samvaad/12.JPG",
-          "alt": "Design Samvaad 2026 12",
+          "id": 8,
+          "src": "/Images/2026/design-samvaad/7.JPG",
+          "alt": "Design Samvaad 2026 7",
           "category": "talks",
           "aspectRatio": 1
-        },
-        {
-          "id": 13,
-          "src": "/Images/2026/design-samvaad/13.jpg",
-          "alt": "Design Samvaad 2026 13",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 14,
-          "src": "/Images/2026/design-samvaad/14.JPG",
-          "alt": "Design Samvaad 2026 14",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 15,
-          "src": "/Images/2026/design-samvaad/15.JPG",
-          "alt": "Design Samvaad 2026 15",
-          "category": "networking",
-          "aspectRatio": 1
-        },
-        {
-          "id": 16,
-          "src": "/Images/2026/design-samvaad/16.JPG",
-          "alt": "Design Samvaad 2026 16",
-          "category": "talks",
-          "aspectRatio": 1
-        },
-        {
-          "id": 17,
-          "src": "/Images/2026/design-samvaad/17.JPG",
-          "alt": "Design Samvaad 2026 17",
-          "category": "networking",
-          "aspectRatio": 1
-        },
+        }
       ]
     }
   }
