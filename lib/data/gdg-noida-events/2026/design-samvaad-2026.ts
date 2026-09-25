@@ -182,7 +182,7 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
         },
         {
           "id": "workshop-track",
-          "name": "Workshop Track",
+          "name": "Workshop Tracknp ",
           "color": "#4285F4",
           "sessions": [
             {
