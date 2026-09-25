@@ -1,23 +1,29 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'motion/react'
 import { BlurFade } from '@/components/magicui'
+import { GRAIN, GRAIN_SIZE } from '@/lib/grain'
 
-// Custom Google-themed star icon
-function GoogleStar({ className }: { className?: string }) {
+/** How long each testimonial stays on screen before the next one rotates in. */
+const ROTATE_MS = 5000
+
+// Google-themed star. Unfilled stars keep the same silhouette so the row of
+// five never shifts when a rating is below max.
+function GoogleStar({ className, filled = true }: { className?: string; filled?: boolean }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      aria-hidden="true"
     >
       <path
         d="M12 2L14.9 8.62L22 9.27L16.5 14.14L18.18 21.02L12 17.27L5.82 21.02L7.5 14.14L2 9.27L9.1 8.62L12 2Z"
-        fill="#FBBC04"
-        stroke="#F9AB00"
+        fill={filled ? '#FBBC04' : '#E8EAED'}
+        stroke={filled ? '#F9AB00' : '#DADCE0'}
         strokeWidth="0.5"
         strokeLinejoin="round"
       />
@@ -29,8 +35,8 @@ interface Sponsor {
   id: number
   name: string
   logo: string
-  bgColor: string // Tailwind class for card backgrounds
-  gradientColor: string // Hex color for subtle radial gradient
+  accent: string // pastel surface for the card + active tab
+  accentDeep: string // saturated counterpart for the quote mark and rules
   testimonial: {
     text: string
     author: string
@@ -41,281 +47,319 @@ interface Sponsor {
 }
 
 const sponsors: Sponsor[] = [
-    {
-      id: 1,
-      name: "Neo4j",
-      logo: "/assets/sponsors/neo4j.svg",
-      bgColor: "bg-blue-50",
-      gradientColor: "#EFF6FF", // blue-50 equivalent
-      testimonial: {
-        text: "I am thrilled to share my experience of collaborating with GDG Noida on behalf of Neo4j. Sponsoring DevFest Noida last year, I was impressed by the professionalism and dedication of the GDG team. The event was a resounding success, with an engaged audience that aligned perfectly with our goals. Based on this successful partnership, I have hosted multiple meetups with GDG Noida, and each event has been exceptional. The team consistently delivers high-quality tech events with seamless coordination and attention to detail, ensuring smooth execution and effective audience engagement. The visibility and reach we gained through our partnership with GDG Noida have been invaluable. I am very happy with the collaboration and look forward to continuing our long-term partnership",
-        author: "Siddhant Agarwal",
-        position: "DevRel, Neo4j",
-        rating: 5,
-        photo: "/assets/sponsors/sid-neo4j.svg"
-      }
-    },
-    {
-      id: 2,
-      name: "GitHub",
-      logo: "/assets/sponsors/github.svg",
-      bgColor: "bg-yellow-50",
-      gradientColor: "#FEFCE8", // yellow-50 equivalent
-      testimonial: {
-        text: "I'm incredibly grateful to GDG Noida for providing an exceptional platform to showcase Copilot and engage with a passionate community of developers. The enthusiasm and competitive spirit displayed by participants in the contests were truly inspiring. I'm eager to contribute again at the next DevFest!",
-        author: "Shubhangi Gupta",
-        position: "Github Camous Expert",
-        rating: 5,
-        photo: "/assets/sponsors/shubhangi-GH.svg"
-      }
-    },
-    {
-      id: 3,
-      name: "Brevo",
-      logo: "/assets/sponsors/brrr.svg",
-      bgColor: "bg-green-50",
-      gradientColor: "#F0FDF4", // green-50 equivalent
-      testimonial: {
-        text: "Our partnership with GDG Noida has been a highlight of the past year for Brevo. Sponsoring DevFest Noida 2024 gave us a firsthand look at the team’s remarkable ability to connect with developers. Their dedication to fostering a vibrant and engaged tech community is truly inspiring, and it’s a mission we're proud to support. The high-quality events and seamless execution have not only enhanced our visibility but have also created meaningful connections. We are grateful for this reliable and committed partnership and look forward to continuing to build on this success in the future.",
-        author: "Harshit Punwar",
-        position: "Developer Ecosystem Manager",
-        rating: 5,
-        photo: "/assets/sponsors/harshit-brevo.svg"
-      }
-    },
-    {
-      id: 4,
-      name: "Capx",
-      logo: "/assets/sponsors/capx.svg",
-      bgColor: "bg-pink-50",
-      gradientColor: "#FDF2F8", // pink-50 equivalent
-      testimonial: {
-        text: "The overall feedback from the event has been outstanding! It was an amazing experience. We connected with numerous developers who were genuinely interested and enthusiastic about building innovative projects.",
-        author: "Vaibhav Tyagi",
-        position: "Founder, Capx",
-        rating: 5,
-        photo: "/assets/sponsors/vaibhav.svg"
-      }
+  {
+    id: 1,
+    name: "Neo4j",
+    logo: "/assets/sponsors/neo4j.svg",
+    accent: "#D2E3FC",
+    accentDeep: "#1967D2",
+    testimonial: {
+      text: "I am thrilled to share my experience of collaborating with GDG Noida on behalf of Neo4j. Sponsoring DevFest Noida last year, I was impressed by the professionalism and dedication of the GDG team. The event was a resounding success, with an engaged audience that aligned perfectly with our goals. Based on this successful partnership, I have hosted multiple meetups with GDG Noida, and each event has been exceptional. The team consistently delivers high-quality tech events with seamless coordination and attention to detail, ensuring smooth execution and effective audience engagement. The visibility and reach we gained through our partnership with GDG Noida have been invaluable. I am very happy with the collaboration and look forward to continuing our long-term partnership",
+      author: "Siddhant Agarwal",
+      position: "DevRel, Neo4j",
+      rating: 5,
+      photo: "/assets/sponsors/sid-neo4j.svg"
     }
-  ]
+  },
+  {
+    id: 2,
+    name: "GitHub",
+    logo: "/assets/sponsors/github.svg",
+    accent: "#FEEFC3",
+    accentDeep: "#B06000",
+    testimonial: {
+      text: "I'm incredibly grateful to GDG Noida for providing an exceptional platform to showcase Copilot and engage with a passionate community of developers. The enthusiasm and competitive spirit displayed by participants in the contests were truly inspiring. I'm eager to contribute again at the next DevFest!",
+      author: "Shubhangi Gupta",
+      position: "GitHub Campus Expert",
+      rating: 5,
+      photo: "/assets/sponsors/shubhangi-GH.svg"
+    }
+  },
+  {
+    id: 3,
+    name: "Brevo",
+    logo: "/assets/sponsors/brrr.svg",
+    accent: "#CEEAD6",
+    accentDeep: "#188038",
+    testimonial: {
+      text: "Our partnership with GDG Noida has been a highlight of the past year for Brevo. Sponsoring DevFest Noida 2024 gave us a firsthand look at the team’s remarkable ability to connect with developers. Their dedication to fostering a vibrant and engaged tech community is truly inspiring, and it’s a mission we're proud to support. The high-quality events and seamless execution have not only enhanced our visibility but have also created meaningful connections. We are grateful for this reliable and committed partnership and look forward to continuing to build on this success in the future.",
+      author: "Harshit Punwar",
+      position: "Developer Ecosystem Manager",
+      rating: 5,
+      photo: "/assets/sponsors/harshit-brevo.svg"
+    }
+  },
+  {
+    id: 4,
+    name: "Capx",
+    logo: "/assets/sponsors/capx.svg",
+    accent: "#FAD2CF",
+    accentDeep: "#C5221F",
+    testimonial: {
+      text: "The overall feedback from the event has been outstanding! It was an amazing experience. We connected with numerous developers who were genuinely interested and enthusiastic about building innovative projects.",
+      author: "Vaibhav Tyagi",
+      position: "Founder, Capx",
+      rating: 5,
+      photo: "/assets/sponsors/vaibhav.svg"
+    }
+  }
+]
 
 function Sponsors() {
-  const [activeSponsor, setActiveSponsor] = useState<Sponsor>(sponsors[0])
-  const [resetKey, setResetKey] = useState(0)
-  const sponsorRefs = useRef<{ [key: number]: HTMLDivElement | null }>({})
-  const containerRef = useRef<HTMLDivElement | null>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const activeSponsor = sponsors[activeIndex]
 
-  const handleSponsorClick = (sponsor: Sponsor) => {
-    setActiveSponsor(sponsor)
-    // Reset the auto-rotate timer when user clicks a tab
-    setResetKey(prev => prev + 1)
+  const sectionRef = useRef<HTMLElement | null>(null)
+  const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const railRef = useRef<HTMLDivElement | null>(null)
+
+  const [paused, setPaused] = useState(false)
+  const [inView, setInView] = useState(false)
+  // Bumped on every resume so the timer effect below re-runs and starts a fresh
+  // full interval, rather than resuming whatever was left of the previous one.
+  const [runId, setRunId] = useState(0)
+
+  const running = inView && !paused
+
+  const goTo = useCallback((index: number) => {
+    setActiveIndex(((index % sponsors.length) + sponsors.length) % sponsors.length)
+  }, [])
+
+  // Leaving the rail restarts the full 5 seconds. Bumped at the event that
+  // resumes, never from an effect body, which would cascade an extra render.
+  const resume = useCallback(() => {
+    setPaused(false)
+    setRunId((n) => n + 1)
+  }, [])
+
+  // Hold the rotation until the section is actually on screen. Starting it at
+  // mount means a visitor who scrolls down here arrives mid-cycle, on whichever
+  // sponsor the clock happened to land on rather than the first one.
+  useEffect(() => {
+    const el = sectionRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting)
+        if (entry.isIntersecting) setRunId((n) => n + 1)
+      },
+      { threshold: 0.2 },
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  // Auto-advance through every sponsor on a loop. A timer, not requestAnimationFrame:
+  // rAF is throttled to zero in a background tab, and reduced-motion preferences
+  // must not switch the rotation off — it is the point of the section.
+  // Re-running on activeIndex means a manual pick also restarts the countdown.
+  useEffect(() => {
+    if (!running) return
+    const id = setTimeout(
+      () => setActiveIndex((i) => (i + 1) % sponsors.length),
+      ROTATE_MS,
+    )
+    return () => clearTimeout(id)
+  }, [activeIndex, running, runId])
+
+  // On mobile the rail is a horizontal strip, so the selected tab has to be
+  // scrolled back into view. On desktop all four tabs are always visible.
+  useEffect(() => {
+    const tab = tabRefs.current[activeIndex]
+    const rail = railRef.current
+    if (!tab || !rail || window.matchMedia('(min-width: 1024px)').matches) return
+
+    rail.scrollTo({
+      left: tab.offsetLeft - rail.clientWidth / 2 + tab.clientWidth / 2,
+      behavior: 'smooth',
+    })
+  }, [activeIndex])
+
+  const handleTabKeyDown = (event: React.KeyboardEvent) => {
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches
+    const next = isDesktop ? 'ArrowDown' : 'ArrowRight'
+    const prev = isDesktop ? 'ArrowUp' : 'ArrowLeft'
+
+    let target: number | null = null
+    if (event.key === next) target = activeIndex + 1
+    else if (event.key === prev) target = activeIndex - 1
+    else if (event.key === 'Home') target = 0
+    else if (event.key === 'End') target = sponsors.length - 1
+    if (target === null) return
+
+    event.preventDefault()
+    const resolved = ((target % sponsors.length) + sponsors.length) % sponsors.length
+    goTo(resolved)
+    tabRefs.current[resolved]?.focus()
   }
 
-  // Scroll active sponsor to center within container with top offset
-  useEffect(() => {
-    const activeElement = sponsorRefs.current[activeSponsor.id]
-    const container = containerRef.current
-    
-    if (activeElement && container) {
-      // Add offset for spacing at the top (80px for desktop, 20px for mobile horizontal scroll)
-      const topOffset = window.innerWidth >= 1024 ? 80 : 0
-      const leftOffset = window.innerWidth < 1024 ? 20 : 0
-      
-      // Calculate scroll positions to center the element within the container with offset
-      const scrollLeft = activeElement.offsetLeft - (container.offsetWidth / 2) + (activeElement.offsetWidth / 2) - leftOffset
-      const scrollTop = activeElement.offsetTop - (container.offsetHeight / 2) + (activeElement.offsetHeight / 2) - topOffset
-      
-      container.scrollTo({
-        left: scrollLeft,
-        top: scrollTop,
-        behavior: 'smooth'
-      })
-    }
-  }, [activeSponsor])
-
-  // Auto-rotate sponsors every 6 seconds (resets on tab click)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveSponsor((currentSponsor) => {
-        const currentIndex = sponsors.findIndex(s => s.id === currentSponsor.id)
-        const nextIndex = (currentIndex + 1) % sponsors.length
-        return sponsors[nextIndex]
-      })
-    }, 6000)
-
-    return () => clearInterval(interval)
-  }, [resetKey])
-
   return (
-    <section 
-      id="sponsors" 
-      className={`relative pt-8 pb-12 px-4 md:pt-[32px] md:pb-[50px] md:px-[64px] transition-colors duration-500 ${activeSponsor.bgColor}`}
-    >
-      {/* Top edge fade to white */}
-      <div 
-        className="absolute inset-x-0 top-0 h-16 pointer-events-none z-10"
-        style={{
-          background: `linear-gradient(to bottom, white 0%, transparent 100%)`
-        }}
-      />
-      {/* Bottom edge fade to white */}
-      <div 
-        className="absolute inset-x-0 bottom-0 h-16 pointer-events-none z-10"
-        style={{
-          background: `linear-gradient(to top, white 0%, transparent 100%)`
-        }}
-      />
-      <div className="max-w-7xl mx-auto relative z-20">
-        {/* Header */}
-        <div className="text-center mb-8 md:mb-10">
-        <BlurFade delay={0.1} inView>
-          <h2 className="text-3xl text-zinc-900 md:text-4xl lg:text-5xl xl:text-6xl">
+    <section ref={sectionRef} id="sponsors" className="relative w-full py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div className="mb-12 text-center md:mb-16">
+          <BlurFade delay={0.1} inView>
+            <h2 className="text-3xl text-zinc-900 md:text-5xl lg:text-6xl">
               Star <span className="font-bold">Sponsors</span>
-          </h2>
-        </BlurFade>
+            </h2>
+          </BlurFade>
           <BlurFade delay={0.2} inView>
-            <p className="mt-3 text-sm text-zinc-600 md:mt-4 md:text-base lg:text-lg">
+            <p className="mt-4 text-base text-zinc-600 md:text-lg">
               Empowering our vision with their support
             </p>
           </BlurFade>
         </div>
 
-        {/* Content Grid */}
-        <div className="flex flex-col lg:grid lg:grid-cols-3 gap-4 items-start">
-          {/* Left side - Sponsor Logos (Horizontal scroll on mobile, vertical scroll on desktop) */}
-          <div 
-            ref={containerRef}
-            className="w-full bg-white p-3 md:p-4 rounded-[20px]
-                       flex gap-4 overflow-x-auto no-scrollbar
-                       lg:flex-col lg:gap-6 lg:max-h-[563px] lg:overflow-y-scroll lg:overflow-x-hidden lg:scrollbar-hide"
-          >
-            {sponsors.map((sponsor) => (
-              <motion.div
-                key={sponsor.id}
-                ref={(el) => {
-                  sponsorRefs.current[sponsor.id] = el
-                }}
-                onClick={() => handleSponsorClick(sponsor)}
-                className={`rounded-[18px] p-3 md:p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center cursor-pointer relative overflow-hidden shrink-0
-                  ${activeSponsor.id === sponsor.id
-                    ? `${sponsor.bgColor} lg:min-h-[280px]`
-                    : 'lg:h-[114px]'
-                  }
-                  w-[100px] h-[80px] md:w-[120px] md:h-[100px] lg:w-auto lg:h-auto`}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: sponsor.id * 0.1 }}
-              >
-                {activeSponsor.id === sponsor.id && (
-                  <motion.div
-                    className={`absolute inset-0 rounded-[18px] opacity-10`}
-                    layoutId="activeSponsor"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 0.1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                )}
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.name}
-                    width={180}
-                    height={80}
-                    className={`object-contain transition-all duration-500 w-full h-auto max-w-[60px] md:max-w-[100px] lg:max-w-[180px] ${
-                      activeSponsor.id === sponsor.id
-                        ? 'grayscale-0 opacity-100'
-                        : 'grayscale opacity-60 hover:opacity-80'
-                    }`}
-                    style={{
-                      filter: activeSponsor.id === sponsor.id 
-                        ? 'grayscale(0%)' 
-                        : 'grayscale(100%)',
-                      transition: 'filter 0.5s ease-in-out, opacity 0.3s ease-in-out'
-                    }}
-                  />
-                </div>
-              </motion.div>
-            ))}
-          </div>
+        <BlurFade delay={0.3} inView>
+          <div className="mx-auto grid max-w-[1360px] items-stretch gap-4 lg:grid-cols-[minmax(0,260px)_minmax(0,1fr)] lg:gap-6">
+            {/* Sponsor picker — horizontal strip on mobile, stacked rail on desktop.
+                Rotation holds only while the pointer is over this rail, so reading
+                the quote never stalls the carousel. Touch is excluded: a tap fires
+                pointerenter and would leave it paused with no pointerleave to
+                follow. Focus pauses too — that is the keyboard equivalent. */}
+            <div
+              ref={railRef}
+              data-lenis-prevent
+              role="tablist"
+              aria-label="Sponsors"
+              onPointerEnter={(e) => { if (e.pointerType === 'mouse') setPaused(true) }}
+              onPointerLeave={(e) => { if (e.pointerType === 'mouse') resume() }}
+              onFocusCapture={(e) => {
+                // Only keyboard focus holds. A click also focuses the button, and
+                // pausing on that would strand the carousel until you clicked away.
+                if (e.target instanceof Element && e.target.matches(':focus-visible')) setPaused(true)
+              }}
+              onBlurCapture={() => resume()}
+              className="no-scrollbar flex w-full gap-3 overflow-x-auto scroll-smooth lg:h-full lg:flex-col lg:gap-4 lg:overflow-x-visible"
+            >
+              {sponsors.map((sponsor, index) => {
+                const isActive = index === activeIndex
+                return (
+                  <button
+                    key={sponsor.id}
+                    ref={(el) => { tabRefs.current[index] = el }}
+                    id={`sponsor-tab-${sponsor.id}`}
+                    type="button"
+                    role="tab"
+                    aria-selected={isActive}
+                    aria-controls={`sponsor-panel-${sponsor.id}`}
+                    tabIndex={isActive ? 0 : -1}
+                    onClick={() => goTo(index)}
+                    onKeyDown={handleTabKeyDown}
+                    style={
+                      isActive
+                        ? { backgroundColor: sponsor.accent, backgroundImage: GRAIN, backgroundSize: GRAIN_SIZE }
+                        : undefined
+                    }
+                    className={`group relative flex shrink-0 transform-gpu items-center justify-center overflow-hidden rounded-2xl px-4 outline-none transition-[transform,box-shadow,background-color] duration-300 ease-out focus-visible:ring-4 focus-visible:ring-[#4285F4]/35 h-[84px] w-[124px] md:h-[96px] md:w-[140px] lg:h-auto lg:min-h-[112px] lg:w-full lg:flex-1 lg:px-6 ${isActive ? 'shadow-[0_10px_30px_-14px_rgba(16,24,40,0.45)]' : 'bg-white shadow-[0_2px_10px_-4px_rgba(16,24,40,0.14)] hover:-translate-y-0.5 hover:shadow-[0_12px_26px_-16px_rgba(16,24,40,0.35)]'}`}
+                  >
+                    <span className="sr-only">Read the {sponsor.name} testimonial</span>
+                    {/* Fixed "logo well": object-contain fits each mark inside the
+                        same box, so a tall logo and a wide one carry equal weight
+                        instead of being sized by their own aspect ratio. */}
+                    <span className="relative block h-[34px] w-full max-w-[84px] md:h-[38px] md:max-w-[100px] lg:h-[48px] lg:max-w-[150px]">
+                      <Image
+                        src={sponsor.logo}
+                        alt=""
+                        fill
+                        sizes="(min-width: 1024px) 150px, 100px"
+                        className={`object-contain transition-[filter,opacity] duration-500 ease-out ${isActive ? 'opacity-100 grayscale-0' : 'opacity-55 grayscale group-hover:opacity-85 group-hover:grayscale-0'}`}
+                      />
+                    </span>
 
-          {/* Right side - Testimonial Card with Animation */}
-          <div className="w-full lg:col-span-2 mt-4 lg:mt-0"
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeSponsor.id}
-                initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -20, scale: 0.95 }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
-                className="bg-white rounded-[20px] p-6 md:p-8 lg:p-10 shadow-2xl w-full min-h-[500px] md:min-h-[550px] lg:min-h-[563px] flex flex-col"
-              >
-                {/* Testimonial Text */}
-                <motion.p
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.2, duration: 0.3 }}
-                  className="text-gray-800 text-sm md:text-base lg:text-lg leading-relaxed flex-1"
-                >
-                  {activeSponsor.testimonial.text}
-                </motion.p>
+                  </button>
+                )
+              })}
+            </div>
 
-                {/* Author Info - Fixed at bottom */}
+            {/* Testimonial panel */}
+            <div className="w-full">
+              <AnimatePresence mode="wait">
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.3 }}
-                  className="border-t border-gray-200 pt-4 md:pt-6 mt-auto"
+                  key={activeSponsor.id}
+                  id={`sponsor-panel-${activeSponsor.id}`}
+                  role="tabpanel"
+                  aria-labelledby={`sponsor-tab-${activeSponsor.id}`}
+                  // Fixed initial state to prevent hydration mismatches on reduced-motion devices.
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35, ease: 'easeOut' }}
+                  style={{
+                    backgroundColor: activeSponsor.accent,
+                    backgroundImage: GRAIN,
+                    backgroundSize: GRAIN_SIZE,
+                  }}
+                  className="flex min-h-[480px] w-full flex-col rounded-3xl p-6 shadow-[0_18px_40px_-24px_rgba(16,24,40,0.45)] md:min-h-[540px] md:p-8 lg:min-h-[620px] lg:p-10"
                 >
-                  {/* Photo and Author Info */}
-                  <div className="flex items-center gap-3 md:gap-4">
-                    <Image 
-                      src={activeSponsor.testimonial.photo} 
-                      alt={activeSponsor.testimonial.author} 
-                      width={92} 
-                      height={92} 
-                      className="rounded-full object-cover w-16 h-16 md:w-20 md:h-20 lg:w-[92px] lg:h-[92px]"
-                    />
-                    <div>
-                      <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-black mb-1">
-                        {activeSponsor.testimonial.author}
-                      </h3>
-                      <p className="text-gray-500 text-sm md:text-base lg:text-lg">
-                        {activeSponsor.testimonial.position}
-                      </p>
-                    </div>
+                  {/* One type size for every quote. The lengths differ a lot, so the
+                      mark and the text centre together in the flex track — the glyph
+                      has to travel with the text or a short quote leaves it stranded
+                      at the top of the card with a gap between them. */}
+                  <div className="flex flex-1 flex-col justify-center">
+                    <span
+                      aria-hidden="true"
+                      className="mb-2 block font-serif text-6xl leading-[0.6] md:text-7xl"
+                      style={{ color: activeSponsor.accentDeep, opacity: 0.35 }}
+                    >
+                      &ldquo;
+                    </span>
+                    <blockquote className="text-base leading-relaxed text-zinc-800 md:text-[17px] lg:text-lg lg:leading-[1.75]">
+                      {activeSponsor.testimonial.text}
+                    </blockquote>
                   </div>
 
-                  {/* Dotted line and Star Rating at bottom */}
-                  <div className="flex items-center justify-end gap-3 md:gap-4 w-full mt-4 md:mt-6">
-                    {/* Dotted separator line */}
-                    <div className="flex-1 border-t-2 border-dotted border-gray-300" />
-                    
-                    {/* Star Rating */}
-                    <div className="flex gap-0.5 md:gap-1 shrink-0">
-                      {[...Array(activeSponsor.testimonial.rating)].map((_, index) => (
-                        <motion.div
-                          key={index}
-                          initial={{ opacity: 0, scale: 0 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          transition={{ delay: 0.4 + index * 0.05, duration: 0.2 }}
-                        >
-                          <GoogleStar className="w-5 h-5 md:w-6 md:h-6 lg:w-7 lg:h-7" />
-                        </motion.div>
-                      ))}
+                  {/* Attribution */}
+                  <div
+                    className="mt-6 border-t pt-5 md:mt-8 md:pt-6"
+                    style={{ borderColor: `${activeSponsor.accentDeep}26` }}
+                  >
+                    <div className="flex flex-wrap items-center gap-4">
+                      <Image
+                        src={activeSponsor.testimonial.photo}
+                        alt={activeSponsor.testimonial.author}
+                        width={92}
+                        height={92}
+                        className="h-14 w-14 shrink-0 rounded-full bg-white object-cover ring-2 ring-white md:h-[72px] md:w-[72px]"
+                      />
+                      <div className="min-w-0">
+                        <p className="text-lg font-semibold text-zinc-900 md:text-xl">
+                          {activeSponsor.testimonial.author}
+                        </p>
+                        <p className="mt-0.5 text-sm text-zinc-600 md:text-base">
+                          {activeSponsor.testimonial.position}
+                        </p>
+                      </div>
+
+                      <div
+                        className="ml-auto flex shrink-0 gap-1"
+                        role="img"
+                        aria-label={`Rated ${activeSponsor.testimonial.rating} out of 5`}
+                      >
+                        {Array.from({ length: 5 }, (_, index) => (
+                          <motion.span
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.4 }}
+                            animate={inView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.4 }}
+                            transition={{ delay: 0.25 + index * 0.05, duration: 0.2 }}
+                          >
+                            <GoogleStar
+                              className="h-5 w-5 md:h-6 md:w-6"
+                              filled={index < activeSponsor.testimonial.rating}
+                            />
+                          </motion.span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </motion.div>
-              </motion.div>
-            </AnimatePresence>
+              </AnimatePresence>
+            </div>
           </div>
-        </div>
+        </BlurFade>
       </div>
     </section>
   )
 }
 
 export default Sponsors
-

@@ -1,10 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { MapPin } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "motion/react";
 import { cn } from "@/lib/utils";
+import { useGsapReveal } from "@/lib/gsap-reveal";
+
+/** How long each set stays on screen before the next one slides in. */
+const ROTATE_MS = 10000;
+
 
 interface EventStat {
   value: string;
@@ -18,151 +23,158 @@ interface EventCard {
   logo: string;
   stats: EventStat[];
   venue: string;
-  backgroundColor: string;
 }
 
-const eventSets: EventCard[][] = [
-  // Set 1: DevFest 2022, 2023, 2024
-  [
-    {
-      year: "2022",
-      location: "Noida",
-      image: "/assets/events/devfest22bg.png",
-      logo: "/assets/events/devfest22logo.png",
-      stats: [
-        { value: "3,820+", label: "Registrations" },
-        { value: "350+", label: "Attendees" },
-        { value: "30+", label: "Speakers" },
-      ],
-      venue: "Radisson Blu, Sector 18, Noida",
-      backgroundColor: "bg-[#E8F5E9]",
-    },
-    {
-      year: "2023",
-      location: "Noida",
-      image: "/assets/events/devfest23bg.png",
-      logo: "/assets/events/devfest23logo.png",
-      stats: [
-        { value: "4,730+", label: "Registrations" },
-        { value: "500+", label: "Attendees" },
-        { value: "30+", label: "Speakers" },
-      ],
-      venue: "Holiday Inn, Mayur Vihar",
-      backgroundColor: "bg-[#FCE4EC]",
-    },
-    {
-      year: "2024",
-      location: "Noida",
-      image: "/assets/events/devfest24bg.png",
-      logo: "/assets/events/devfest24logo.png",
-      stats: [
-        { value: "5,120+", label: "Registrations" },
-        { value: "600+", label: "Attendees" },
-        { value: "35+", label: "Speakers" },
-      ],
-      venue: "Expo Inn, Greater Noida",
-      backgroundColor: "bg-[#ECEFF1]",
-    },
-  ],
-  // Set 2: Community Events
-  [
-    {
-      year: "2023",
-      location: "Noida",
-      image: "/assets/events/designSamvadbg23.png",
-      logo: "/assets/events/designSamvadlogo23.png",
-      stats: [
-        // { value: "2,500+", label: "Registrations" },
-        { value: "50+", label: "Attendees" },
-        { value: "7+", label: "Speakers" },
-      ],
-      venue: "TATA 1MG Office, Noida",
-      backgroundColor: "bg-[#E8F5E9]",
-    },
-    {
-      year: "2024",
-      location: "Delhi",
-      image: "/assets/events/designSamvad24bg.png",
-      logo: "/assets/events/designSamvad24logo.png",
-      stats: [
-        // { value: "+", label: "Registrations" },
-        { value: "150+", label: "Attendees" },
-        { value: "8+", label: "Speakers" },
-      ],
-      venue: "IIIT Delhi Campus, Delhi",
-      backgroundColor: "bg-[#FCE4EC]",
-    },
-    {
-      year: "2025",
-      location: "Gurugram",
-      image: "/assets/events/designSamvad25bg.png",
-      logo: "/assets/events/designSamvad25logo.png",
-      stats: [
-        // { value: "4,100+", label: "Registrations" },
-        { value: "170+", label: "Attendees" },
-        { value: "6+", label: "Speakers" },
-      ],
-      venue: "Google Office, Gurugram",
-      backgroundColor: "bg-[#ECEFF1]",
-    },
-  ],
-  // Set 3: Tech Talks & Workshops
-  [
-    {
-      year: "2022",
-      location: "Noida",
-      image: "/assets/events/dgbg4.svg",
-      logo: "/assets/events/dglogo4.svg",
-      stats: [
-        // { value: "1,800+", label: "Registrations" },
-        { value: "291+", label: "Attendees" },
-        { value: "5+", label: "Speakers" },
-      ],
-      venue: "Akasa CoWorking, Noida",
-      backgroundColor: "bg-[#E8F5E9]",
-    },
-    {
-      year: "2023",
-      location: "Delhi",
-      image: "/assets/events/dgbg5.svg",
-      logo: "/assets/events/dglogo5.svg",
-      stats: [
-        // { value: "2,200+", label: "Registrations" },
-        { value: "200+", label: "Attendees" },
-        { value: "5+", label: "Speakers" },
-      ],
-      venue: "EcoSphere, Noida",
-      backgroundColor: "bg-[#FCE4EC]",
-    },
-    {
-      year: "2024",
-      location: "Greater Noida",
-      image: "/assets/events/dgbg6.svg",
-      logo: "/assets/events/dglogo6.svg",
-      stats: [
-        // { value: "2,800+", label: "Registrations" },
-        { value: "170+", label: "Attendees" },
-        { value: "5+", label: "Speakers" },
-      ],
-      venue: "Masters Union, Gurgaon",
-      backgroundColor: "bg-[#ECEFF1]",
-    },
-  ],
+interface EventSet {
+  /** Series name — labels the pagination dots and the image alt text. */
+  name: string;
+  cards: EventCard[];
+}
+
+/** Cards are plain white; this is only the stat-number colour, cycled by position. */
+const STAT_ACCENTS = ["#1967D2", "#C5221F", "#188038"];
+
+const eventSets: EventSet[] = [
+  {
+    name: "DevFest",
+    cards: [
+      {
+        year: "2022",
+        location: "Noida",
+        image: "/assets/events/devfest22bg.png",
+        logo: "/assets/events/devfest22logo.png",
+        stats: [
+          { value: "3,820+", label: "Registrations" },
+          { value: "350+", label: "Attendees" },
+          { value: "30+", label: "Speakers" },
+        ],
+        venue: "Radisson Blu, Sector 18, Noida",
+      },
+      {
+        year: "2023",
+        location: "Noida",
+        image: "/assets/events/devfest23bg.png",
+        logo: "/assets/events/devfest23logo.png",
+        stats: [
+          { value: "4,730+", label: "Registrations" },
+          { value: "500+", label: "Attendees" },
+          { value: "30+", label: "Speakers" },
+        ],
+        venue: "Holiday Inn, Mayur Vihar",
+      },
+      {
+        year: "2024",
+        location: "Noida",
+        image: "/assets/events/devfest24bg.png",
+        logo: "/assets/events/devfest24logo.png",
+        stats: [
+          { value: "5,120+", label: "Registrations" },
+          { value: "600+", label: "Attendees" },
+          { value: "35+", label: "Speakers" },
+        ],
+        venue: "Expo Inn, Greater Noida",
+      },
+    ],
+  },
+  {
+    name: "Design Samvad",
+    cards: [
+      {
+        year: "2023",
+        location: "Noida",
+        image: "/assets/events/designSamvadbg23.png",
+        logo: "/assets/events/designSamvadlogo23.png",
+        stats: [
+          { value: "50+", label: "Attendees" },
+          { value: "7+", label: "Speakers" },
+        ],
+        venue: "TATA 1MG Office, Noida",
+      },
+      {
+        year: "2024",
+        location: "Delhi",
+        image: "/assets/events/designSamvad24bg.png",
+        logo: "/assets/events/designSamvad24logo.png",
+        stats: [
+          { value: "150+", label: "Attendees" },
+          { value: "8+", label: "Speakers" },
+        ],
+        venue: "IIIT Delhi Campus, Delhi",
+      },
+      {
+        year: "2025",
+        location: "Gurugram",
+        image: "/assets/events/designSamvad25bg.png",
+        logo: "/assets/events/designSamvad25logo.png",
+        stats: [
+          { value: "170+", label: "Attendees" },
+          { value: "6+", label: "Speakers" },
+        ],
+        venue: "Google Office, Gurugram",
+      },
+    ],
+  },
+  {
+    name: "The Data & GenAI Nexus",
+    cards: [
+      {
+        year: "2022",
+        location: "Noida",
+        image: "/assets/events/dgbg4.svg",
+        logo: "/assets/events/dglogo4.svg",
+        stats: [
+          { value: "291+", label: "Attendees" },
+          { value: "5+", label: "Speakers" },
+        ],
+        venue: "Akasa CoWorking, Noida",
+      },
+      {
+        year: "2023",
+        location: "Delhi",
+        image: "/assets/events/dgbg5.svg",
+        logo: "/assets/events/dglogo5.svg",
+        stats: [
+          { value: "200+", label: "Attendees" },
+          { value: "5+", label: "Speakers" },
+        ],
+        venue: "EcoSphere, Noida",
+      },
+      {
+        year: "2024",
+        location: "Greater Noida",
+        image: "/assets/events/dgbg6.svg",
+        logo: "/assets/events/dglogo6.svg",
+        stats: [
+          { value: "170+", label: "Attendees" },
+          { value: "5+", label: "Speakers" },
+        ],
+        venue: "Masters Union, Gurgaon",
+      },
+    ],
+  },
 ];
 
-function CounterNumber({ value, eventKey }: { readonly value: string; readonly eventKey: string }) {
+function CounterNumber({
+  value,
+  color,
+  run,
+}: {
+  readonly value: string;
+  readonly color: string;
+  readonly run: boolean;
+}) {
   const [count, setCount] = useState(0);
   const [showPlus, setShowPlus] = useState(false);
 
-  // Extract number and check for plus sign
   const numericValue = Number.parseInt(value.replaceAll(",", "").replaceAll("+", ""));
   const hasPlus = value.includes("+");
 
   useEffect(() => {
-    setCount(0);
-    setShowPlus(false);
+    // Hold at zero until the section is on screen, so the count-up is something
+    // the visitor actually sees rather than something finished before they arrive.
+    if (!run) return;
 
-    const duration = 2000; // 2 seconds
+    const duration = 2000;
     const steps = 60;
     const increment = numericValue / steps;
     let currentStep = 0;
@@ -174,28 +186,18 @@ function CounterNumber({ value, eventKey }: { readonly value: string; readonly e
       } else {
         setCount(numericValue);
         clearInterval(timer);
-        if (hasPlus) {
-          setTimeout(() => setShowPlus(true), 100);
-        }
+        if (hasPlus) setTimeout(() => setShowPlus(true), 100);
       }
     }, duration / steps);
 
     return () => clearInterval(timer);
-  }, [numericValue, hasPlus, eventKey]);
-
-  // Format number with commas
-  const formattedCount = count.toLocaleString();
+  }, [numericValue, hasPlus, run]);
 
   return (
-    <span className="text-[24px] md:text-[28px] lg:text-[33px] font-normal text-[#34A853]">
-      {formattedCount}
+    <span className="text-[17px] font-semibold tabular-nums md:text-[19px]" style={{ color }}>
+      {count.toLocaleString()}
       {hasPlus && (
-        <span
-          className={cn(
-            "transition-opacity duration-500",
-            showPlus ? "opacity-100" : "opacity-0"
-          )}
-        >
+        <span className={cn("transition-opacity duration-500", showPlus ? "opacity-100" : "opacity-0")}>
           +
         </span>
       )}
@@ -204,182 +206,199 @@ function CounterNumber({ value, eventKey }: { readonly value: string; readonly e
 }
 
 export default function FlagshipEvents() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const carouselInView = useInView(carouselRef, { once: false, amount: 0.35 });
   const [currentSet, setCurrentSet] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [resetKey, setResetKey] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  const [inView, setInView] = useState(false);
+  // Bumped on every resume so the countdown bar replays in step with the timer.
+  const [runId, setRunId] = useState(0);
 
-  // Detect mobile screen size
+  // Being on screen is the only gate — hovering the cards does not hold it.
+  const running = inView;
+
+  // Hold the carousel until the section is on screen — otherwise a visitor who
+  // scrolls down here lands on whichever set the clock happened to reach.
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+        if (entry.isIntersecting) setRunId((n) => n + 1);
+      },
+      { threshold: 0.15 },
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [sectionRef]);
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
+  const goTo = useCallback((index: number, newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentSet(index);
+    setRunId((n) => n + 1);
   }, []);
 
+  const paginate = useCallback((newDirection: number) => {
+    setDirection(newDirection);
+    setCurrentSet((prev) => (prev + newDirection + eventSets.length) % eventSets.length);
+    setRunId((n) => n + 1);
+  }, []);
 
-  const slideVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      scale: 0.95,
-    }),
+  // A timer rather than requestAnimationFrame: rAF is throttled to zero in a
+  // background tab. Re-running on currentSet means a manual pick also restarts
+  // the countdown.
+  useEffect(() => {
+    if (!running) return;
+    const id = setTimeout(() => {
+      setDirection(1);
+      setCurrentSet((prev) => (prev + 1) % eventSets.length);
+    }, ROTATE_MS);
+    return () => clearTimeout(id);
+  }, [currentSet, running, runId]);
+
+  // The set container only orchestrates: it holds no visual state of its own, so
+  // the three cards animate individually instead of the row moving as one slab.
+  const setVariants = {
+    enter: {},
+    center: { transition: { staggerChildren: 0.09, delayChildren: 0.04 } },
+    // Leaving runs right-to-left and quicker than arriving, so the outgoing set
+    // clears out before the next one starts building.
+    exit: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+  };
+
+  const cardVariants = {
+    enter: (dir: number) => ({ opacity: 0, y: 32, scale: 0.94, x: dir === 0 ? 0 : (dir > 0 ? 48 : -48) }),
     center: {
-      zIndex: 1,
-      x: 0,
       opacity: 1,
+      y: 0,
       scale: 1,
+      x: 0,
+      transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] as const },
     },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 300 : -300,
+    exit: (dir: number) => ({
       opacity: 0,
-      scale: 0.95,
+      y: -18,
+      scale: 0.97,
+      x: dir < 0 ? 48 : -48,
+      transition: { duration: 0.3, ease: "easeIn" as const },
     }),
   };
 
   const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset: number, velocity: number) => {
-    return Math.abs(offset) * velocity;
-  };
+  const swipePower = (offset: number, velocity: number) => Math.abs(offset) * velocity;
 
-  const paginate = (newDirection: number) => {
-    setDirection(newDirection);
-    setCurrentSet((prev) => {
-      let next = prev + newDirection;
-      if (next < 0) next = eventSets.length - 1;
-      if (next >= eventSets.length) next = 0;
-      return next;
-    });
-  };
-
-  // Auto-slide every 10 seconds (desktop only)
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setDirection(1);
-      setCurrentSet((prev) => {
-        let next = prev + 1;
-        if (next >= eventSets.length) next = 0;
-        return next;
-      });
-      setResetKey((prev) => prev + 1);
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [currentSet, isMobile]);
+  const activeSet = eventSets[currentSet];
 
   return (
-    <section
-      id="events"
-      className="py-20 px-4 md:px-8 lg:px-16 transition-all duration-700"
-    >
-      <div className="max-w-[1400px] mx-auto">
-        {/* Title Section - Static */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl text-black">
+    <section ref={sectionRef} id="events" className="relative w-full py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        {/* Section Header */}
+        <div data-reveal className="mb-12 text-center md:mb-16">
+          <h2 className="text-3xl text-zinc-900 md:text-5xl lg:text-6xl">
             Our <span className="font-bold">Flagship Events</span>
           </h2>
-          <p className="text-base md:text-2xl text-gray-600 mt-3">
+          <p className="mt-4 text-base text-zinc-600 md:text-lg">
             Our signature experiences that define excellence
           </p>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative lg:overflow-hidden">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
+        {/* Carousel — advances on its own whenever the section is on screen. */}
+        <div ref={carouselRef} className="relative lg:overflow-hidden">
+          <AnimatePresence custom={direction} mode="wait">
             <motion.div
               key={currentSet}
               custom={direction}
-              variants={slideVariants}
+              variants={setVariants}
               initial="enter"
-              animate="center"
+              animate={carouselInView ? "center" : "enter"}
               exit="exit"
-              transition={{
-                duration: 0.4,
-                ease: [0.32, 0.72, 0, 1],
-              }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
               dragElastic={1}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x);
-
-                if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1);
-                  setResetKey((prev) => prev + 1);
-                } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1);
-                  setResetKey((prev) => prev + 1);
-                }
+                if (swipe < -swipeConfidenceThreshold) paginate(1);
+                else if (swipe > swipeConfidenceThreshold) paginate(-1);
               }}
-              className="lg:cursor-grab lg:active:cursor-grabbing"
             >
-              {/* Event Cards Grid */}
-              <div className="block lg:flex lg:flex-row lg:items-start lg:justify-center lg:gap-[120px]">
-                {eventSets[currentSet].map((event, index) => {
-                  // Calculate gap from title section based on design specs
+              <div className="block lg:flex lg:flex-row lg:items-start lg:justify-center lg:gap-16 xl:gap-24">
+                {activeSet.cards.map((event, index) => {
+                  const accentDeep = STAT_ACCENTS[index % STAT_ACCENTS.length];
+                  // The middle card sits lower, giving the row a deliberate arc.
                   const marginTopClass = index === 1 ? "lg:mt-[90px]" : "lg:mt-[39px]";
 
-                  // Assign z-index based on position for stacking effect (higher index = higher z-index)
                   let zIndexClass = "z-10";
-                  if (index === 1) {
-                    zIndexClass = "z-20";
-                  } else if (index === 2) {
-                    zIndexClass = "z-30";
-                  }
+                  if (index === 1) zIndexClass = "z-20";
+                  else if (index === 2) zIndexClass = "z-30";
 
                   return (
-                    <div
+                    <motion.div
                       key={event.year}
+                      custom={direction}
+                      variants={cardVariants}
+                      // The lift is a gesture prop, not a CSS hover: the variants
+                      // above own `transform`, so a Tailwind translate would be
+                      // overwritten the moment a card animates.
+                      whileHover={{ y: -6, transition: { duration: 0.25, ease: "easeOut" } }}
                       className={cn(
-                        "rounded-[20px] shadow-xl relative flex flex-col items-center",
+                        "group relative mx-auto flex transform-gpu flex-col items-center rounded-3xl bg-white lg:mx-0",
                         "w-full max-w-[280px] md:max-w-[320px] lg:max-w-[372px]",
                         "h-[380px] md:h-[430px] lg:h-[493px]",
-                        "mx-auto lg:mx-0",
-                        event.backgroundColor,
-                        // Mobile: spacing for stacking effect, Desktop: design specs
+                        "shadow-[0_2px_10px_-4px_rgba(16,24,40,0.10)]",
+                        "after:pointer-events-none after:absolute after:inset-0 after:rounded-3xl",
+                        "after:shadow-[0_18px_40px_-16px_rgba(16,24,40,0.30)]",
+                        "after:opacity-0 after:transition-opacity after:duration-400 after:ease-out",
+                        "lg:hover:after:opacity-100",
                         index === 0 ? "mt-0" : "mt-[25vh] lg:mt-0",
                         marginTopClass,
-                        // Z-index only on mobile for stacking
                         `lg:z-auto ${zIndexClass}`,
-                        "sticky top-[20vh] lg:static" // Sticky in middle of screen on mobile, static on desktop
+                        // Sticky stacking on mobile, plain row on desktop.
+                        "sticky top-[20vh] lg:static",
                       )}
                     >
                       {/* Event Logo */}
-                      <div className="mt-4 md:mt-5 lg:mt-6 mb-3 md:mb-3.5 lg:mb-4 flex items-center justify-center w-full px-4 md:px-5 lg:px-6">
-                        <div className="relative w-full h-[45px] md:h-[50px] lg:h-[60px]">
+                      <div className="mt-4 mb-3 flex w-full items-center justify-center px-4 md:mt-5 md:mb-3.5 md:px-5 lg:mt-6 lg:mb-4 lg:px-6">
+                        <div className="relative h-[45px] w-full md:h-[50px] lg:h-[60px]">
                           <Image
                             src={event.logo}
-                            alt={`DevFest ${event.year} Logo`}
+                            alt={`${activeSet.name} ${event.year} logo`}
                             fill
+                            sizes="(min-width: 1024px) 324px, 250px"
                             className="object-contain"
                           />
                         </div>
                       </div>
 
                       {/* Event Image */}
-                      <div className="relative w-[250px] md:w-[290px] lg:w-[334px] h-[260px] md:h-[295px] lg:h-[347px] shrink-0">
-                        <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                      <div className="relative h-[260px] w-[250px] shrink-0 md:h-[295px] md:w-[290px] lg:h-[347px] lg:w-[334px]">
+                        <div className="relative h-full w-full overflow-hidden rounded-2xl">
                           <Image
                             src={event.image}
-                            alt={`DevFest ${event.year}`}
+                            alt={`${activeSet.name} ${event.year} at ${event.venue}`}
                             fill
+                            sizes="(min-width: 1024px) 334px, 250px"
                             className="object-cover"
                           />
                         </div>
 
-                        {/* Stats Overlay */}
-                        <div className="absolute bottom-2 md:bottom-2.5 lg:bottom-3 left-[30%] md:left-[32%] lg:left-[35%] space-y-1.5 md:space-y-2 lg:space-y-2.5">
+                        {/* Stats. Anchored to the image's right edge: the old
+                            `left-[35%]` with `w-fit` let the widest pill spill
+                            past the card entirely. */}
+                        <div className="absolute right-3 bottom-3 flex flex-col items-end gap-2.5 md:right-4 md:bottom-4 md:gap-3">
                           {event.stats.map((stat) => (
                             <div
                               key={`${event.year}-${stat.label}`}
-                              className="bg-white rounded-[12px] md:rounded-[15px] lg:rounded-[17px] px-2 md:px-2.5 py-1.5 md:py-2 flex items-center gap-1.5 md:gap-2 shadow-[0_4px_12px_rgba(0,0,0,0.15)] w-fit"
+                              className="flex w-fit max-w-full items-center gap-2 rounded-full bg-white/95 px-3.5 py-2 shadow-[0_4px_12px_rgba(0,0,0,0.15)] backdrop-blur-sm md:gap-2.5 md:px-4 md:py-2.5"
                             >
-                              <CounterNumber value={stat.value} eventKey={`${currentSet}-${event.year}-${stat.label}`} />
-                              <span className="text-[16px] md:text-[19px] lg:text-[22px] font-normal text-black">
+                              <CounterNumber
+                                key={`${runId}-${currentSet}-${event.year}-${stat.label}`}
+                                value={stat.value}
+                                color={accentDeep}
+                                run={inView}
+                              />
+                              <span className="text-[13px] whitespace-nowrap text-zinc-700 md:text-sm">
                                 {stat.label}
                               </span>
                             </div>
@@ -388,11 +407,18 @@ export default function FlagshipEvents() {
                       </div>
 
                       {/* Venue */}
-                      <div className="flex items-center justify-center gap-1.5 md:gap-2 text-black mt-auto pt-1.5 md:pt-2 pb-4 md:pb-5 lg:pb-6 px-4">
-                        <MapPin className="w-4 h-4 md:w-[18px] md:h-[18px] lg:w-5 lg:h-5 shrink-0" />
-                        <span className="text-[14px] md:text-[17px] lg:text-[20px] font-medium text-center leading-tight">{event.venue}</span>
+                      <div className="mt-auto flex items-center justify-center gap-1.5 px-4 pt-2 pb-4 text-zinc-800 md:gap-2 md:pb-5 lg:pb-6">
+                        <MapPin className="h-4 w-4 shrink-0 md:h-[18px] md:w-[18px]" />
+                        <a
+                          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(event.venue)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-center text-sm leading-tight font-medium md:text-base underline decoration-zinc-400/50 underline-offset-2 hover:text-[#EA4335] hover:decoration-[#EA4335] transition-colors"
+                        >
+                          {event.venue}
+                        </a>
                       </div>
-                    </div>
+                    </motion.div>
                   );
                 })}
               </div>
@@ -400,49 +426,40 @@ export default function FlagshipEvents() {
           </AnimatePresence>
 
           {/* Navigation Dots with Progress Loader */}
-          <div className="flex justify-center gap-3 mt-6 lg:mt-16">
-            {eventSets.map((set, index) => (
-              <button
-                key={`nav-${set[0].venue}-${set[0].year}`}
-                onClick={() => {
-                  setDirection(index > currentSet ? 1 : -1);
-                  setCurrentSet(index);
-                  setResetKey((prev) => prev + 1);
-                }}
-                className={cn(
-                  "relative rounded-full overflow-hidden transition-all duration-300",
-                  currentSet === index ? "w-12 h-3" : "w-3 h-3"
-                )}
-                aria-label={`Go to event set ${index + 1}`}
-              >
-                {/* Background */}
-                <div className="absolute inset-0 bg-gray-300" />
-
-                {/* Progress Bar (only for active) */}
-                {currentSet === index && (
-                  <motion.div
-                    key={`progress-${currentSet}-${resetKey}`}
-                    className="absolute inset-0 bg-linear-to-r from-[#4285F4] to-[#34A853] origin-left"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: 1 }}
-                    transition={{
-                      duration: 10,
-                      ease: "linear",
-                    }}
-                    style={{ willChange: "transform" }}
-                  />
-                )}
-
-                {/* Static fill for inactive dots */}
-                {currentSet !== index && (
-                  <div className="absolute inset-0 bg-gray-300 hover:bg-gray-400 transition-colors" />
-                )}
-              </button>
-            ))}
+          <div data-reveal className="mt-6 flex justify-center gap-3 lg:mt-16">
+            {eventSets.map((set, index) => {
+              const isActive = currentSet === index;
+              return (
+                <button
+                  key={set.name}
+                  type="button"
+                  onClick={() => goTo(index, index > currentSet ? 1 : -1)}
+                  aria-label={`Show ${set.name}`}
+                  aria-current={isActive}
+                  className={cn(
+                    "relative h-3 overflow-hidden rounded-full bg-gray-300 transition-all duration-300",
+                    "outline-none focus-visible:ring-4 focus-visible:ring-[#4285F4]/35",
+                    isActive ? "w-12" : "w-3 hover:bg-gray-400",
+                  )}
+                >
+                  {isActive && (
+                    <span
+                      key={`${currentSet}-${runId}`}
+                      aria-hidden="true"
+                      className="absolute inset-0 origin-left bg-gradient-to-r from-[#4285F4] to-[#34A853]"
+                      style={{
+                        transform: "scaleX(0)",
+                        animation: `progress-sweep ${ROTATE_MS}ms linear forwards`,
+                        animationPlayState: running ? "running" : "paused",
+                      }}
+                    />
+                  )}
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
     </section>
   );
 }
-

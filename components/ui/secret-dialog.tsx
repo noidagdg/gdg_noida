@@ -79,7 +79,7 @@ export function SecretDialog({ isOpen, onClose }: SecretDialogProps) {
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#4285F4]/50 to-transparent" />
 
               {/* Content wrapper with overflow handling */}
-              <div className="overflow-y-auto max-h-[85vh] scrollbar-hide">
+              <div data-lenis-prevent className="overflow-y-auto max-h-[85vh] scrollbar-hide">
                 <div className="p-6 md:p-8 lg:p-10">
                   {/* Close Button */}
                   <motion.button

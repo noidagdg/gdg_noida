@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useAnimationFrame } from "framer-motion";
-import { useRef, useState } from "react";
+import { useId, useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface AnimatedBeamProps {
@@ -31,7 +31,7 @@ export default function AnimatedBeam({
   toRef,
   curvature = 0,
   reverse = false,
-  duration = Math.random() * 3 + 4,
+  duration = 5.5,
   delay = 0,
   pathColor = "gray",
   pathWidth = 2,
@@ -43,7 +43,7 @@ export default function AnimatedBeam({
   endXOffset = 0,
   endYOffset = 0,
 }: AnimatedBeamProps) {
-  const id = useRef(Math.random().toString(36).substr(2, 9));
+  const id = useId().replaceAll(":", "");
   const [pathD, setPathD] = useState("");
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 });
 
@@ -113,14 +113,14 @@ export default function AnimatedBeam({
       <path
         d={pathD}
         strokeWidth={pathWidth}
-        stroke={`url(#${id.current})`}
+        stroke={`url(#${id})`}
         strokeOpacity="1"
         strokeLinecap="round"
       />
       <defs>
         <motion.linearGradient
           className="transform-gpu"
-          id={id.current}
+          id={id}
           gradientUnits={"userSpaceOnUse"}
           initial={{
             x1: "0%",

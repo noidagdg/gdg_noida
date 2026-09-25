@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { Marquee } from "@/components/ui/marquee";
+import { useGsapReveal } from "@/lib/gsap-reveal";
 
 const logos = [
   {
@@ -40,15 +41,17 @@ const logos = [
 ];
 
 function MarqueeSection() {
+  const sectionRef = useGsapReveal<HTMLElement>();
+
   return (
-    <section className="relative w-full overflow-hidden py-8 md:py-12 bg-white">
+    <section ref={sectionRef} className="relative w-full overflow-hidden py-8 md:py-12 bg-white">
       {/* Left gradient overlay */}
       <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
       
       {/* Right gradient overlay */}
       <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
       
-      <Marquee className="[--duration:30s]" pauseOnHover>
+      <Marquee data-reveal className="[--duration:30s]" pauseOnHover>
         {logos.map((logo) => (
           <div
             key={logo.name}

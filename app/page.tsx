@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Navbar from "@/components/sections/navbar";
 import Loader from "@/components/Loader";
 import HeroSection from "@/components/HeroSection";
@@ -14,14 +14,23 @@ import Testimonials from "@/components/sections/Testimonials";
 import Marquee from "@/components/sections/marquee";
 import WhoWeAre from "@/components/sections/who-we-are";
 import { SecretDialog } from "@/components/ui/secret-dialog";
+import DevFestInvitation from "@/components/devfest-invitation";
 
 export default function Home() {
   const [isSecretDialogOpen, setIsSecretDialogOpen] = useState(false);
   const [loaderDone, setLoaderDone] = useState(false);
+  const handleLoaderComplete = useCallback(() => setLoaderDone(true), []);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.history.scrollRestoration = "manual";
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen">
-      <Loader onComplete={() => setLoaderDone(true)} />
+      <Loader onComplete={handleLoaderComplete} />
 
       {/* Navbar will rely on data-navbar-theme attributes attached to sections below */}
       <Navbar onSecretUnlocked={() => setIsSecretDialogOpen(true)} />
@@ -48,6 +57,7 @@ export default function Home() {
 
       {/* Secret Dialog */}
       <SecretDialog isOpen={isSecretDialogOpen} onClose={() => setIsSecretDialogOpen(false)} />
+      <DevFestInvitation ready={loaderDone && !isSecretDialogOpen} />
     </div>
   );
 }

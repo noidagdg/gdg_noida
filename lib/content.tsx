@@ -6,24 +6,17 @@ export interface TestimonialAuthor {
   imgSrc: string;
 }
 
+/**
+ * Editorial content only. Card colour is assigned by position in the
+ * Testimonials section so the palette stays with the design, not the copy.
+ */
 export interface TestimonialCard {
-  bgColor: string;
   content: React.ReactNode;
   author: TestimonialAuthor;
 }
 
-export interface TestimonialsData {
-  card1: TestimonialCard;
-  card2: TestimonialCard;
-  card3: TestimonialCard;
-  card4: TestimonialCard;
-  card5: TestimonialCard;
-  card6: TestimonialCard;
-}
-
-export const testimonials: TestimonialsData = {
-  card1: {
-    bgColor: "bg-[#FEFCE8]",
+export const testimonials: TestimonialCard[] = [
+  {
     content: (
       <>
         <p className="mb-4">
@@ -45,8 +38,7 @@ export const testimonials: TestimonialsData = {
     },
   },
 
-  card2: {
-    bgColor: "bg-[#FFECEB]",
+  {
     content: (
       <p>
         <strong className="font-semibold text-zinc-900">
@@ -63,8 +55,7 @@ export const testimonials: TestimonialsData = {
     },
   },
 
-  card3: {
-    bgColor: "bg-[#FFECEB]",
+  {
     content: (
       <p>
         GDG Noida is my happy place. When I joined this community 2 years ago, I had no experience in proper communication.
@@ -81,8 +72,7 @@ export const testimonials: TestimonialsData = {
     },
   },
 
-  card4: {
-    bgColor: "bg-[#F0FFF4]",
+  {
     content: (
       <p>
         I had the privilege of meeting Ansh Mehra at DevFest Noida. I learned the fundamentals of design from his YouTube videos.
@@ -101,8 +91,7 @@ export const testimonials: TestimonialsData = {
     },
   },
 
-  card5: {
-    bgColor: "bg-[#EBF8FF]",
+  {
     content: (
       <p>
         Being part of GDG Noida was transformative for me. It was more than a community; it was where I found my voice and my people.
@@ -124,8 +113,7 @@ export const testimonials: TestimonialsData = {
     },
   },
 
-  card6: {
-    bgColor: "bg-[#FDF1D3]",
+  {
     content: (
       <p>
         Their guidance helped me advance my career, and I&apos;m grateful for the opportunities GDG Noida provided.{" "}
@@ -141,7 +129,7 @@ export const testimonials: TestimonialsData = {
       imgSrc: "/Images/parul-gupta.jpeg",
     },
   },
-};
+];
 
 // ─── Gallery Types & Data ───────────────────────────────────────────────────
 
@@ -156,7 +144,7 @@ export interface GalleryImage {
   id: number;
   src: string;
   alt: string;
-  category: "talks" | "workshops" | "networking";
+  category: GalleryCategoryId;
   aspectRatio: number; // width / height
 }
 
@@ -166,4 +154,3 @@ export const galleryCategories: GalleryCategory[] = [
   { id: "workshops", label: "Workshops" },
   { id: "networking", label: "Networking" },
 ];
-

@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import BlurFade from "@/components/magicui/blur-fade";
 import Image from "next/image";
+import { GRAIN, GRAIN_SIZE } from "@/lib/grain";
 
 interface StarSpeakersProps {
   className?: string;
@@ -13,28 +14,28 @@ const speakers = [
     id: 1,
     name: "Ansh Mehra",
     position: "Founder, Cutting Edge School",
-    image: "/assets/speakers/speaker1.svg",
+    image: "/assets/speakers/ansh-mehra.webp",
     backgroundColor: "#D2E3FC",
   },
   {
     id: 2,
     name: "Joy Banerjee",
     position: "Vice President Design, Blinkit",
-    image: "/assets/speakers/speaker3.svg",
+    image: "/assets/speakers/joy-banerjee.webp",
     backgroundColor: "#CEEAD6",
   },
   {
     id: 3,
     name: "Saurabh Rajpal",
     position: "Staff Customer Engineer, Google",
-    image: "/assets/speakers/speaker2.svg",
+    image: "/assets/speakers/saurabh-rajpal.webp",
     backgroundColor: "#FAD2CF",
   },
   {
     id: 4,
     name: "Ruchi Batra",
     position: "Design Leader, Microsoft",
-    image: "/assets/speakers/speaker4.svg",
+    image: "/assets/speakers/ruchi-batra.webp",
     backgroundColor: "#FEEFC3",
   },
 ];
@@ -62,12 +63,12 @@ export default function StarSpeakers({ className }: StarSpeakersProps) {
           {speakers.map((speaker, idx) => (
             <BlurFade key={speaker.id} delay={0.3 + idx * 0.1} inView>
               <div
-                className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl
-                  w-[156px] h-[187px]
-                  sm:w-[196px] sm:h-[235px]
-                  md:w-[220px] md:h-[263px]
-                  lg:w-[261px] lg:h-[313px]"
-                style={{ backgroundColor: speaker.backgroundColor }}
+                className="group relative overflow-hidden rounded-2xl shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl w-[156px] h-[187px] sm:w-[196px] sm:h-[235px] md:w-[220px] md:h-[263px] lg:w-[261px] lg:h-[313px]"
+                style={{
+                  backgroundColor: speaker.backgroundColor,
+                  backgroundImage: GRAIN,
+                  backgroundSize: GRAIN_SIZE,
+                }}
               >
                 {/* Speaker Image - Centered */}
                 <div className="flex h-full w-full items-center justify-center">

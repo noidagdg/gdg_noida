@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { useLenis } from 'lenis/react';
 
 interface LoaderProps {
     onComplete: () => void;
@@ -10,6 +11,7 @@ interface LoaderProps {
 
 export default function Loader({ onComplete }: LoaderProps) {
     const [visible, setVisible] = useState(true);
+    const lenis = useLenis();
     const loaderRef = useRef<HTMLDivElement>(null);
     const q1Ref = useRef<HTMLDivElement>(null);
     const q2Ref = useRef<HTMLDivElement>(null);
@@ -20,16 +22,8 @@ export default function Loader({ onComplete }: LoaderProps) {
     const logoRef = useRef<HTMLImageElement>(null);
 
     useEffect(() => {
-        // Skip on repeat visits
-        if (sessionStorage.getItem('loaderSeen')) {
-            onComplete();
-            queueMicrotask(() => {
-                setVisible(false);
-            });
-            return;
-        }
-        sessionStorage.setItem('loaderSeen', 'true');
-
+        // Play loader animation on every load/reload as requested
+        
         // Respect reduced motion
         const reducedMotion = window.matchMedia(
             '(prefers-reduced-motion: reduce)'
@@ -100,15 +94,20 @@ export default function Loader({ onComplete }: LoaderProps) {
         if (visible) {
             document.body.style.overflow = 'hidden';
             document.documentElement.style.overflow = 'hidden';
+            // `overflow: hidden` only blocks user-driven scrolling; Lenis scrolls
+            // programmatically, so it has to be paused explicitly.
+            lenis?.stop();
         } else {
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
+            lenis?.start();
         }
         return () => {
             document.body.style.overflow = '';
             document.documentElement.style.overflow = '';
+            lenis?.start();
         };
-    }, [visible]);
+    }, [visible, lenis]);
 
     if (!visible) return null;
 

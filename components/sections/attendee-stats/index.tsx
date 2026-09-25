@@ -1,168 +1,31 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { Chart, ArcElement, Tooltip, DoughnutController } from "chart.js";
+import React from "react";
 
-Chart.register(ArcElement, Tooltip, DoughnutController);
-
-// ---------------------------------------------------------------------------
-// Data types
-// ---------------------------------------------------------------------------
-export interface AttendeeDistribution {
-    label: string;
-    percentage: number;
+export interface AttendeeStatsProps {
+    heading?: string;
+    description?: string;
+    speakers?: number | string;
+    registered?: number | string;
+    attendees?: number | string;
+    about?: string;
 }
-
-export interface AttendeeStatsData {
-    heading: string;
-    description: string;
-    total: number;
-    distribution: AttendeeDistribution[];
-}
-
-// ---------------------------------------------------------------------------
-// Static data — replace with an API call when ready:
-//
-//   const data = await fetch('/api/events/2023/attendees').then(r => r.json())
-//   <AttendeeStats data={data} />
-// ---------------------------------------------------------------------------
-export const defaultAttendeeStatsData: AttendeeStatsData = {
-    heading: "Who attended DevFest 2023",
-    description:
-        "A strong student-driven community with growing professional participation",
-    total: 33_482,
-    distribution: [
-        { label: "Students",      percentage: 68 },
-        { label: "Professionals", percentage: 32 },
-    ],
-};
-
-interface AttendeeStatsProps {
-    /** Pass an API-fetched object here; falls back to bundled static data. */
-    data?: AttendeeStatsData;
-}
-
-const COLORS: Record<string, string> = {
-    Students: "#4285F4",
-    Professionals: "#34A853",
-};
-
-const FALLBACK_COLORS = ["#4285F4", "#34A853", "#FBBC05", "#EA4335"];
-
-/* Tiny SVG person silhouette used as background watermark */
-const PersonSVG = () => (
-    <svg
-        viewBox="0 0 24 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-5 h-8 opacity-[0.12]"
-    >
-        <circle cx="12" cy="7" r="5" fill="#4285F4" />
-        <path
-            d="M2 34c0-5.523 4.477-10 10-10s10 4.477 10 10"
-            stroke="#4285F4"
-            strokeWidth="2.5"
-            fill="none"
-        />
-    </svg>
-);
 
 export default function AttendeeStats({
-    data = defaultAttendeeStatsData,
+    heading = "Event Impact & Participation",
+    description = "Community engagement and participation across key metrics",
+    speakers = "30+",
+    registered = "3,500+",
+    attendees = "600+",
+    about,
 }: AttendeeStatsProps) {
-    const { heading, description, total, distribution } = data;
-    const canvasRef = useRef<HTMLCanvasElement>(null);
-    const chartRef = useRef<Chart | null>(null);
-
-    useEffect(() => {
-        if (!canvasRef.current || distribution.length === 0) return;
-
-        if (chartRef.current) {
-            chartRef.current.destroy();
-        }
-
-        const colors = distribution.map(
-            (d, i) => COLORS[d.label] ?? FALLBACK_COLORS[i % FALLBACK_COLORS.length],
-        );
-
-        chartRef.current = new Chart(canvasRef.current, {
-            type: "doughnut",
-            data: {
-                labels: distribution.map((d) => d.label),
-                datasets: [
-                    {
-                        data: distribution.map((d) => d.percentage),
-                        backgroundColor: colors,
-                        borderWidth: 0,
-                        hoverOffset: 6,
-                    },
-                ],
-            },
-            options: {
-                cutout: "70%",
-                responsive: true,
-                maintainAspectRatio: true,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: (ctx) => ` ${ctx.label}: ${ctx.raw}%`,
-                        },
-                    },
-                },
-                animation: {
-                    animateRotate: true,
-                    duration: 900,
-                },
-            },
-        });
-
-        return () => {
-            chartRef.current?.destroy();
-        };
-    }, [distribution]);
-
-    if (distribution.length === 0) return null;
-
-    const totalFormatted = total.toLocaleString();
-
-    // Map labels to their color and icon for floating labels
-    const studentEntry = distribution.find((d) => d.label === "Students");
-    const professionalEntry = distribution.find((d) => d.label === "Professionals");
-
     return (
-        <section className="w-full bg-white py-20">
-            <div
-                className="w-full px-6 py-10 sm:px-10 sm:py-14 relative overflow-hidden"
-                style={{
-                    background: "linear-gradient(135deg, #e8f4fb 0%, #dceefb 100%)",
-                    border: "2px dashed #93c5e8",
-                }}
-            >
-                {/* Background person silhouettes */}
-                <div
-                    className="absolute inset-0 pointer-events-none"
-                    aria-hidden="true"
-                >
-                    {/* Grid of silhouettes */}
-                    {Array.from({ length: 48 }).map((_, i) => (
-                        <div
-                            key={i}
-                            className="absolute"
-                            style={{
-                                left: `${(i % 12) * 8.5}%`,
-                                top: `${Math.floor(i / 12) * 27}%`,
-                            }}
-                        >
-                            <PersonSVG />
-                        </div>
-                    ))}
-                </div>
-
+        <section className="w-full px-4 pt-6 sm:px-6 sm:pt-8 lg:px-10">
+            <div className="relative mx-auto max-w-[1400px] overflow-hidden rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
                 {/* Header */}
-                <div className="relative text-center mb-8 z-10">
+                <div className="relative z-10 mb-6 text-center sm:mb-8">
                     <h2
-                        className="text-2xl sm:text-3xl md:text-4xl text-gray-900 mb-1"
+                        className="mb-2 break-words text-2xl leading-tight text-gray-900 sm:text-3xl md:text-4xl"
                         style={{
                             fontFamily: "'Product Sans', sans-serif",
                             fontWeight: 500,
@@ -170,85 +33,84 @@ export default function AttendeeStats({
                     >
                         {heading}
                     </h2>
-                    <p
-                        className="text-sm sm:text-base text-gray-500"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
-                    >
-                        {description}
-                    </p>
+                    {description && (
+                        <p
+                            className="text-sm sm:text-base text-gray-600"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            {description}
+                        </p>
+                    )}
                 </div>
 
-                {/* Chart area with floating labels */}
-                <div className="relative flex items-center justify-center z-10">
-                    {/* Outer wrapper — positions floating labels relative to chart */}
-                    <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px]">
-                        <canvas ref={canvasRef} />
+                {/* 3 columns in a single row - Speakers, Registered, Attendees */}
+                <div className="relative z-10 mx-auto grid max-w-4xl grid-cols-3 gap-1.5 sm:gap-5">
+                    {/* Speakers Column */}
+                    <div className="flex min-w-0 flex-col items-center justify-center rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-2 text-center sm:rounded-2xl sm:p-6">
+                        <span
+                            className="mb-1 text-[10px] font-semibold uppercase tracking-normal text-gray-500 sm:text-sm sm:tracking-wider"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            Speakers
+                        </span>
+                        <span
+                            className="break-all text-xl font-bold text-[#1a73e8] sm:text-4xl md:text-5xl"
+                            style={{ fontFamily: "'Product Sans', sans-serif" }}
+                        >
+                            {speakers}
+                        </span>
+                    </div>
 
-                        {/* Centre label */}
-                        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                            <span
-                                className="text-xl sm:text-2xl font-bold text-gray-800 leading-tight"
-                                style={{ fontFamily: "'Product Sans', sans-serif" }}
-                            >
-                                {totalFormatted}
-                            </span>
-                            <span
-                                className="text-xs text-gray-500 mt-0.5"
-                                style={{ fontFamily: "'Inter', sans-serif" }}
-                            >
-                                Total Attendees
-                            </span>
-                        </div>
+                    {/* Attendees Column */}
+                    <div className="flex min-w-0 flex-col items-center justify-center rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-2 text-center sm:rounded-2xl sm:p-6">
+                        <span
+                            className="mb-1 text-[10px] font-semibold uppercase tracking-normal text-gray-500 sm:text-sm sm:tracking-wider"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            Attendees
+                        </span>
+                        <span
+                            className="break-all text-xl font-bold text-[#188038] sm:text-4xl md:text-5xl"
+                            style={{ fontFamily: "'Product Sans', sans-serif" }}
+                        >
+                            {attendees}
+                        </span>
+                    </div>
 
-                        {/* 68% Students — top-right floating label */}
-                        {studentEntry && (
-                            <div
-                                className="absolute flex flex-col items-start"
-                                style={{ top: "4%", right: "-44%" }}
-                            >
-                                <span
-                                    className="text-2xl sm:text-3xl font-bold leading-none"
-                                    style={{
-                                        color: COLORS["Students"],
-                                        fontFamily: "'Product Sans', sans-serif",
-                                    }}
-                                >
-                                    {studentEntry.percentage}%
-                                </span>
-                                <span
-                                    className="text-xs sm:text-sm text-gray-600 mt-0.5"
-                                    style={{ fontFamily: "'Inter', sans-serif" }}
-                                >
-                                    🎓 {studentEntry.label}
-                                </span>
-                            </div>
-                        )}
-
-                        {/* 32% Professionals — bottom-left floating label */}
-                        {professionalEntry && (
-                            <div
-                                className="absolute flex flex-col items-start"
-                                style={{ bottom: "6%", left: "-44%" }}
-                            >
-                                <span
-                                    className="text-2xl sm:text-3xl font-bold leading-none"
-                                    style={{
-                                        color: COLORS["Professionals"],
-                                        fontFamily: "'Product Sans', sans-serif",
-                                    }}
-                                >
-                                    {professionalEntry.percentage}%
-                                </span>
-                                <span
-                                    className="text-xs sm:text-sm text-gray-600 mt-0.5"
-                                    style={{ fontFamily: "'Inter', sans-serif" }}
-                                >
-                                    💼 {professionalEntry.label}
-                                </span>
-                            </div>
-                        )}
+                    {/* Registered Column */}
+                    <div className="flex min-w-0 flex-col items-center justify-center rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-2 text-center sm:rounded-2xl sm:p-6">
+                        <span
+                            className="mb-1 text-[10px] font-semibold uppercase tracking-normal text-gray-500 sm:text-sm sm:tracking-wider"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            Registered
+                        </span>
+                        <span
+                            className="break-all text-xl font-bold text-[#8a5a00] sm:text-4xl md:text-5xl"
+                            style={{ fontFamily: "'Product Sans', sans-serif" }}
+                        >
+                            {registered}
+                        </span>
                     </div>
                 </div>
+
+                {/* Small About section below main card */}
+                {about && (
+                    <div className="relative z-10 mx-auto mt-6 max-w-4xl rounded-xl border border-[#dadce0] bg-[#f8f9fa] p-4 sm:mt-8 sm:p-5">
+                        <h4
+                            className="text-xs font-bold uppercase tracking-wider text-gray-500 mb-1.5"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            About this event
+                        </h4>
+                        <p
+                            className="text-sm sm:text-base text-gray-700 leading-relaxed"
+                            style={{ fontFamily: "'Inter', sans-serif" }}
+                        >
+                            {about}
+                        </p>
+                    </div>
+                )}
             </div>
         </section>
     );

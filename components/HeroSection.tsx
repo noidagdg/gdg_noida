@@ -41,7 +41,7 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
 
         // Check if mobile (reduce particles)
         const isMobile = window.innerWidth <= 768;
-        const numParticles = isMobile ? 25 : 60;
+        const numParticles = isMobile ? 50 : 120;
 
         const resize = () => {
             canvas.width = window.innerWidth;
@@ -171,7 +171,7 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
         }
 
         const ctx = gsap.context(() => {
-            // Entrance
+            // Entrance for Hero Words
             gsap.fromTo(
                 '.hero-word',
                 { y: '100%' },
@@ -183,6 +183,24 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
                     delay: 0.1
                 }
             );
+
+            // Entrance for Subheading
+            if (subheadingRef.current) {
+                gsap.fromTo(
+                    subheadingRef.current,
+                    { opacity: 0, y: 20 },
+                    { opacity: 1, y: 0, duration: 0.8, delay: 0.4, ease: 'power3.out' }
+                );
+            }
+
+            // Entrance for CTA Button
+            if (magneticRef.current) {
+                gsap.fromTo(
+                    magneticRef.current,
+                    { opacity: 0, scale: 0.9 },
+                    { opacity: 1, scale: 1, duration: 0.8, delay: 0.6, ease: 'back.out(1.5)' }
+                );
+            }
 
             // Scroll Collapse
             if (headlineRef.current && containerRef.current) {
@@ -272,6 +290,7 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
 
     return (
         <section
+            id="home"
             ref={containerRef}
             className={`relative min-h-screen w-full flex flex-col items-center justify-center overflow-hidden transition-opacity duration-500 bg-background ${heroReady ? 'opacity-100' : 'opacity-0'}`}
         >
@@ -351,12 +370,11 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
                         }}
                         onMouseEnter={(e) => {
                             e.currentTarget.style.boxShadow = '0 0 30px rgba(66, 133, 244, 0.7)';
-                            e.currentTarget.style.backgroundPosition = 'right center';
                         }}
                         onMouseLeave={(e) => {
                             e.currentTarget.style.boxShadow = '0 0 20px rgba(66, 133, 244, 0.4)';
-                            e.currentTarget.style.backgroundPosition = 'left center';
                         }}
+                        onClick={() => window.open('https://www.commudle.com/communities/gdg-noida', '_blank', 'noopener,noreferrer')}
                     >
                         Join Community
                     </button>
