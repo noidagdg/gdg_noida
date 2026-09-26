@@ -16,14 +16,20 @@ interface RevealOptions {
   stagger?: number;
   /** ScrollTrigger `start` string. */
   start?: string;
+  /**
+   * When true the animation fires once and stays — elements never reverse back
+   * to hidden. Use this for footers or any element that should remain visible
+   * after the first reveal regardless of scroll direction.
+   */
+  once?: boolean;
 }
 
 /**
  * Staggered scroll reveal for every `[data-reveal]` element inside the returned ref.
  *
- * `toggleActions: "play none none reverse"` runs the reveal on the way down and
- * rewinds it on the way back up, so scrolling away and returning replays the
- * animation rather than firing only once.
+ * By default `toggleActions: "play none none reverse"` runs the reveal on the
+ * way down and rewinds it on the way back up. Pass `once: true` to fire once
+ * and stay visible — ideal for footers.
  *
  * Targets start hidden via the global `[data-reveal]` rule in globals.css, which
  * avoids a flash of un-animated content between paint and this effect running.
@@ -34,6 +40,7 @@ export function useGsapReveal<T extends HTMLElement>({
   duration = 0.8,
   stagger = 0.08,
   start = "top 75%",
+  once = false,
 }: RevealOptions = {}) {
   const ref = useRef<T>(null);
 
@@ -54,14 +61,15 @@ export function useGsapReveal<T extends HTMLElement>({
           scrollTrigger: {
             trigger: ref.current,
             start,
-            toggleActions: "play none none reverse",
+            toggleActions: once ? "play none none none" : "play none none reverse",
+            once,
           },
         },
       );
     }, ref);
 
     return () => ctx.revert();
-  }, [y, duration, stagger, start]);
+  }, [y, duration, stagger, start, once]);
 
   return ref;
 }

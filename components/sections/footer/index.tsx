@@ -3,7 +3,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { ArrowRight, ArrowUp, Instagram, Twitter, Linkedin, Youtube } from 'lucide-react'
 import { useLenis } from 'lenis/react'
 import { smoothScrollTo } from '@/lib/scroll-to'
@@ -45,37 +45,28 @@ const linkClass =
 
 function Footer() {
   const pathname = usePathname();
-  const router = useRouter();
   const lenis = useLenis();
-  const footerRef = useGsapReveal<HTMLElement>();
+  const footerRef = useGsapReveal<HTMLElement>({ once: true });
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
 
-    // Extract the hash from href (e.g., "/#about" -> "#about")
     const hash = href.split('#')[1];
 
-    const scrollToHash = () => {
+    // Same-page: smooth scroll via Lenis
+    if (pathname === '/') {
       if (hash) {
         const element = document.getElementById(hash);
-        if (element) {
-          smoothScrollTo(lenis, element);
-        }
+        if (element) smoothScrollTo(lenis, element);
       } else {
         smoothScrollTo(lenis, 0);
       }
-    };
-
-    // If we're on the home page, just scroll
-    if (pathname === '/') {
-      scrollToHash();
       return;
     }
 
-    // Not on home page, navigate home first
-    router.push('/');
-    // Wait for navigation and page load, then scroll
-    setTimeout(scrollToHash, 1500); // Wait for home page animations to show
+    // Cross-page: use a full navigation with the hash so the browser scrolls
+    // to the target after the new page loads — no setTimeout race condition.
+    window.location.assign(href);
   };
 
   return (
