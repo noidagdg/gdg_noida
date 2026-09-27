@@ -9,6 +9,7 @@ if (typeof window !== 'undefined') {
 }
 
 const BRAND_COLORS = ['#4285F4', '#EA4335', '#FBBC04', '#34A853'];
+const FONT_FAMILY = "'Google Sans', 'Product Sans', Roboto, 'Segoe UI', sans-serif";
 
 interface Particle {
     x: number;
@@ -180,6 +181,7 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
                     duration: 0.8,
                     stagger: 0.15,
                     ease: 'power3.out',
+
                     delay: 0.1
                 }
             );
@@ -334,7 +336,7 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
                 <h1
                     ref={headlineRef}
                     className="flex flex-wrap justify-center gap-[1vw] font-[800] tracking-tight leading-none mb-6 relative z-10"
-                    style={{ fontFamily: "'Space Grotesk', 'Bricolage Grotesque', sans-serif", fontSize: 'clamp(3rem, 10vw, 12rem)' }}
+                    style={{ fontFamily: FONT_FAMILY, fontSize: 'clamp(2.5rem, 7vw, 6.5rem)' }}
                 >
                     {[
                         { word: 'Think', color: '#FBBC04' },
@@ -344,7 +346,7 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
                         <span key={i} className="inline-block overflow-hidden" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)' }}>
                             <span className="hero-word inline-block transform translate-y-full px-1">
                                 <span style={{ color: item.color }}>{item.word}</span>
-                                <span style={{ color: '#EA4335' }}>.</span>
+                                <span style={{ color: '#EA4335 ' }}>.</span>
                             </span>
                         </span>
                     ))}
@@ -354,6 +356,7 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
                 <p
                     ref={subheadingRef}
                     className="text-gray-900 max-w-2xl text-[1.125rem] md:text-xl font-medium mb-12 min-h-[3rem] relative z-10"
+                    style={{ fontFamily: FONT_FAMILY }}
                 >
                     Dive deep into the latest trends and innovations through talks, workshops, & more
                 </p>
@@ -364,15 +367,12 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
                         ref={buttonRef}
                         className="rounded-full px-8 py-4 font-bold text-white transition-all duration-300"
                         style={{
+                            fontFamily: FONT_FAMILY,
+                            cursor: 'pointer',
                             background: 'linear-gradient(90deg, #4285F4 0%, #EA4335 33%, #FBBC04 66%, #34A853 100%)',
                             backgroundSize: '200% auto',
-                            boxShadow: '0 0 20px rgba(66, 133, 244, 0.4)',
-                        }}
-                        onMouseEnter={(e) => {
-                            e.currentTarget.style.boxShadow = '0 0 30px rgba(66, 133, 244, 0.7)';
-                        }}
-                        onMouseLeave={(e) => {
-                            e.currentTarget.style.boxShadow = '0 0 20px rgba(66, 133, 244, 0.4)';
+                            backgroundPosition: '0% center',
+                            transition: 'background-position 0.6s ease,',
                         }}
                         onClick={() => window.open('https://www.commudle.com/communities/gdg-noida', '_blank', 'noopener,noreferrer')}
                     >
