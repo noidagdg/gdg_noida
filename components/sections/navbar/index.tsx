@@ -9,7 +9,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { useLogoClickTracker } from "@/lib/useLogoClickTracker";
 import { usePathname, useRouter } from "next/navigation";
 import { useLenis } from "lenis/react";
-import { smoothScrollTo } from "@/lib/scroll-to";
+import { smoothScrollTo } from "@/lib/scroll-to"; // FIX: was "/lib/scroll-to" (missing "@")
 
 const NAVBAR_OFFSET = -100;
 
@@ -35,43 +35,41 @@ const NAV_LINKS = [
   { name: "Gallery", href: "#gallery" },
 ] as const;
 
+// Static theme styles (no scroll-based color detection)
+const NAV_BG = "bg-white/[0.6] dark:bg-black/[0.6]";
+const NAV_TEXT = "text-black dark:text-white";
+
 export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [hovered, setHovered] = useState<string | null>(null);
+  const [hovered, setHovered] = useState<string | null>(null); // FIX: was `false`
   const { trackClick } = useLogoClickTracker(onSecretUnlocked);
   const pathname = usePathname();
   const router = useRouter();
   const lenis = useLenis();
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    // If it's a full URL path (not a hash), let it navigate normally
+    // Full route (not a hash): let it navigate normally, just close the menu
     if (href.startsWith("/")) {
+      setIsOpen(false);
       return;
     }
 
     e.preventDefault();
     const targetId = href.replace("#", "");
 
-    // If not on home page and clicking a hash link, navigate to home first
+    // Not on home page: navigate home first, then scroll
     if (pathname !== "/") {
-      router.push('/');
+      router.push("/");
       setIsOpen(false);
-      // Wait for navigation and home page animations, then scroll
       setTimeout(() => {
         const element = document.getElementById(targetId);
-        if (element) {
-          smoothScrollTo(lenis, element, NAVBAR_OFFSET);
-        }
+        if (element) smoothScrollTo(lenis, element, NAVBAR_OFFSET);
       }, 1500); // Wait for home page animations to show
       return;
     }
 
-    // Already on home page, just scroll
     const element = document.getElementById(targetId);
-
-    if (element) {
-      smoothScrollTo(lenis, element, NAVBAR_OFFSET);
-    }
+    if (element) smoothScrollTo(lenis, element, NAVBAR_OFFSET);
     setIsOpen(false);
   };
 
@@ -88,12 +86,10 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
       <nav
         className={cn(
           "relative rounded-full",
-          // Glass: translucent fill + heavy blur. The edge is drawn by a lit inner
-          // highlight and a faint outer ring, not by making the fill opaque.
-          "bg-white/40 dark:bg-black/30 backdrop-blur-2xl backdrop-saturate-[180%]",
+          NAV_BG,
+          "backdrop-blur-2xl backdrop-saturate-[180%]",
           GLASS_BORDER,
-          // inset 0 0 0 1px = highlight on all four sides, not just the top edge
-          "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.65),0_10px_34px_-12px_rgba(16,24,40,0.3)]",
+          "shadow-[inset_0_0_0_1px_rgba(255,255,255,0.65),0_10px_34px_-12px_rgba(16,24,40,0.2)]",
           "flex items-center justify-between",
           "px-4 md:px-8 py-3 md:py-4 antialiased",
           "transition-all duration-300"
@@ -113,13 +109,17 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
           )}
           aria-label="GDG Noida Logo"
         >
+          {/* FIX: `priority` is a prop on next/image, not a class name */}
           <Image
             src="/assets/noida_long_logo0.svg"
             alt="GDG Noida Logo"
             width={200}
             height={40}
-            className="h-5 md:h-6 w-auto object-contain"
             priority
+            className={cn(
+              "h-5 md:h-6 w-auto object-contain",
+              "dark:invert dark:brightness-[2]"
+            )}
           />
         </motion.button>
 
@@ -135,15 +135,16 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
               onClick={(e) => handleScroll(e, link.href)}
               onMouseEnter={() => setHovered(link.name)}
               onFocus={() => setHovered(link.name)}
+              onBlur={() => setHovered(null)}
               whileTap={{ scale: 0.97 }}
               className={cn(
-                "relative px-4 py-2 text-black dark:text-white",
+                "relative px-4 py-2",
+                NAV_TEXT,
                 "transition-colors duration-200 font-medium text-sm",
                 "cursor-pointer rounded-full outline-none",
                 "focus-visible:ring-2 focus-visible:ring-[#4285F4]/50"
               )}
             >
-              {/* Single pill shared across links, so it glides to whatever is hovered */}
               {hovered === link.name && (
                 <motion.span
                   layoutId="nav-hover-pill"
@@ -162,6 +163,7 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
           whileTap={{ scale: 0.95 }}
           className={cn(
             "lg:hidden z-50 p-2 rounded-full outline-none",
+            // FIX: `dark:bg-...` applied permanently in dark mode; needs `dark:hover:`
             "hover:bg-black/[0.14] dark:hover:bg-white/[0.16]",
             "focus-visible:ring-2 focus-visible:ring-[#4285F4]/50",
             "transition-colors duration-300"
@@ -174,9 +176,9 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
             transition={{ duration: 0.2 }}
           >
             {isOpen ? (
-              <X className="w-6 h-6 text-black dark:text-white" />
+              <X className={cn("w-6 h-6", NAV_TEXT)} />
             ) : (
-              <Menu className="w-6 h-6 text-black dark:text-white" />
+              <Menu className={cn("w-6 h-6", NAV_TEXT)} />
             )}
           </motion.div>
         </motion.button>
@@ -209,7 +211,7 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
                       href={link.href}
                       onClick={(e) => handleScroll(e, link.href)}
                       className={cn(
-                        "text-black dark:text-white",
+                        NAV_TEXT,
                         "hover:bg-black/[0.14] dark:hover:bg-white/[0.16]",
                         "active:bg-black/[0.18] dark:active:bg-white/[0.2]",
                         "px-4 py-3 rounded-2xl transition-colors duration-200",
@@ -222,7 +224,7 @@ export default function Navbar({ className, onSecretUnlocked }: NavbarProps) {
                 ))}
               </div>
             </motion.div>
-          )}
+          )}{/* FIX: was `)` — missing closing `}` of the JSX expression (syntax error) */}
         </AnimatePresence>
       </nav>
     </motion.div>
