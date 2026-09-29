@@ -11,7 +11,7 @@ const LINES = [
   [{ word: 'Think', weight: 'font-extralight', dot: 'bg-[#34A853]' }],
   [
     { word: 'Build', weight: 'font-normal', dot: 'bg-[#4285F4]' },
-    { word: 'Grow', weight: 'font-bold', dot: '' },
+    { word: 'Grow', weight: 'font-normal', dot: '' },
   ],
 ];
 
@@ -21,10 +21,14 @@ const WIPE_END = 'inset(-20% -5% -20% -5%)';
 export default function HeroSection({ heroReady = true }: { heroReady?: boolean }) {
   const containerRef = useRef<HTMLElement>(null);
 
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    }
+    return false;
+  });
   useEffect(() => {
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(media.matches);
     const listener = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
     media.addEventListener('change', listener);
     return () => media.removeEventListener('change', listener);

@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, MapPin , Calendar} from "lucide-react";
+import { ArrowRight, MapPin, Calendar } from "lucide-react";
 import BlurFade from "@/components/magicui/blur-fade";
 import EventCoverImage from "@/app/events/event-cover-image";
 import { allEvents, type EventItem } from "@/lib/data/gdg-noida-events";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { useGsapReveal } from "@/lib/gsap-reveal";
 import { cn } from "@/lib/utils";
 
@@ -46,32 +46,32 @@ const cardDescriptions: Record<string, string> = {
   "found-and-fixed-search-and-observability": "Learn about modern observability, debugging, and system reliability practices.",
 };
 
+// Typed as Variants so `type: "spring"` is kept as a literal instead of widening to string.
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 20, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 300,
+      damping: 20,
+    },
+  },
+  hover: {
+    y: -8,
+    scale: 1.02,
+    transition: {
+      type: "spring",
+      stiffness: 400,
+      damping: 20,
+    },
+  },
+};
+
 export default function UpcomingEvents() {
   const sectionRef = useGsapReveal();
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20, scale: 0.95 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 300,
-        damping: 20,
-      },
-      animate: { y: [0, -4, 0] }, // Gentle float animation
-    },
-    hover: {
-      y: -8,
-      scale: 1.02,
-      transition: {
-        type: "spring",
-        stiffness: 400,
-        damping: 20
-      }
-    },
-  };
 
   return (
     <section ref={sectionRef} id="upcoming-events" className="relative w-full py-16 md:py-24">
@@ -111,19 +111,21 @@ export default function UpcomingEvents() {
             transition={{ duration: 0.5 }}
             className={[
               "mx-auto px-4 grid max-w-[1400px] gap-6 md:gap-8 lg:gap-10",
-              displayedEvents.length === 1 ? "md:grid-cols-1" :
-                       displayedEvents.length === 2 ? "md:grid-cols-2" :
-                       "md:grid-cols-2 lg:grid-cols-3",
+              displayedEvents.length === 1
+                ? "md:grid-cols-1"
+                : displayedEvents.length === 2
+                  ? "md:grid-cols-2"
+                  : "md:grid-cols-2 lg:grid-cols-3",
             ].join(" ")}
           >
-            {displayedEvents.map((event, idx) => (
+            {displayedEvents.map((event) => (
               <motion.div
                 key={event.id}
-                initial={cardVariants.hidden}
-                animate={cardVariants.visible}
-                whileHover={cardVariants.hover}
+                variants={cardVariants}
+                initial="hidden"
+                animate="visible"
+                whileHover="hover"
                 whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.3 }}
                 className={[
                   "group",
                   displayedEvents.length === 1 ? "mx-auto max-w-[480px]" : "",
@@ -133,7 +135,7 @@ export default function UpcomingEvents() {
                 {/* The whole card is the link */}
                 <Link
                   href={`/events/${event.id}`}
-                  className="flex h-full w-full flex-col  rounded-2xl bg-white/90 backdrop-blur-sm shadow-[0_4px_6px_-1px_rgba(16,24,40,0.08),0_2px_4px_-2px_rgba(16,24,40,0.03)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_25px_-5px_rgba(16,24,40,0.15),0_8px_10px_-6px_rgba(16,24,40,0.05)] group-hover:-translate-y-1 border border-white/20"
+                  className="flex h-full w-full flex-col rounded-2xl bg-white/90 backdrop-blur-sm shadow-[0_4px_6px_-1px_rgba(16,24,40,0.08),0_2px_4px_-2px_rgba(16,24,40,0.03)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_25px_-5px_rgba(16,24,40,0.15),0_8px_10px_-6px_rgba(16,24,40,0.05)] group-hover:-translate-y-1 border border-white/20"
                   style={{
                     backgroundColor: cardBackgrounds[event.id] || "rgba(248, 249, 250, 0.3)",
                   }}
@@ -150,15 +152,13 @@ export default function UpcomingEvents() {
                   </div>
 
                   <div className="flex flex-1 flex-col p-5 space-y-3">
-                    <h3
-                      className="text-lg font-semibold text-zinc-900 md:text-xl line-clamp-2 group-hover:text-[#4285F4] transition-colors duration-300"
-                    >
+                    <h3 className="text-lg font-semibold text-zinc-900 md:text-xl line-clamp-2 group-hover:text-[#4285F4] transition-colors duration-300">
                       {event.title}
                     </h3>
 
                     {event.dates?.displayDate && (
                       <p className="flex items-center gap-2 text-xs font-medium text-zinc-500 md:text-sm">
-                        <Calendar className="h-4 w-4 text-blue-500 bg-blue" />
+                        <Calendar className="h-4 w-4 text-blue-500" />
                         <span className="mt-1">{event.dates.displayDate}</span>
                       </p>
                     )}
@@ -166,32 +166,10 @@ export default function UpcomingEvents() {
                     {/* Location */}
                     {event.venue?.name && (
                       <p className="flex items-center gap-1 text-xs font-medium text-zinc-500 md:text-sm">
-                        <MapPin className="h-4 w-4 text-red-500 " />
+                        <MapPin className="h-4 w-4 text-red-500" />
                         <span className="mt-1">{event.venue.name}</span>
                       </p>
                     )}
-
-                    {/* Event Stats/Badges
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      {event.uniqueStats && Object.keys(event.uniqueStats).map((key, index) => (
-                        <span
-                          key={`${event.id}-${index}`}
-                          className={cn(
-                            "px-2.5 py-0.5 text-xs font-medium rounded-full",
-                            event.uniqueStats[key] !== "--" && event.uniqueStats[key] !== ""
-                              ? "bg-blue-50 text-blue-600 border border-blue-200"
-                              : "bg-zinc-50 text-zinc-500 border border-zinc-200"
-                          )}
-                        >
-                          {key === "speakers" && event.uniqueStats.speakers !== "--" ?
-                            `🎤 ${event.uniqueStats.speakers}` : ""}
-                          {key === "attendees" && event.uniqueStats.attendees !== "--" ?
-                            `👥 ${event.uniqueStats.attendees}` : ""}
-                          {key === "registered" && event.uniqueStats.registered !== "--" ?
-                            `🎫 ${event.uniqueStats.registered}` : ""}
-                        </span>
-                      ))}
-                    </div> */}
 
                     <p className="flex-1 text-sm leading-relaxed text-zinc-600 line-clamp-3">
                       {cardDescriptions[event.id] || event.subtitle || event.about?.description}
