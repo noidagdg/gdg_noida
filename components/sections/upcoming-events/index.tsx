@@ -47,6 +47,7 @@ const cardDescriptions: Record<string, string> = {
 };
 
 // Typed as Variants so `type: "spring"` is kept as a literal instead of widening to string.
+// Note: framer-motion's whileHover ignores touch input, so no sticky hover state on phones.
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20, scale: 0.95 },
   visible: {
@@ -74,16 +75,20 @@ export default function UpcomingEvents() {
   const sectionRef = useGsapReveal();
 
   return (
-    <section ref={sectionRef} id="upcoming-events" className="relative w-full py-16 md:py-24">
-      <div className="container mx-auto px-4">
+    <section
+      ref={sectionRef}
+      id="upcoming-events"
+      className="relative w-full overflow-x-clip py-12 sm:py-16 md:py-24"
+    >
+      <div className="container mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div data-reveal className="mb-12 text-center md:mb-16">
+        <div data-reveal className="mb-8 text-center sm:mb-12 md:mb-16">
           <BlurFade delay={0.1} inView>
             <motion.h2
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl text-zinc-900 md:text-5xl lg:text-6xl"
+              className="text-2xl text-zinc-900 sm:text-3xl md:text-5xl lg:text-6xl"
             >
               {showUpcomingEvents ? "Upcoming" : "Recent"} <span className="font-bold">Events</span>
             </motion.h2>
@@ -93,7 +98,7 @@ export default function UpcomingEvents() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="mt-4 text-base text-zinc-600 md:text-lg"
+              className="mx-auto mt-3 max-w-xl text-sm text-zinc-600 sm:mt-4 sm:text-base md:text-lg"
             >
               {showUpcomingEvents
                 ? "Exciting experiences on the horizon"
@@ -109,14 +114,15 @@ export default function UpcomingEvents() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
-            className={[
-              "mx-auto px-4 grid max-w-[1400px] gap-6 md:gap-8 lg:gap-10",
+            className={cn(
+              // 1 column on phones; no extra horizontal padding (container already has it)
+              "mx-auto grid w-full max-w-[1400px] grid-cols-1 gap-5 sm:gap-6 md:gap-8 lg:gap-10",
               displayedEvents.length === 1
                 ? "md:grid-cols-1"
                 : displayedEvents.length === 2
                   ? "md:grid-cols-2"
                   : "md:grid-cols-2 lg:grid-cols-3",
-            ].join(" ")}
+            )}
           >
             {displayedEvents.map((event) => (
               <motion.div
@@ -126,62 +132,69 @@ export default function UpcomingEvents() {
                 animate="visible"
                 whileHover="hover"
                 whileTap={{ scale: 0.98 }}
-                className={[
-                  "group",
-                  displayedEvents.length === 1 ? "mx-auto max-w-[480px]" : "",
-                ].join(" ")}
+                className={cn(
+                  "group w-full min-w-0",
+                  displayedEvents.length === 1 && "mx-auto max-w-[480px]",
+                )}
                 data-reveal
               >
                 {/* The whole card is the link */}
                 <Link
                   href={`/events/${event.id}`}
-                  className="flex h-full w-full flex-col rounded-2xl bg-white/90 backdrop-blur-sm shadow-[0_4px_6px_-1px_rgba(16,24,40,0.08),0_2px_4px_-2px_rgba(16,24,40,0.03)] overflow-hidden transition-all duration-500 group-hover:shadow-[0_20px_25px_-5px_rgba(16,24,40,0.15),0_8px_10px_-6px_rgba(16,24,40,0.05)] group-hover:-translate-y-1 border border-white/20"
+                  className={cn(
+                    "flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/20 bg-white/90 backdrop-blur-sm",
+                    "shadow-[0_4px_6px_-1px_rgba(16,24,40,0.08),0_2px_4px_-2px_rgba(16,24,40,0.03)]",
+                    "transition-all duration-500",
+                    // Hover effects only on devices that actually support hover (not phones)
+                    "[@media(hover:hover)]:group-hover:-translate-y-1",
+                    "[@media(hover:hover)]:group-hover:shadow-[0_20px_25px_-5px_rgba(16,24,40,0.15),0_8px_10px_-6px_rgba(16,24,40,0.05)]",
+                  )}
                   style={{
                     backgroundColor: cardBackgrounds[event.id] || "rgba(248, 249, 250, 0.3)",
                   }}
                 >
                   {/* Event Cover Image */}
-                  <div className="relative m-3 aspect-[16/9] overflow-hidden rounded-xl">
+                  <div className="relative m-2 aspect-[16/9] overflow-hidden rounded-xl sm:m-3">
                     <EventCoverImage
                       src={event.branding?.coverImage || ""}
                       alt={event.title}
-                      className="object-cover w-full h-full"
-                      sizes="(min-width: 1024px) 480px, (min-width: 768px) 60vw, 100vw"
+                      className="h-full w-full object-cover"
+                      sizes="(min-width: 1024px) 480px, (min-width: 768px) 50vw, 100vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
                   </div>
 
-                  <div className="flex flex-1 flex-col p-5 space-y-3">
-                    <h3 className="text-lg font-semibold text-zinc-900 md:text-xl line-clamp-2 group-hover:text-[#4285F4] transition-colors duration-300">
+                  <div className="flex flex-1 flex-col space-y-2.5 p-4 sm:space-y-3 sm:p-5">
+                    <h3 className="line-clamp-2 text-base font-semibold text-zinc-900 transition-colors duration-300 sm:text-lg md:text-xl [@media(hover:hover)]:group-hover:text-[#4285F4]">
                       {event.title}
                     </h3>
 
                     {event.dates?.displayDate && (
-                      <p className="flex items-center gap-2 text-xs font-medium text-zinc-500 md:text-sm">
-                        <Calendar className="h-4 w-4 text-blue-500" />
-                        <span className="mt-1">{event.dates.displayDate}</span>
+                      <p className="flex items-start gap-2 text-sm font-medium text-zinc-500">
+                        <Calendar className="mt-0.5 h-4 w-4 shrink-0 text-blue-500" aria-hidden="true" />
+                        <span>{event.dates.displayDate}</span>
                       </p>
                     )}
 
                     {/* Location */}
                     {event.venue?.name && (
-                      <p className="flex items-center gap-1 text-xs font-medium text-zinc-500 md:text-sm">
-                        <MapPin className="h-4 w-4 text-red-500" />
-                        <span className="mt-1">{event.venue.name}</span>
+                      <p className="flex items-start gap-2 text-sm font-medium text-zinc-500">
+                        <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-red-500" aria-hidden="true" />
+                        <span className="min-w-0 break-words">{event.venue.name}</span>
                       </p>
                     )}
 
-                    <p className="flex-1 text-sm leading-relaxed text-zinc-600 line-clamp-3">
+                    <p className="line-clamp-3 flex-1 text-sm leading-relaxed text-zinc-600">
                       {cardDescriptions[event.id] || event.subtitle || event.about?.description}
                     </p>
 
-                    {/* CTA Button */}
-                    <div className="mt-auto pt-4">
+                    {/* CTA Button: full-width with a comfortable tap target on phones */}
+                    <div className="mt-auto pt-3 sm:pt-4">
                       <span
                         className={cn(
-                          "inline-flex items-center gap-2 rounded-lg bg-[#4285F4] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300",
-                          "hover:bg-black hover:text-white hover:shadow-lg",
-                          "active:bg-[#4285F4] active:border-2 active:border-black"
+                          "inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-[#4285F4] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-300 sm:w-auto",
+                          "[@media(hover:hover)]:hover:bg-black [@media(hover:hover)]:hover:shadow-lg",
+                          "active:bg-black"
                         )}
                       >
                         Know More
