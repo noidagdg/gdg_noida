@@ -60,24 +60,26 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
     <section
       id="home"
       ref={containerRef}
+      data-force-navbar-text="white"
       style={{ fontFamily: FONT_FAMILY }}
-      className={`relative w-full overflow-hidden bg-background text-foreground ${
-        heroReady ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={`relative w-full overflow-hidden bg-black text-white ${heroReady ? 'opacity-100' : 'opacity-0'}`}
     >
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <GridPulse cell={24} reach={2} ambient={2} maxLit={100} className="opacity-20" />
-      </div>
+      <GridPulse cell={24} reach={2} ambient={2} maxLit={100} />
 
-      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col justify-center gap-5 px-5 pb-6 pt-20 md:gap-8 md:px-10 md:pb-8">
+      {/* Black layer at 20% opacity between the grid and the content. */}
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-black/40" />
+
+      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-7xl flex-col justify-center gap-5 px-6 pb-6 pt-20 md:gap-8 md:px-10 md:pb-8">
         <p
           data-fade
-          className="max-w-[26ch] text-sm text-muted-foreground opacity-0 motion-reduce:opacity-100 md:text-base"
+          className="max-w-[26ch] text-sm text-white/80 opacity-0 motion-reduce:opacity-100 md:text-base"
         >
           Developer community for Noida, India
         </p>
 
-        <h1 className="text-[length:clamp(2.5rem,min(13vw,22vh),10rem)] leading-[0.86] tracking-tight">
+        <h1
+          className="text-[length:clamp(2.5rem,min(13vw,22vh),10rem)] leading-[0.86] tracking-tight"
+        >
           {LINES.map((words, lineIndex) => (
             <span
               key={lineIndex}
@@ -108,22 +110,22 @@ export default function HeroSection({ heroReady = true }: { heroReady?: boolean 
 
         <div
           data-fade
-          className="flex flex-col gap-4 border-t border-border pt-4 opacity-0 motion-reduce:opacity-100 md:flex-row md:items-center md:justify-between md:pt-5"
+          className="flex flex-col gap-4 border-t border-white/10 pt-4 opacity-0 motion-reduce:opacity-100 md:flex-row md:items-center md:justify-between md:pt-5"
         >
-          <p className="max-w-[36ch] text-sm text-muted-foreground md:text-lg">
+          <p className="max-w-[36ch] text-sm text-white/80 md:text-lg">
             Meet developers in Noida, share what you’re building, and learn together.
           </p>
 
+          {/* Border and shadow were navy (#1C293C), which vanishes on black. */}
           <a
             href="https://www.commudle.com/communities/gdg-noida"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex w-full items-center justify-center rounded-full border-[3px] border-[#1C293C] bg-[#FBBC04] px-6 py-3 text-base font-bold text-[#1C293C] md:px-8 md:py-4 md:text-lg
-              shadow-[6px_6px_0_0_#1C293C] transition-[transform,box-shadow] duration-150 ease-out motion-reduce:transition-none
+            className="inline-flex w-full items-center justify-center rounded-full border-[3px] border-[#000000] bg-[#FBBC04] px-6 py-3 text-base font-bold text-[#000000] md:px-8 md:py-4 md:text-lg
+              shadow-[6px_6px_0_0_#F1F3F4] transition-[transform,box-shadow] duration-150 ease-out motion-reduce:transition-none
               hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[8px_8px_0_0_#4285F4]
               active:translate-x-1.5 active:translate-y-1.5 active:shadow-none
-              focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#4285F4]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background
-              dark:shadow-[6px_6px_0_0_#F1F3F4] dark:hover:shadow-[8px_8px_0_0_#4285F4]
+              focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#4285F4]/50 focus-visible:ring-offset-2 focus-visible:ring-offset-black
               md:w-auto"
           >
             Join GDG Noida

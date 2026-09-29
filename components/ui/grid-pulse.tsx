@@ -34,6 +34,23 @@ const HUE_SPAN = 270;
  */
 const TINTS = [55, 48, 41, 34, 27];
 const TINTS_DARK = [72, 65, 58, 51, 44];
+const GOOGLE_BLUE = "#4285F4";
+const GOOGLE_RED = "#EA4335";
+const GOOGLE_YELLOW = "#FBBC04";
+const GOOGLE_GREEN = "#34A853";
+
+function lerpColor(color1: string, color2: string, ratio: number): string {
+  const r1 = parseInt(color1.slice(1, 3), 16);
+  const g1 = parseInt(color1.slice(3, 5), 16);
+  const b1 = parseInt(color1.slice(5, 7), 16);
+  const r2 = parseInt(color2.slice(1, 3), 16);
+  const g2 = parseInt(color2.slice(3, 5), 16);
+  const b2 = parseInt(color2.slice(5, 7), 16);
+  const r = Math.round(r1 + (r2 - r1) * ratio);
+  const g = Math.round(g1 + (g2 - g1) * ratio);
+  const b = Math.round(b1 + (b2 - b1) * ratio);
+  return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
+}
 /** How faint a cell goes right behind a line of text. */
 const FAINT = 0.13;
 /** How many cells it takes to come back up to full strength. */
@@ -103,7 +120,7 @@ export function GridPulse({
     let height = 0;
     let clear: DOMRect[] = [];
     let tints = TINTS;
-    
+
     // Dynamic interactive cells (hover / ambient)
     const cells = new Map<string, Cell>();
     // Fixed permanent cells (GDG logo) stored separately so maxLit is ignored
@@ -120,6 +137,25 @@ export function GridPulse({
       const [r, g, b] = probe.getImageData(0, 0, 1, 1).data;
       const light = (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255 > 0.5;
       tints = light ? TINTS_DARK : TINTS;
+    };
+
+    const brightness = (col: number, row: number) => {
+      const x = col * cell + cell / 2;
+      const y = row * cell + cell / 2;
+      let nearest = Number.POSITIVE_INFINITY;
+      for (const r of clear) {
+        const dx = Math.max(r.left - x, 0, x - r.right);
+        const dy = Math.max(r.top - y, 0, y - r.bottom);
+        nearest = Math.min(nearest, Math.hypot(dx, dy));
+        if (nearest === 0) break;
+      }
+      if (nearest === Number.POSITIVE_INFINITY) return 1;
+      return FAINT + (1 - FAINT) * Math.min(1, nearest / (FADE * cell));
+    };
+
+    let frame = 0;
+    const wake = () => {
+      if (!frame) frame = requestAnimationFrame(draw);
     };
 
     const measureText = () => {
@@ -142,20 +178,9 @@ export function GridPulse({
             ),
         );
       });
-    };
-
-    const measure = () => {
-      width = el.clientWidth;
-      height = el.clientHeight;
-      cols = Math.max(1, Math.ceil(width / cell));
-      rows = Math.max(1, Math.ceil(height / cell));
-      const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      paper.width = Math.round(width * dpr);
-      paper.height = Math.round(height * dpr);
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      readTheme();
-      measureText();
-      seedLogo();
+      // Text moved (fonts loaded, copy changed): re-dim the permanent logo
+      // cells too, otherwise they keep the clearing from the first measure.
+      for (const c of logoCells.values()) c.dim = brightness(c.col, c.row);
       wake();
     };
 
@@ -173,19 +198,28 @@ export function GridPulse({
       const startCol = Math.floor((cols - logoCols) / 2);
       const startRow = Math.floor((rows - logoRows) / 2);
       const now = performance.now();
+      const midpointCol = startCol + Math.floor(logoCols / 2);
 
       for (let r = 0; r < logoRows; r++) {
         for (let c = 0; c < logoCols; c++) {
-          const ch = GDG_LOGO[r][c];
-          if (ch === ".") continue;
+          if (GDG_LOGO[r][c] === ".") continue;
           const col = startCol + c;
           const row = startRow + r;
           if (col < 0 || col >= cols || row < 0 || row >= rows) continue;
-          const key = `${col},${row}`;
-          logoCells.set(key, {
+          let colour;
+          if (col < midpointCol) {
+            // left half: gradient from red to blue based on vertical position
+            const ratio = logoRows > 1 ? r / (logoRows - 1) : 0;
+            colour = lerpColor(GOOGLE_RED, GOOGLE_BLUE, ratio);
+          } else {
+            // right half: gradient from yellow to green based on vertical position
+            const ratio = logoRows > 1 ? r / (logoRows - 1) : 0;
+            colour = lerpColor(GOOGLE_YELLOW, GOOGLE_GREEN, ratio);
+          }
+          logoCells.set(`${col},${row}`, {
             col,
             row,
-            colour: ink(row),
+            colour,
             dim: brightness(col, row),
             born: now,
             until: Number.POSITIVE_INFINITY,
@@ -194,33 +228,34 @@ export function GridPulse({
       }
     };
 
-    const brightness = (col: number, row: number) => {
-      const x = col * cell + cell / 2;
-      const y = row * cell + cell / 2;
-      let nearest = Number.POSITIVE_INFINITY;
-      for (const r of clear) {
-        const dx = Math.max(r.left - x, 0, x - r.right);
-        const dy = Math.max(r.top - y, 0, y - r.bottom);
-        nearest = Math.min(nearest, Math.hypot(dx, dy));
-        if (nearest === 0) break;
-      }
-      if (nearest === Number.POSITIVE_INFINITY) return 1;
-      return FAINT + (1 - FAINT) * Math.min(1, nearest / (FADE * cell));
+    const measure = () => {
+      width = el.clientWidth;
+      height = el.clientHeight;
+      cols = Math.max(1, Math.ceil(width / cell));
+      rows = Math.max(1, Math.ceil(height / cell));
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      paper.width = Math.round(width * dpr);
+      paper.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      readTheme();
+      measureText();
+      seedLogo();
+      wake();
     };
 
-    let frame = 0;
     const draw = (now: number) => {
       frame = 0;
       ctx.clearRect(0, 0, width, height);
-      let hasLit = false;
+      // Only the moving cells keep the loop alive. The logo is static, so once
+      // everything else has faded the last frame (logo included) just stays.
+      let animating = false;
 
-      // 1. Render hover & ambient dynamic cells
+      // 1. Hover & ambient cells
       for (const [key, c] of cells) {
         let alpha: number;
 
         if (now < c.until) {
           alpha = easeOut(Math.min(1, (now - c.born) / FADE_IN));
-          hasLit = true;
         } else {
           const t = (now - c.until) / FADE_OUT;
           if (t >= 1) {
@@ -228,28 +263,23 @@ export function GridPulse({
             continue;
           }
           alpha = 1 - easeIn(t);
-          hasLit = true;
         }
+        animating = true;
 
         ctx.globalAlpha = alpha * c.dim;
         ctx.fillStyle = c.colour;
         ctx.fillRect(c.col * cell + 1, c.row * cell + 1, cell - 1, cell - 1);
       }
 
-      // 2. Render permanent GDG logo cells on top
-      for (const [, c] of logoCells) {
+      // 2. Permanent logo cells on top
+      for (const c of logoCells.values()) {
         ctx.globalAlpha = c.dim;
         ctx.fillStyle = c.colour;
         ctx.fillRect(c.col * cell + 1, c.row * cell + 1, cell - 1, cell - 1);
-        hasLit = true;
       }
 
       ctx.globalAlpha = 1;
-      if (hasLit) frame = requestAnimationFrame(draw);
-    };
-
-    const wake = () => {
-      if (!frame) frame = requestAnimationFrame(draw);
+      if (animating) frame = requestAnimationFrame(draw);
     };
 
     const light = (col: number, row: number, hold: number) => {
@@ -368,8 +398,13 @@ export function GridPulse({
       aria-hidden
       data-slot="grid-pulse"
       className={cn(
-        "pointer-events-none absolute inset-0 overflow-hidden",
-        "[--grid-pulse-line:color-mix(in_oklab,var(--color-foreground)_7%,transparent)]",
+        // Fixed black ground with white ink: the tint ladder in readTheme keys
+        // off this element's own `color`, so it must be light here.
+        "pointer-events-none absolute inset-0 overflow-hidden bg-black text-white",
+        // color-mix needs two colours; the second one was missing, which made
+        // the whole declaration invalid and the hairlines disappear.
+        "[--grid-pulse-line:color-mix(in_oklab,white_10%,transparent)]",
+        // Same problem: a single-stop gradient is a solid fill, so nothing faded.
         "[mask-image:linear-gradient(to_bottom,#000_92%,transparent)]",
         className,
       )}
