@@ -27,6 +27,7 @@ interface NavbarProps {
 const NAV_LINKS = [
   { name: "Home", href: "#home" },
   { name: "Events", href: "/events" },
+  { name: "Teams", href: "/teams" },
   { name: "Speakers", href: "#speakers" },
   // { name: "Agenda", href: "/agenda" }, // Hid for now per request
   { name: "About Us", href: "#about" },
