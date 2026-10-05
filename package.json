@@ -15,6 +15,10 @@
     "@prisma/client": "^6.19.3",
     "@radix-ui/react-icons": "^1.3.2",
     "@radix-ui/react-slot": "^1.2.4",
+    "@react-three/drei": "^10.7.9",
+    "@react-three/fiber": "^9.8.1",
+    "@react-three/rapier": "^2.2.0",
+    "@supabase/supabase-js": "^2.117.2",
     "@vercel/analytics": "^2.0.1",
     "chart.js": "^4.5.1",
     "class-variance-authority": "^0.7.1",
@@ -25,6 +29,7 @@
     "gsap": "^3.14.2",
     "lenis": "^1.3.26",
     "lucide-react": "^0.552.0",
+    "meshline": "^3.3.1",
     "motion": "^12.23.24",
     "next": "^16.0.7",
     "radix-ui": "^1.6.7",
@@ -33,6 +38,7 @@
     "react-dom": "^19.2.1",
     "react-hook-form": "^7.88.0",
     "tailwind-merge": "^3.3.1",
+    "three": "^0.186.1",
     "zod": "^4.6.5"
   },
   "devDependencies": {
