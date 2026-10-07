@@ -194,12 +194,7 @@ export const sns: EventsCatalog["sns"] = {
           "12-hour buildathon where brand-new problem statements will be revealed on the day of the event, ensuring a level playing field for every finalist.",
       },
     ],
-    sponsors: [
-      { name: "GitHub", role: "Partner" },
-      { name: "Neo4j", role: "Partner" },
-      { name: "Notion", role: "Partner" },
-      { name: "Google for Developers", role: "Partner" },
-    ],
+    sponsors: [],
     faqs: [
       {
         question: "What is the Innovation Round?",

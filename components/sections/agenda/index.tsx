@@ -26,7 +26,7 @@ export default function Agenda({ tracks: propTracks, title = "Agenda" }: AgendaP
     <section className="w-full px-4 pt-6 sm:px-6 sm:pt-8 lg:px-10">
       <div className="mx-auto max-w-[1400px] rounded-3xl border border-[#dadce0] bg-white p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-6 lg:p-8">
         {/* Heading */}
-        <h2 className="mb-6 text-center text-2xl font-medium tracking-tight text-[#202124] sm:mb-8 sm:text-3xl md:text-4xl" style={{ fontFamily: "'Product Sans', sans-serif" }}>
+        <h2 className="mb-6 text-center font-medium tracking-tight text-[#202124] sm:mb-8 mb-2 break-words leading-tight text-gray-900 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl" style={{ fontFamily: "'Product Sans', sans-serif" , fontWeight: 700 }}>
           {title}
         </h2>
 

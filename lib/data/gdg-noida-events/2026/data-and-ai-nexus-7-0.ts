@@ -29,6 +29,7 @@ export const dataAndAiNexus70: EventsCatalog["data-and-ai-nexus-7-0"] = {
       "heading": "About this event",
       "description": "We’re bringing you a hands-on workshop and a full day of practical AI building at Data & AI Nexus 7.0 🚀"
     },
+    "sponsors": [],
     "uniqueStats": {
       "speakers": 10,
       "attendees": "125+",
