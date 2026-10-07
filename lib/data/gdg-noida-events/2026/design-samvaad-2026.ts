@@ -29,6 +29,7 @@ export const designSamvaad2026: EventsCatalog["design-samvaad-2026"] = {
       "heading": "About this event",
       "description": "“Samvaad” means dialogue. Design Samvaad is a community-run gathering by GDG Noida where product designers, industry leaders, students, and makers meet in real rooms — an office, a campus, a studio — to swap process, critique work, and push the craft forward."
     },
+    "sponsors": [],
     "uniqueStats": {
       "speakers": 10,
       "attendees": "100+",

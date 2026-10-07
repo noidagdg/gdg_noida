@@ -4,7 +4,7 @@ import Image from "next/image";
 import { redirect } from "next/navigation";
 import Navbar from "@/components/sections/navbar";
 import TeamDirectoryFilters from "@/components/sections/team-directory-filters";
-import { ArrowLeft, Calendar, MapPin, Linkedin, X } from "lucide-react";
+import { Linkedin, X } from "lucide-react";
 
 const PAGE_SIZE = 24;
 const TEAM_COLORS = ["#4285F4", "#EA4335", "#FBBC04", "#34A853"];
@@ -218,18 +218,25 @@ export default async function TeamsPage({ searchParams }: PageProps) {
                       ? `/photos/${volunteer.slug}?v=${encodeURIComponent(volunteer.updated_at)}`
                       : null;
 
-                    let socialLinksObj: Record<string, any> = {};
+                    let socialLinksObj: Record<string, unknown> = {};
                     if (typeof volunteer.social_links === "string") {
                       try {
                         socialLinksObj = JSON.parse(volunteer.social_links);
                       } catch {}
                     } else if (volunteer.social_links && typeof volunteer.social_links === "object") {
-                      socialLinksObj = volunteer.social_links as Record<string, any>;
+                      socialLinksObj = volunteer.social_links as Record<string, unknown>;
                     }
 
                     const approvedLinks = Object.keys(socialLinksObj).reduce((acc, platform) => {
                       const linkData = socialLinksObj[platform];
-                      if (linkData && linkData.approved === true && linkData.url) {
+                      if (
+                        linkData &&
+                        typeof linkData === "object" &&
+                        "approved" in linkData &&
+                        "url" in linkData &&
+                        linkData.approved === true &&
+                        typeof linkData.url === "string"
+                      ) {
                         acc[platform] = linkData.url;
                       } else if (typeof linkData === "string" && /^https?:\/\//i.test(linkData)) {
                         acc[platform] = linkData;

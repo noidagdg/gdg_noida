@@ -25,22 +25,14 @@ export default function AttendeeStats({
                 {/* Header */}
                 <div className="relative z-10 mb-6 text-center sm:mb-8">
                     <h2
-                        className="mb-2 break-words text-2xl leading-tight text-gray-900 sm:text-3xl md:text-4xl"
+                        className="mb-2 break-words leading-tight text-gray-900 text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
                         style={{
                             fontFamily: "'Product Sans', sans-serif",
-                            fontWeight: 500,
+                            fontWeight: 700,
                         }}
                     >
                         {heading}
                     </h2>
-                    {description && (
-                        <p
-                            className="text-sm sm:text-base text-gray-600"
-                            style={{ fontFamily: "'Inter', sans-serif" }}
-                        >
-                            {description}
-                        </p>
-                    )}
                 </div>
 
                 {/* 3 columns in a single row - Speakers, Registered, Attendees */}

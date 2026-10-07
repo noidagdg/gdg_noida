@@ -6,7 +6,7 @@ import { CONSENT_VERSION, MAX_PHOTO_BYTES, PHOTO_BUCKET } from "@/lib/id-card/co
 import { slugCandidates, slugify } from "@/lib/id-card/utils/slug";
 import { isPhotoMime, sniffImageType, buildPhotoObjectName } from "@/lib/id-card/validation/photo";
 import { parseVolunteerForm } from "@/lib/id-card/validation/volunteer";
-import { formString, type ActionState, errorState, successState } from "@/lib/id-card/validation/common";
+import { type ActionState, errorState, successState } from "@/lib/id-card/validation/common";
 
 export async function submitVolunteerFormAction(prevState: ActionState, formData: FormData): Promise<ActionState> {
   let supabase;

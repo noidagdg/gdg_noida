@@ -22,15 +22,17 @@ export default function MomentsGallery({
   if (images.length === 0) return null;
 
   return (
-    <section className="w-full overflow-hidden bg-[#f8f9fa] px-4 pt-6 sm:px-6 sm:pt-8 lg:px-10">
-      <div className="mx-auto w-full max-w-[1400px] rounded-3xl border border-[#dadce0] bg-[#f8f9fa] p-4 shadow-[0_1px_4px_rgba(60,64,67,0.1)] sm:p-8">
+    // Transparent so the page background (#f3f5f9) shows through; the card below is the only surface.
+    <section className="w-full overflow-hidden bg-transparent px-4 pt-6 sm:px-6 sm:pt-8 lg:px-10">
+      {/* Same surface as the hero and sponsors cards: white, #d6dbe4 border, flat (no shadow) */}
+      <div className="mx-auto w-full max-w-[1400px] rounded-[1.75rem] border border-[#d6dbe4] bg-white p-4 sm:rounded-[2.25rem] sm:p-8">
         {/* ── Heading ──────────────────────────────────────────────── */}
         <h2
-          className="mb-8 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-black"
-          style={{ fontFamily: "'Product Sans', sans-serif" }}
+          className="mb-8 text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-[#14181f]"
+          style={{ fontFamily: "'Product Sans', 'Inter', sans-serif" }}
         >
-          <span className="font-bold">Moments</span>{" "}
-          <span className="font-normal">from {eventName}</span>
+          <span className="font-normal">Moments from </span>{" "}
+          <span className="font-bold">{eventName}</span>
         </h2>
 
         {/* ── Responsive eight-item grid ───────────────────────────── */}
@@ -48,7 +50,7 @@ export default function MomentsGallery({
                   duration: 0.35,
                   ease: [0.22, 1, 0.36, 1],
                 }}
-                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white bg-white shadow-[0_2px_12px_rgba(60,64,67,0.12)] transition-shadow duration-300 hover:shadow-[0_8px_24px_rgba(60,64,67,0.18)]"
+                className="group relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-[#d6dbe4] bg-[#eef1f6] transition-shadow duration-300 hover:shadow-[0_12px_28px_-14px_rgba(20,24,31,0.35)]"
               >
                 <Image
                   src={image.src}
