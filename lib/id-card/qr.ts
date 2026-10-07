@@ -34,11 +34,11 @@ function rsPolyMul(p1: Uint8Array, p2: Uint8Array): Uint8Array {
 }
 
 function rsGenPoly(n: number): Uint8Array {
-  let poly: any = new Uint8Array([1]);
+  let poly: Uint8Array = new Uint8Array([1]);
   for (let i = 0; i < n; i++) {
     poly = rsPolyMul(poly, new Uint8Array([1, GF_EXP[i]]));
   }
-  return poly as Uint8Array;
+  return poly;
 }
 
 function rsRemainder(data: Uint8Array, ecCount: number): Uint8Array {

@@ -9,7 +9,6 @@ import AttendeeStats from "@/components/sections/attendee-stats";
 import CommunityFeedback from "@/components/sections/community-feedback";
 import Agenda from "@/components/sections/agenda";
 import MomentsGallery from "@/components/sections/moments-gallery";
-import LogoLoop from "@/components/LogoLoop";
 import type { GalleryImage } from "@/lib/content";
 import SponsorsSection from "@/components/sections/sponsors_section";
 import type { Track } from "@/components/sections/agenda/data";
@@ -143,7 +142,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
         [event]
     );
 
-    const hasSponsors = Boolean(event.sponsors && event.sponsors.length > 0);
+    const hasSponsors = Boolean((event.sponsors as any[]) && (event.sponsors as any[]).length > 0);
 
     /* In-page navigation: only lists sections this event actually has. */
     const sections = useMemo(
@@ -357,7 +356,7 @@ export default function EventDetailPage({ params }: EventDetailPageProps) {
             {/* ───────── Sponsors ───────── */}
             {hasSponsors && (
                 <PageSection id="sponsors" className="mt-8">
-                    <SponsorsSection sponsors={event.sponsors!} />
+                    <SponsorsSection sponsors={event.sponsors as any[]} />
                 </PageSection>
             )}
 

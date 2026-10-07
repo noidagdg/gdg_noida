@@ -14,14 +14,12 @@ import {
   saveTeamAction,
   deleteTeamAction,
   generateInviteLinkAction,
-  removeVolunteerPhotoAction,
 } from "@/app/teams/admin/actions";
 import { qrSvgString, qrDataUrl } from "@/lib/id-card/qr";
 import { SOCIAL_PLATFORMS } from "@/lib/id-card/social";
-import { type ActionState, IDLE } from "@/lib/id-card/validation/common";
+import { IDLE } from "@/lib/id-card/validation/common";
 import {
   Users,
-  ShieldAlert,
   CheckCircle,
   Eye,
   EyeOff,
@@ -33,13 +31,10 @@ import {
   LogOut,
   ExternalLink,
   Search,
-  Filter,
   Printer,
-  Sparkles,
   AlertCircle,
   Check,
   X,
-  Upload,
   Layers,
   ArrowRight,
 } from "lucide-react";
@@ -53,7 +48,7 @@ export type AdminVolunteer = {
   bio: string | null;
   photo_path: string | null;
   skills: string[] | string | null;
-  social_links: Record<string, any> | null;
+  social_links: Record<string, unknown> | null;
   is_published: boolean;
   consent_status: "pending" | "granted" | "withdrawn";
   updated_at: string;
@@ -224,8 +219,8 @@ export default function AdminDashboardClient({
   const handleGenerateInvite = (type: "upload" | "update", volunteerId?: string) => {
     startTransition(async () => {
       const res = await generateInviteLinkAction(type, volunteerId);
-      if (res.status === "success" && (res as any).data?.url) {
-        setInviteResult((res as any).data.url);
+      if (res.status === "success" && res.data && typeof res.data === "object" && "url" in res.data) {
+        setInviteResult((res.data as { url: string }).url);
         setInviteCopied(false);
       } else if (res.status === "error") {
         showNotification(res.message, true);
@@ -1152,7 +1147,17 @@ export default function AdminDashboardClient({
                 <div className="grid grid-cols-2 gap-3">
                   {SOCIAL_PLATFORMS.map((p) => {
                     const currentEntry = editingVolunteer.social_links?.[p.key];
-                    const urlVal = typeof currentEntry === "object" ? currentEntry?.url : currentEntry;
+                    let urlVal = "";
+                    if (typeof currentEntry === "string") {
+                      urlVal = currentEntry;
+                    } else if (
+                      currentEntry &&
+                      typeof currentEntry === "object" &&
+                      "url" in currentEntry &&
+                      typeof (currentEntry as any).url === "string"
+                    ) {
+                      urlVal = (currentEntry as any).url;
+                    }
                     return (
                       <div key={p.key}>
                         <label className="text-[11px] font-semibold text-[#5f5b57]">{p.label}</label>

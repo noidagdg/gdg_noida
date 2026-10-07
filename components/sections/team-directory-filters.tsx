@@ -98,45 +98,39 @@ export default function TeamDirectoryFilters({ teams }: { teams: TeamFilter[] })
           ref={filtersRef}
           className="flex min-w-0 flex-1 flex-nowrap gap-2 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:flex-wrap md:overflow-visible"
         >
-          {teams.map((team) => {
-            const chipRef = useRef<HTMLLIElement>(null);
-            // Update ref map when ref changes
-            useEffect(() => {
-              if (chipRef.current) {
-                chipRefs.current.set(team.id, chipRef.current);
-                return () => {
-                  chipRefs.current.delete(team.id);
-                };
-              }
-            }, [team.id]);
-
-            return (
-              <li
-                ref={chipRef}
-                key={team.id}
-                className="shrink-0"
+          {teams.map((team) => (
+            <li
+              key={team.id}
+              className="shrink-0"
+              ref={(element) => {
+                if (element) {
+                  chipRefs.current.set(team.id, element);
+                  return () => {
+                    chipRefs.current.delete(team.id);
+                  };
+                }
+              }}
+            >
+              <Link
+                href={team.href}
+                aria-current={team.active ? "page" : undefined}
+                className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full border-[2px] px-4 py-2 text-sm font-medium transition ${
+                  team.active
+                    ? "border-[#1d1a17] bg-[#1d1a17] text-[#f5f2ec]"
+                    : "border-[#1d1a17] bg-white text-[#1d1a17]"
+                }`}
               >
-                <Link
-                  href={team.href}
-                  aria-current={team.active ? "page" : undefined}
-                  className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full border-[2px] px-4 py-2 text-sm font-medium transition ${
-                    team.active
-                      ? "border-[#1d1a17] bg-[#1d1a17] text-[#f5f2ec]"
-                      : "border-[#1d1a17] bg-white text-[#1d1a17]"
-                  }`}
-                >
-                  {team.slug && (
-                    <span
-                      aria-hidden="true"
-                      className="h-2.5 w-2.5 rounded-full"
-                      style={{ backgroundColor: team.color }}
-                    />
-                  )}
-                  {team.name}
-                </Link>
-              </li>
-            );
-          })}
+                {team.slug && (
+                  <span
+                    aria-hidden="true"
+                    className="h-2.5 w-2.5 rounded-full"
+                    style={{ backgroundColor: team.color }}
+                  />
+                )}
+                {team.name}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         <button

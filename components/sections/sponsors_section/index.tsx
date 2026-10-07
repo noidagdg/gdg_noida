@@ -47,6 +47,7 @@ export default function SponsorsSection({ sponsors }: { sponsors: Sponsor[] }) {
             >
                 {logos.length >= MARQUEE_MIN ? (
                     <LogoLoop
+                        // @ts-ignore
                         logos={logos}
                         speed={60}
                         direction="left"
