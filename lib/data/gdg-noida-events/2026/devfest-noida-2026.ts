@@ -34,7 +34,7 @@ export const devfestNoida2026: EventsCatalog["devfest-noida-2026"] = {
       { name: "Solace", role: "Platinum Sponsor", url: "https://solace.com/" },
       { name: "GDG", role: "Event Sponsor", url: "https://gdg.community.dev/" },
       { name: "Robotic Sir", role: "Event Sponsor", image:"/assets/sponsors/robotic_sir.avif",url: "https://roboticsir.com/" },
-      { name: "Hyperprobe", role: "Associate Sponsor", image: "https://bookface-images.s3.amazonaws.com/small_logos/b4b91e0b78bbed1c83add57d22b06ab632567450.png", url: "" }
+      { name: "Hyperprobe", role: "Associate Sponsor", image: "https://bookface-images.s3.amazonaws.com/small_logos/b4b91e0b78bbed1c83add57d22b06ab632567450.png", url: "https://www.hyperprobe.co/" }
     ],
     "uniqueStats": {
       "speakers": "--",
