@@ -6,7 +6,7 @@ export const devfestNoida2026: EventsCatalog["devfest-noida-2026"] = {
     "year": 2026,
     "title": "DevFest Noida 2026",
     "subtitle": "",
-    "status": "upcoming",
+    "status": "completed",
     "dates": {
       "displayDate": "October 10, 2026",
       "isoDate": "2026-10-10"
@@ -37,9 +37,9 @@ export const devfestNoida2026: EventsCatalog["devfest-noida-2026"] = {
       { name: "Hyperprobe", role: "Associate Sponsor", image: "https://bookface-images.s3.amazonaws.com/small_logos/b4b91e0b78bbed1c83add57d22b06ab632567450.png", url: "https://www.hyperprobe.co/" }
     ],
     "uniqueStats": {
-      "speakers": "--",
-      "attendees": "--",
-      "registered": "--"
+      "speakers": "28+",
+      "attendees": "700+",
+      "registered": "5370+"
     },
     "feedback": {
       "heading": "What attendees said",
@@ -570,7 +570,64 @@ export const devfestNoida2026: EventsCatalog["devfest-noida-2026"] = {
           "label": "All"
         }
       ],
-      "images": []
+      "images": [
+        {
+          "id": 1,
+          "src": "/Images/2026/devfest-noida/2.JPG",
+          "alt": "Devfest 2026 2",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 2,
+          "src": "/Images/2026/devfest-noida/3.JPG",
+          "alt": "Devfest 2026 3",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 3,
+          "src": "/Images/2026/devfest-noida/4.JPG",
+          "alt": "Devfest 2026 4",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 4,
+          "src": "/Images/2026/devfest-noida/9.JPG",
+          "alt": "Devfest 2026 9",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 5,
+          "src": "/Images/2026/devfest-noida/6.JPG",
+          "alt": "Devfest 2026 6",
+          "category": "workshops",
+          "aspectRatio": 1
+        },
+        {
+          "id": 6,
+          "src": "/Images/2026/devfest-noida/1.JPG",
+          "alt": "Devfest 2026 1",
+          "category": "networking",
+          "aspectRatio": 1
+        },
+        {
+          "id": 7,
+          "src": "/Images/2026/devfest-noida/8.JPG",
+          "alt": "Devfest 2026 8",
+          "category": "talks",
+          "aspectRatio": 1
+        },
+        {
+          "id": 8,
+          "src": "/Images/2026/devfest-noida/10.JPG",
+          "alt": "Devfest 2026 10",
+          "category": "talks",
+          "aspectRatio": 1
+        }
+      ]
     }
   }
 };
